@@ -168,8 +168,38 @@ The gist of the procedure for estimating the background for a certain mass point
 Fundamentally, what is needed is a choice of window blinding area and kernel that allows for an accurate estimation of the background within the blinded in region.
 In two dimensions, this problem is much more challenging, since there is additional structure in 2 dimensions that disobeys the normal ``smoothly falling everywhere'' the prevails in 1 dimension. 
 
+\textbf{We want to develop a gaussian process procedure that can accurately estimate the background in a blinded window of various sizes.}
+
+\subsection{Points of Interest}
+
+There is a substantial amount of ``parameter'' space to cover as we work towards the determination of a good procedure.
+We want to study how the below interact in isolation and with each other.
+\begin{description}
+\item[Kernel] The choice of kernel is the most important aspect of the GP. 
+\item[Window Size/Shape] The size and shape of the blinding window. 
+\item[Valid Region] The region of space we examine the regression, in particular if we exclude zero event bins.
+\item[Mean] The choice of mean function.
+\item[Binning] How bin size influences the fit.
+\end{description}
+
+We want to not only accurately estimate the background in the blinded region, but also be robust against variations in shape, binning, statistics, etc.
+
+
+The majority of our efforts currently revolve around trying to determine an optimal kernel for the regression.
+
+
+\section{Kernel Studies}
+\label{sec:kernel-studies}
+
+The choice of kernel is the most important aspect of Gaussian process regression.
+Here we document efforts to determine a kernel that provides both a flexible and accurate estimation of the background in the signal window.
+
+We first do studies on the complete plane. 
+This is used to determine if the fit is flexibile enough to accurately capture the features of the background.
+
+
 \newcommand{\makegrid}[3]{
-  \begin{figure}[]
+  \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
       \centering
@@ -208,10 +238,6 @@ Of course, our estimation should perform well in the case that all points are av
 \subsection{Blinded Studies}
 
 \makegrid{pure_rbf_window_1300_1500__0p55_0p65}{plain RBF}{blinding around a signal of 1500,400}
-
-
-
-
 \makegrid{matrix_rbf_window_1300_1500__0p55_0p65}{Matrix RBF}{blinding around a signal of 1500,400}
 
 
