@@ -10,7 +10,7 @@ function main() {
     local tex_file=$1
     local tex_stem=${tex_file%.tex}
     local fls_file="${tex_stem}.fls"
-    local figure_dir=$1
+    local figure_dir=$2
     # pdflatex --recorder "$tex_file"
     {
         while read path; do
