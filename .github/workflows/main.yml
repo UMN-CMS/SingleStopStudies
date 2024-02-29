@@ -9,3 +9,9 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install texlive texlive-publishers texlive-science latexmk cm-super
       - run: make
 
+      - name: Archive pdfs
+        uses: actions/upload-artifact@v4
+        with:
+          name: output_pdfs
+          path: build/*.pdf
+
