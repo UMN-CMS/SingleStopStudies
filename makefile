@@ -1,4 +1,27 @@
-build/gaussian_process.pdf: gaussian_process_fit/gaussian_process_fit.tex
-	mkdir -p $(@D) 
-	latexmk -pdf -output-directory="$(shell realpath  $(shell dirname $@) )" -cd $^
+TEX_COMMAND=latexmk -pdf -shell-escape
+OUTDIR=$(abspath build)
+SOURCE_DIRS=gaussian_process_fit gaussian_process_presentation
+TARGETS=$(foreach d,$(SOURCE_DIRS),build/$d.pdf) 
+
+define make_tex
+build/$1.pdf: $1/$1.tex
+	mkdir -p $$(OUTDIR)/$(1)
+	@echo "Building $$@ from $$<"
+	@echo "OUTDIR IS $$(abspath $$(OUTDIR))"
+	@$$(TEX_COMMAND) -output-directory=$$(abspath $$(OUTDIR))/$1 -cd $$^
+	@mv $$(abspath $$(OUTDIR))/$1/$1.pdf  $$(abspath $$(OUTDIR))/$1.pdf
+endef
+
+$(foreach x,$(SOURCE_DIRS),$(eval $(call make_tex,$(x))))
+
+.PHONY: all
+all: $(TARGETS)
+
+.PHONY: clean
+clean:
+	rm -r build
+
+
+
+
 
