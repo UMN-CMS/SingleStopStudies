@@ -241,6 +241,6 @@ TSWLatexianTemp*
 
 # KBibTeX
 *~[0-9]*
-./auto/*
+*/auto/*
 *-tags.tex
 *.sta
