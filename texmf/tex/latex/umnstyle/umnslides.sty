@@ -1,0 +1,142 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{umnslides}[2023/02/12 UMN Slides]
+\newif\ifincludelogo\includelogofalse
+\newif\ifheaderslides\headerslidesfalse
+\DeclareOption{logo}{\includelogotrue}
+\DeclareOption{headerslides}{\headerslidestrue}
+\DeclareOption*{\PackageWarning{umnslides}{Unknown `\CurrentOption`}}
+\ProcessOptions\relax
+
+\RequirePackage{umncolors}
+
+\RequirePackage{tikz}
+\usetikzlibrary{fit,positioning,calc,shapes,backgrounds}
+\usetikzlibrary{shapes.geometric, arrows}
+\RequirePackage{etoolbox}
+\RequirePackage{mathtools}
+\RequirePackage{hyperref}
+\RequirePackage{graphicx}
+
+
+
+% \hypersetup{colorlinks=true, linkcolor=blue, filecolor=blue, citecolor = black, urlcolor=cyan}
+
+
+\useinnertheme{circles}
+\useoutertheme[subsection=false]{miniframes}
+\ifheaderslides
+  \AtBeginSection[]{
+    \begin{frame}
+      \vfill
+      \centering
+      \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+        {
+          \hypersetup{allcolors=.}
+          \usebeamerfont{title}\insertsectionhead\par%
+        }
+      \end{beamercolorbox}
+      \vfill
+    \end{frame}
+  }
+\fi
+\setbeamercolor{frametitle}{fg = UMNGold, bg = UMNMaroon }
+\setbeamercolor{title}{fg = UMNGold, bg = UMNMaroon }
+\setbeamercolor{author in head/foot}{fg = UMNGold, bg = UMNDarkMaroon }
+\setbeamercolor{title in head/foot}{fg = UMNGold, bg = UMNMaroon}
+\setbeamercolor{date in head/foot}{fg = UMNGold, bg = UMNLightMaroon}
+\setbeamercolor{section in head/foot}{fg = UMNGold, bg = UMNLightMaroon}
+\setbeamercolor{button}{bg=UMNMaroon,fg=UMNGold}
+\setbeamerfont{footnote}{size=\tiny}
+\setbeamersize{text margin left=4mm,text margin right=6mm}
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides
+\setbeamertemplate{enumerate items}[default]%
+\setbeamercolor{itemize item}{fg = UMNMaroon}
+\setbeamercolor{itemize subitem}{fg = black}
+\setbeamercolor{itemize subsubitem}{fg = UMNMaroon}
+\setbeamercolor{enumerate item}{bg = UMNMaroon}
+\setbeamercolor{enumerate subitem}{fg = UMNStormy, bg = black}
+\setbeamercolor{enumerate subsubitem}{bg = UMNMaroon}
+
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{itemize subsubitem}{\raisebox{-0.4em}{\scalebox{3.0}{$\cdot$}}}
+
+% \setbeamertemplate{itemize/enumerate body begin}{\footnotesize}
+\setbeamertemplate{itemize/enumerate subbody begin}{\scriptsize}
+\setbeamertemplate{itemize/enumerate subsubbody begin}{\tiny}
+\ifincludelogo
+  \titlegraphic{\includegraphics[width=2cm]{goldy.png}}
+  % \makeatletter
+  % \defbeamertemplate*{frametitle}{umnbasic}[1][left]{
+  % \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  %   \@tempdima=\textwidth%
+  %   \advance\@tempdima by\beamer@leftmargin%
+  %   \advance\@tempdima by\beamer@rightmargin %
+  %   \begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}%
+  %     \usebeamerfont{frametitle}%
+  %     \vbox{}\vskip-1ex%
+  %     \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+  %     \strut\insertframetitle\strut{\includegraphics[width=0.5cm]{goldy.png}}\par%
+  %     {%
+  %     \ifx\insertframesubtitle\@empty%
+  %     \else%
+  %       {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\strut\insertframesubtitle\strut\par}%
+  %     \fi
+  %   }%
+  %     \vskip-1ex%
+  %     \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  %   \end{beamercolorbox}%
+  % }
+  %   \makeatother
+  %   \usebeamertemplate{frametitle}[umnbasic]
+\fi
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex]{date in head/foot}%
+    \usebeamerfont{author in head/foot} %\insertshortdate{}\hspace*{2em}
+    \insertauthor
+    \hfill
+    \usebeamerfont{date in head/foot} \insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{3ex} 
+  \end{beamercolorbox}%
+  \vskip0pt%
+}
+\newenvironment{twocol}[1][0.5]
+{ 
+  \newdimen\splitterdimen
+  \splitterdimen=#1\textwidth
+  \def\splitcols{\end{column} \begin{column}{\textwidth-\splitterdimen}}%
+  \begin{columns}
+    \begin{column}{\splitterdimen}
+    }{
+    \end{column}
+  \end{columns}
+}
+% \renewenvironment{twocol}{ 
+% \newdimen\splitterdimen{0.5\textwidth}
+% \def\splitcols{\end{column} \begin{column}{\splitterdimen}}
+% \begin{columns} \begin{column}{\splitterdimen}
+%   }{
+%   \end{column}\end{columns}
+% }
+
+\colorlet{mylightblue}{blue!60!cyan!80!black!15}
+\colorlet{mypurple}{blue!50!red!70}
+\colorlet{gaugecol}{red!90!black!70} % Wiki red
+\colorlet{leptoncol}{green!80!black!70} % Wiki green
+\colorlet{quarkcol}{blue!85!cyan!95!black!55} % Wiki purple
+\colorlet{quarkred}{red!98!black!55} % quark red
+\colorlet{quarkblue}{blue!85!cyan!98!black!55} % quark blue
+\colorlet{quarkgreen}{green!95!black!55} % quark green
+\colorlet{gluoncyan}{cyan!100!black!55} % gluon cyan
+\colorlet{gluongreen}{green!75!blue!95!black!70} % gluon green
+\colorlet{gluonyellow}{yellow!98!black!55} % gluon yellow
+\colorlet{gluonorange}{orange!100!black!65} % gluon orange
+\colorlet{gluonmagenta}{magenta!100!black!70} % gluon magenta
+\colorlet{scalarcol}{yellow!70!orange!98!black}
+\colorlet{tensorcol}{blue!50!red!70} % Wiki light blue
+\colorlet{groupcol}{orange!15}
+
+
+\endinput
