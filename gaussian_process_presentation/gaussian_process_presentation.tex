@@ -1,10 +1,13 @@
 \documentclass[10pt]{beamer}
-\usepackage{umnslides}
+\usepackage[headerslides]{umnslides}
 \usepackage{tikz}
-\usepackage{standalone}
 \usetikzlibrary{fit,positioning,calc,shapes,backgrounds}
 \usetikzlibrary{shapes.geometric, arrows}
-\graphicspath{{../common/}{./figures/}}
+
+
+
+\newcommand{\commonfiles}[1]{../common/#1}
+\usepackage[subpreambles=true]{standalone}
 
 
 
@@ -13,34 +16,67 @@
 \begin{document}
 \begin{frame}
   \maketitle
-  
+\end{frame}
+
+\begin{frame}{Table Of Contents}
+  \tableofcontents
 \end{frame}
 
 \begin{frame}{Overview}
-\includestandalone{gp/test}
+  \includestandalone{\commonfiles{/gp/test}}
 \end{frame}
+
+
+% \section{Introduction}
+% \label{sec:introduction}
+% 
+% \begin{frame}{Bump Hunting}
+%   \begin{itemize}
+%   \item One of the most common classes of searches for new physics are \textit{bump hunts}.
+%     \item Given some sort of smooth description of the standard model background, look for a localized bump of excess events coming from a new physics process.
+%     \item 
+%   \end{itemize}
+% 
+%   Why bbkg est is important
+% \end{frame}
+% 
+% \begin{frame}{Background Estimation Strats}
+%   General types of background estimation
+% \end{frame}
+% 
+% 
+% \begin{frame}{Ad-Hoc}
+%   Drawbacks of ad-hoc parametric
+% \end{frame}
+% 
+% \begin{frame}{Glimpse of GP}
+%   Introduce idea of GP
+% \end{frame}
 
 \section{Introduction}
-\label{sec:introduction}
+
+\begin{frame}{Signal Model}
+  \begin{itemize}
+  \item Searching for then production and decay of a single \stopq{} to 4 standard model quarks through an RPV coupling. 
+  \item Well motivated channel to look for SUSY:
+    \begin{itemize}
+    \item Unexplored region of RPV parameter space
+    \item Large cross section allows us to probe higher masses
+    \end{itemize}
+  \end{itemize}
 
 
-\begin{frame}{Bump Hunting}
-  General class of searches are bump hunts. What is a bump hunt.
-
-  Why bbkg est is important
+  \begin{center}
+    \scalebox{0.7}{\includestandalone{\commonfiles{general/single_stop}}}
+  \end{center}
 \end{frame}
 
-\begin{frame}{Background Estimation Strats}
-  General types of background estimation
-\end{frame}
-
-
-\begin{frame}{Ad-Hoc}
-  Drawbacks of ad-hoc parametric
-\end{frame}
-
-\begin{frame}{Glimpse of GP}
-  Introduce idea of GP
+\begin{frame}{General Search Strategy}
+  \begin{itemize}
+  \item General search strategy is to perform a one or two dimensional bump hunt for both the \stopq{} and the \chargino{} resonances. 
+  \item Depending on mass splitting the resonances may be well separated both in $m_{\stopq, reco}$ and $m_{\chargino, reco}$ space.
+  \item As with all bump hunts, key point is to effectively estimate the background. 
+  \end{itemize}
 \end{frame}
 
 \section{Gaussian Process Regression Overview}

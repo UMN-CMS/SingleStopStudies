@@ -15,143 +15,112 @@
 
 
 
-\RequirePackage[many]{tcolorbox}
 \RequirePackage{etoolbox}
 \RequirePackage{mathtools}
 \RequirePackage{hyperref}
 \RequirePackage{graphicx}
 
-\RequirePackage{minted}
-\tcbuselibrary{minted}
-
-
 % \hypersetup{colorlinks=true, linkcolor=blue, filecolor=blue, citecolor = black, urlcolor=cyan}
 
 
-\@ifclassloaded{beamer}{
-  \useinnertheme{circles}
-  \useoutertheme[subsection=false]{miniframes}
-  \ifheaderslides
-    \AtBeginSection[]{
-      \begin{frame}
-        \vfill
-        \centering
-        \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
-          {
-            \hypersetup{allcolors=.}
-            \usebeamerfont{title}\insertsectionhead\par%
-          }
-        \end{beamercolorbox}
-        \vfill
-      \end{frame}
-    }
-  \fi
-  \setbeamercolor{frametitle}{fg = UMNGold, bg = UMNMaroon }
-  \setbeamercolor{title}{fg = UMNGold, bg = UMNMaroon }
-  \setbeamercolor{author in head/foot}{fg = UMNGold, bg = UMNDarkMaroon }
-  \setbeamercolor{title in head/foot}{fg = UMNGold, bg = UMNMaroon}
-  \setbeamercolor{date in head/foot}{fg = UMNGold, bg = UMNLightMaroon}
-  \setbeamercolor{section in head/foot}{fg = UMNGold, bg = UMNLightMaroon}
-  \setbeamercolor{button}{bg=UMNMaroon,fg=UMNGold}
-  \setbeamerfont{footnote}{size=\tiny}
-  \setbeamersize{text margin left=4mm,text margin right=6mm}
-  \setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides
-  \setbeamertemplate{enumerate items}[default]%
-  \setbeamercolor{itemize item}{fg = UMNMaroon}
-  \setbeamercolor{itemize subitem}{fg = black}
-  \setbeamercolor{itemize subsubitem}{fg = UMNMaroon}
-  \setbeamercolor{enumerate item}{bg = UMNMaroon}
-  \setbeamercolor{enumerate subitem}{fg = UMNStormy, bg = black}
-  \setbeamercolor{enumerate subsubitem}{bg = UMNMaroon}
-
-  \setbeamertemplate{itemize item}[circle]
-  \setbeamertemplate{itemize subitem}[triangle]
-  \setbeamertemplate{itemize subsubitem}{\raisebox{-0.4em}{\scalebox{3.0}{$\cdot$}}}
-
-  % \setbeamertemplate{itemize/enumerate body begin}{\footnotesize}
-  \setbeamertemplate{itemize/enumerate subbody begin}{\scriptsize}
-  \setbeamertemplate{itemize/enumerate subsubbody begin}{\tiny}
-  \ifincludelogo
-    \titlegraphic{\includegraphics[width=2cm]{goldy.png}}
-    % \makeatletter
-    % \defbeamertemplate*{frametitle}{umnbasic}[1][left]{
-    % \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
-    %   \@tempdima=\textwidth%
-    %   \advance\@tempdima by\beamer@leftmargin%
-    %   \advance\@tempdima by\beamer@rightmargin %
-    %   \begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}%
-    %     \usebeamerfont{frametitle}%
-    %     \vbox{}\vskip-1ex%
-    %     \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
-    %     \strut\insertframetitle\strut{\includegraphics[width=0.5cm]{goldy.png}}\par%
-    %     {%
-    %     \ifx\insertframesubtitle\@empty%
-    %     \else%
-    %       {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\strut\insertframesubtitle\strut\par}%
-    %     \fi
-    %   }%
-    %     \vskip-1ex%
-    %     \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
-    %   \end{beamercolorbox}%
-    % }
-    %   \makeatother
-    %   \usebeamertemplate{frametitle}[umnbasic]
-  \fi
-  \setbeamertemplate{footline}
-  {
-    \leavevmode%
-    \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex]{date in head/foot}%
-      \usebeamerfont{author in head/foot} %\insertshortdate{}\hspace*{2em}
-      \insertauthor
-      \hfill
-      \usebeamerfont{date in head/foot} \insertshortdate{}\hspace*{2em}
-      \insertframenumber{} / \inserttotalframenumber\hspace*{3ex} 
-    \end{beamercolorbox}%
-    \vskip0pt%
+\useinnertheme{circles}
+\useoutertheme[subsection=false]{miniframes}
+\ifheaderslides
+  \AtBeginSection[]{
+    \begin{frame}
+      \vfill
+      \centering
+      \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+        {
+          \hypersetup{allcolors=.}
+          \usebeamerfont{title}\insertsectionhead\par%
+        }
+      \end{beamercolorbox}
+      \vfill
+    \end{frame}
   }
-}{
-  \RequirePackage[margin=1in]{geometry}
-  \ifincludelogo
-    \RequirePackage{background}
-    \backgroundsetup{
-      scale=1,
-      angle=0,
-      opacity=0.5,
-      color=black,
-      contents={\begin{tikzpicture}[remember picture, overlay]
-          \node at ([xshift=-1.5cm, yshift=-1.5cm] current page.south west)
-          {\includegraphics[width = 2cm]{goldy.png}}; 
-        \end{tikzpicture}}
-    }
-  \fi
-}
+\fi
+\setbeamercolor{frametitle}{fg = UMNGold, bg = UMNMaroon }
+\setbeamercolor{title}{fg = UMNGold, bg = UMNMaroon }
+\setbeamercolor{author in head/foot}{fg = UMNGold, bg = UMNDarkMaroon }
+\setbeamercolor{title in head/foot}{fg = UMNGold, bg = UMNMaroon}
+\setbeamercolor{date in head/foot}{fg = UMNGold, bg = UMNLightMaroon}
+\setbeamercolor{section in head/foot}{fg = UMNGold, bg = UMNLightMaroon}
+\setbeamercolor{button}{bg=UMNMaroon,fg=UMNGold}
+\setbeamerfont{footnote}{size=\tiny}
+\setbeamersize{text margin left=4mm,text margin right=6mm}
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides
+\setbeamertemplate{enumerate items}[default]%
+\setbeamercolor{itemize item}{fg = UMNMaroon}
+\setbeamercolor{itemize subitem}{fg = black}
+\setbeamercolor{itemize subsubitem}{fg = UMNMaroon}
+\setbeamercolor{enumerate item}{bg = UMNMaroon}
+\setbeamercolor{enumerate subitem}{fg = UMNStormy, bg = black}
+\setbeamercolor{enumerate subsubitem}{bg = UMNMaroon}
 
-\newtcblisting{codebox}[3][]{
-  minted language=#2,
-  minted options={linenos=true, firstnumber=1, tabsize=4, obeytabs, xleftmargin=1em, breaklines, fontsize=\footnotesize, numbersep=0.75em},
-  listing only,
-  sharpish corners, % better drop shadow
-  boxrule = 0pt,
-  toprule = 4.5pt, % top rule weight
-  enhanced,
-  enlarge top by=5pt,
-  colback = white,
-  before skip = 0.2cm,    % add extra space before the box
-  after skip = 0.5cm,      % add extra space after the box
-  drop fuzzy shadow = black!35,
-  fontupper=\footnotesize\sffamily,
-  fonttitle=\footnotesize\sffamily\color{black},
-  attach boxed title to bottom right={xshift=6pt,yshift=6pt},
-  boxed title style={
-    enhanced,
-    arc=0pt,
-    outer arc=0pt,
-    boxrule = 0pt,
-    colback = white,
-    drop fuzzy shadow = black!35,
-  },
-  #1
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{itemize subsubitem}{\raisebox{-0.4em}{\scalebox{3.0}{$\cdot$}}}
+
+% \setbeamertemplate{itemize/enumerate body begin}{\footnotesize}
+\setbeamertemplate{itemize/enumerate subbody begin}{\scriptsize}
+\setbeamertemplate{itemize/enumerate subsubbody begin}{\tiny}
+\ifincludelogo
+  \titlegraphic{\includegraphics[width=2cm]{goldy.png}}
+  % \makeatletter
+  % \defbeamertemplate*{frametitle}{umnbasic}[1][left]{
+  % \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  %   \@tempdima=\textwidth%
+  %   \advance\@tempdima by\beamer@leftmargin%
+  %   \advance\@tempdima by\beamer@rightmargin %
+  %   \begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}%
+  %     \usebeamerfont{frametitle}%
+  %     \vbox{}\vskip-1ex%
+  %     \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+  %     \strut\insertframetitle\strut{\includegraphics[width=0.5cm]{goldy.png}}\par%
+  %     {%
+  %     \ifx\insertframesubtitle\@empty%
+  %     \else%
+  %       {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\strut\insertframesubtitle\strut\par}%
+  %     \fi
+  %   }%
+  %     \vskip-1ex%
+  %     \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  %   \end{beamercolorbox}%
+  % }
+  %   \makeatother
+  %   \usebeamertemplate{frametitle}[umnbasic]
+\fi
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,left]{date in head/foot}%
+    \usebeamerfont{author in head/foot}\insertauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{title in head/foot}\insertsubsection
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
 }
+% \setbeamertemplate{footline}
+% {
+%   \leavevmode%
+%   \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex]{date in head/foot}%
+%     \usebeamerfont{author in head/foot} %\insertshortdate{}\hspace*{2em}
+%     \insertauthor
+%     \hfill
+%     \inserttitle
+%     \hill
+%     \usebeamerfont{date in head/foot} \insertshortdate{}\hspace*{2em}
+%     \insertframenumber{} / \inserttotalframenumber\hspace*{3ex} 
+%   \end{beamercolorbox}%
+%   \vskip0pt%
+% }
 
 
 \newenvironment{twocol}[1][0.5]
@@ -189,6 +158,35 @@
 \colorlet{scalarcol}{yellow!70!orange!98!black}
 \colorlet{tensorcol}{blue!50!red!70} % Wiki light blue
 \colorlet{groupcol}{orange!15}
+
+
+
+\newcommand{\stopq}{\HepGenSusyParticle{t}{}{}}
+\newcommand{\astopq}{\HepGenSusyAntiParticle{t}{}{}}
+\newcommand{\vstopq}{\HepGenSusyParticle{t}{}{*}}
+\newcommand{\chargino}{\HepGenSusyParticle{\chi}{}{\pm}}
+\newcommand{\neutralino}{\HepGenSusyParticle{\chi}{}{0}}
+\newcommand{\achargino}{\HepGenSusyAntiParticle{\chi}{}{\pm}}
+\newcommand{\aneutralino}{\HepGenSusyAntiParticle{\chi}{}{0}}
+\newcommand{\quarkb}{\HepParticle{b}{}{}}
+
+\newcommand{\aquarkb}{\HepAntiParticle{b}{}{}}
+\newcommand{\aquarku}{\HepAntiParticle{u}{}{}}
+\newcommand{\aquarkt}{\HepAntiParticle{t}{}{}}
+
+\newcommand{\quarkc}{\HepParticle{c}{}{}}
+\newcommand{\quarks}{\HepParticle{s}{}{}}
+\newcommand{\quarkd}{\HepParticle{d}{}{}}
+\newcommand{\quarkt}{\HepParticle{t}{}{}}
+\newcommand{\quarku}{\HepParticle{u}{}{}}
+
+\newcommand{\lepe}{\HepParticle{e}{}{+}}
+\newcommand{\alepe}{\HepParticle{e}{}{-}}
+
+\newcommand{\pizero}{\HepParticle{\pi}{}{0}}
+\newcommand{\piplus}{\HepParticle{\pi}{}{+}}
+
+
 
 
 \endinput
