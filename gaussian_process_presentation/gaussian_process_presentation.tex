@@ -22,11 +22,6 @@
   \tableofcontents
 \end{frame}
 
-\begin{frame}{Overview}
-  \includestandalone{\commonfiles{/gp/test}}
-\end{frame}
-
-
 % \section{Introduction}
 % \label{sec:introduction}
 % 
@@ -74,22 +69,76 @@
 \begin{frame}{General Search Strategy}
   \begin{itemize}
   \item General search strategy is to perform a one or two dimensional bump hunt for both the \stopq{} and the \chargino{} resonances. 
-  \item Depending on mass splitting the resonances may be well separated both in $m_{\stopq, reco}$ and $m_{\chargino, reco}$ space.
-  \item As with all bump hunts, key point is to effectively estimate the background. 
+  \item Depending on mass splitting the resonances may be well separated both in $m_{\stopq, reco}$ and $m_{\chargino, reco}$ space, providing additional discriminating power.
+  \item Key point is to effectively estimate the background. 
+  \item However, a simple cut strategy on one mass axis can result in sculpting of the background, making estimation difficult. 
   \end{itemize}
 \end{frame}
+
+\begin{frame}{Estimation Strategies}
+  \begin{itemize}
+    \item For all bump hunts, key technique is estimation of the background shape. 
+    \item Traditional bump hunts have used ad-hoc functions, chosen because they approximate the observed shape. 
+    \item However, this can introduce bias from the choice of function, and it has been shown that they may scale poorly with increasing luminosity. 
+    \item For multidimensional searches, the problem can also be compounded by selecting a function for a potentially nontrivial 2D shape. 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Current Strategy}
+  \begin{itemize}
+    \item We have implemented our background estimation using Gaussian process regression.
+    \item This is non-parametric technique that reduces the bias from the choise of parametric function
+    \item It has been shown to be robust against increasing luminosity.
+    \item It is naturally extensible to multiple dimensions.
+    \item Very well studied in statistics literature, and has a large number of well established implementations. 
+  \end{itemize}
+\end{frame}
+
+
+
 
 \section{Gaussian Process Regression Overview}
 \label{sec:gauss-proc-regr}
 
-\begin{frame}{}
-  3-4 slides
-  Slides here explaining what a GP is, how it allows for inference over functions themselves. 
+\begin{frame}{What is a Gaussian Process?}
+  \begin{definition}
+    A gaussian process is a possibly infinite series of random variables, any finite subset of which is jointly gaussian.
+  \end{definition}
+
+
+  Generall, the random variables are indexed by real values $x$, since we are generally considering regression over $\mathbb{R}^{n}$.
+
+  A gaussian process $f(x)$ is is completely defined by its mean and covariance
+  \begin{equation}
+    \begin{split}
+      m(x) &= \mathbb{E} \left[ f(x) \right] \\
+      k(x,x') &= \mathbb{E} \left[ \left( f(x) - m(x) \right)  \left( f(x') - m(x') \right)\right] 
+    \end{split}
+  \end{equation}
+
+  \begin{alertenv}
+    Generally $m(x)$ is assumed to be 0, since this amounts to a shift, and generally the regression deduces the posterior mean very well. 
+  \end{alertenv}
+  
 \end{frame}
 
+\begin{frame}{Function Distributions}
+  Gaussian process allow us to define distributions over the space of functions. Given a gaussian process $\mathcal{GP} \left( m(x) , k(x,x') \right)$, and some function $h$, then
+  \begin{equation}
+    \mathbf{h} \sim N(m(X) , k(X,X))
+  \end{equation}
+
+Given $n$ points in $\mathbb{R}^{k}$, the gaussian process defined a $n$ dimensional multivariate gaussian $\mathcal{N}$. If a function $h(x)$ has has values $h_1,h_2,...,h_{n}$ at those points, then
+\begin{equation}
+  p \left( h \right) \sim \mathcal{N}(h_{1}, ..., h_{n})
+\end{equation}
+\end{frame}
+
+
+
+
 \begin{frame}{}
-  1 slides
-   Quick 1D examples, maybe not even necessarily from this experiment.  
+  
 \end{frame}
 
 \begin{frame}{}

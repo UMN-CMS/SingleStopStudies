@@ -15,6 +15,7 @@
 
 
 
+\RequirePackage{hepparticles}
 \RequirePackage{etoolbox}
 \RequirePackage{mathtools}
 \RequirePackage{hyperref}
@@ -61,6 +62,9 @@
 \setbeamertemplate{itemize item}[circle]
 \setbeamertemplate{itemize subitem}[triangle]
 \setbeamertemplate{itemize subsubitem}{\raisebox{-0.4em}{\scalebox{3.0}{$\cdot$}}}
+
+\setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
 
 % \setbeamertemplate{itemize/enumerate body begin}{\footnotesize}
 \setbeamertemplate{itemize/enumerate subbody begin}{\scriptsize}
