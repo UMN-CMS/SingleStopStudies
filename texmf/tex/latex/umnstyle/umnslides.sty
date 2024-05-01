@@ -23,7 +23,7 @@
 
 % \hypersetup{colorlinks=true, linkcolor=blue, filecolor=blue, citecolor = black, urlcolor=cyan}
 
-
+\usebeamertemplate{madrid}
 \useinnertheme{circles}
 \useoutertheme[subsection=false]{miniframes}
 \ifheaderslides
@@ -99,11 +99,11 @@
 {
   \leavevmode%
   \hbox{%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,left]{date in head/foot}%
+  \begin{beamercolorbox}[wd=.33333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
     \usebeamerfont{author in head/foot}\insertauthor
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
-    \usebeamerfont{title in head/foot}\insertsubsection
+    \usebeamerfont{title in head/foot}\insertshorttitle{} -- \insertsectionhead
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
     \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
@@ -190,6 +190,14 @@
 \newcommand{\pizero}{\HepParticle{\pi}{}{0}}
 \newcommand{\piplus}{\HepParticle{\pi}{}{+}}
 
+
+\newcommand{\graphiccite}[2]{
+\begin{tikzpicture}
+  \node[inner sep=0pt,anchor=south west] at (0,0) {#1};
+  \node[anchor=north west] at (0,0) {\tiny
+    \textbf{Source:} #2};
+\end{tikzpicture}
+}
 
 
 
