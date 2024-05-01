@@ -5,14 +5,15 @@
 \usetikzlibrary{shapes.geometric, arrows}
 
 
-
+\graphicspath{{./figures}}
 \newcommand{\commonfiles}[1]{../common/#1}
 \usepackage[subpreambles=true]{standalone}
 
 
 
 \author{Charlie Kapsiak}
-\title{Non-parametric 2D Background Estimation Using Gaussian Processes}
+\title[Single Stop Update]{RPV Single Stop Search Update}
+\subtitle{Non-parametric 2D Background Estimation Using Gaussian Processes}
 \begin{document}
 \begin{frame}
   \maketitle
@@ -22,35 +23,37 @@
   \tableofcontents
 \end{frame}
 
-% \section{Introduction}
-% \label{sec:introduction}
-% 
-% \begin{frame}{Bump Hunting}
-%   \begin{itemize}
-%   \item One of the most common classes of searches for new physics are \textit{bump hunts}.
-%     \item Given some sort of smooth description of the standard model background, look for a localized bump of excess events coming from a new physics process.
-%     \item 
-%   \end{itemize}
-% 
-%   Why bbkg est is important
-% \end{frame}
-% 
-% \begin{frame}{Background Estimation Strats}
-%   General types of background estimation
-% \end{frame}
-% 
-% 
-% \begin{frame}{Ad-Hoc}
-%   Drawbacks of ad-hoc parametric
-% \end{frame}
-% 
-% \begin{frame}{Glimpse of GP}
-%   Introduce idea of GP
-% \end{frame}
+%\iffalse
+%\section{Introduction and Analysis Status}
+%\label{sec:introduction}
+%
+%\begin{frame}{Bump Hunting}
+%  \begin{itemize}
+%  \item One of the most common classes of searches for new physics are \textit{bump hunts}.
+%  \item Given some sort of smooth description of the standard model background, look for a localized bump of excess events coming from a new physics process.
+%  \item 
+%  \end{itemize}
+%  
+%  Why bbkg est is important
+%\end{frame}
+%
+%\begin{frame}{Background Estimation Strats}
+%  General types of background estimation
+%\end{frame}
+%
+%
+%\begin{frame}{Ad-Hoc}
+%  Drawbacks of ad-hoc parametric
+%\end{frame}
+%
+%\begin{frame}{Glimpse of GP}
+%  Introduce idea of GP
+%\end{frame}
+%\fi
 
-\section{Introduction}
+\section[Intro]{Introduction and Analysis Status}
 
-\begin{frame}{Signal Model}
+\begin{frame}{Analysis Target Model}
   \begin{itemize}
   \item Searching for then production and decay of a single \stopq{} to 4 standard model quarks through an RPV coupling. 
   \item Well motivated channel to look for SUSY:
@@ -62,14 +65,28 @@
 
 
   \begin{center}
+    \graphiccite{\includegraphics[width=0.5\textwidth]{figures/xsec.png}}{Test}\hspace{1em}
     \scalebox{0.7}{\includestandalone{\commonfiles{general/single_stop}}}
   \end{center}
+\end{frame}
+
+
+\begin{frame}{Analysis Status}
+  The past months have seen substantial progress on several fronts. We summarize below the current major areas of work:
+  \begin{itemize}
+  \item Mass reconstruction.
+  \item Background estimation
+  \item Statistical analysis procedure. 
+  \item Early Run3 data.
+  \item Trigger studies.
+  \item Central MC production.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{General Search Strategy}
   \begin{itemize}
   \item General search strategy is to perform a one or two dimensional bump hunt for both the \stopq{} and the \chargino{} resonances. 
-  \item Depending on mass splitting the resonances may be well separated both in $m_{\stopq, reco}$ and $m_{\chargino, reco}$ space, providing additional discriminating power.
+  \item For many mass splittings, the resonances are well separated both in $m_{\stopq, reco}$ and $m_{\chargino, reco}$ space, providing additional discriminating power.
   \item Key point is to effectively estimate the background. 
   \item However, a simple cut strategy on one mass axis can result in sculpting of the background, making estimation difficult. 
   \end{itemize}
@@ -77,27 +94,27 @@
 
 \begin{frame}{Estimation Strategies}
   \begin{itemize}
-    \item For all bump hunts, key technique is estimation of the background shape. 
-    \item Traditional bump hunts have used ad-hoc functions, chosen because they approximate the observed shape. 
-    \item However, this can introduce bias from the choice of function, and it has been shown that they may scale poorly with increasing luminosity. 
-    \item For multidimensional searches, the problem can also be compounded by selecting a function for a potentially nontrivial 2D shape. 
+  \item For all bump hunts, key technique is estimation of the background shape. 
+  \item Traditional bump hunts have used ad-hoc functions, chosen because they approximate the observed shape. 
+  \item However, this can introduce bias from the choice of function, and it has been shown that they may scale poorly with increasing luminosity. 
+  \item For multidimensional searches, the problem can also be compounded by selecting a function for a potentially nontrivial 2D shape. 
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Current Strategy}
   \begin{itemize}
-    \item We have implemented our background estimation using Gaussian process regression.
-    \item This is non-parametric technique that reduces the bias from the choise of parametric function
-    \item It has been shown to be robust against increasing luminosity.
-    \item It is naturally extensible to multiple dimensions.
-    \item Very well studied in statistics literature, and has a large number of well established implementations. 
+  \item We have implemented our background estimation using Gaussian process regression.
+  \item This is non-parametric technique that reduces the bias from the choise of parametric function
+  \item It has been shown to be robust against increasing luminosity.
+  \item It is naturally extensible to multiple dimensions.
+  \item Very well studied in statistics literature, and has a large number of well established implementations. 
   \end{itemize}
 \end{frame}
 
 
 
 
-\section{Gaussian Process Regression Overview}
+\section[GP Regression]{Gaussian Process Regression Overview}
 \label{sec:gauss-proc-regr}
 
 \begin{frame}{What is a Gaussian Process?}
@@ -115,10 +132,11 @@
       k(x,x') &= \mathbb{E} \left[ \left( f(x) - m(x) \right)  \left( f(x') - m(x') \right)\right] 
     \end{split}
   \end{equation}
-
   \begin{alertenv}
     Generally $m(x)$ is assumed to be 0, since this amounts to a shift, and generally the regression deduces the posterior mean very well. 
   \end{alertenv}
+
+  INCLUDE IMAGE HERE SHOWING HOW 2 POINTS ARE DRAWN FROM 2D GAUSSIAN
   
 \end{frame}
 
@@ -127,64 +145,146 @@
   \begin{equation}
     \mathbf{h} \sim N(m(X) , k(X,X))
   \end{equation}
+  Given $n$ points in $\mathbb{R}^{k}$, the gaussian process defined a $n$ dimensional multivariate gaussian $\mathcal{N}$. If a function $h(x)$ has has values $h_1,h_2,...,h_{n}$ at those points, then
+  \begin{equation}
+    p \left( h \right) \sim \mathcal{N}(h_{1}, ..., h_{n})
+  \end{equation}
 
-Given $n$ points in $\mathbb{R}^{k}$, the gaussian process defined a $n$ dimensional multivariate gaussian $\mathcal{N}$. If a function $h(x)$ has has values $h_1,h_2,...,h_{n}$ at those points, then
-\begin{equation}
-  p \left( h \right) \sim \mathcal{N}(h_{1}, ..., h_{n})
-\end{equation}
+  IMAGE OF DRAWING FUNCTION FROM GP PRIOR
+\end{frame}
+
+\begin{frame}{Gaussian Process Regression }
+  \begin{itemize}
+  \item The ability to define distributions over functions allows us to do inference using Baye's theorem. 
+  \item Specifically, given $N$ training points and a Gaussian process prior, we can produce a posterior Gaussian process that provides a means to do regression. 
+  \end{itemize}
+
+  IMAGE OF GP REGRESSION VISUALIZED
+\end{frame}
+
+\begin{frame}{Kernels}
+  \begin{itemize}
+  \item The choice of kernel is the most important aspect of Gaussian processes. 
+  \item Different kernels reflect different understandings of how the points should be correlated, how smooth the process the should be, etc. 
+  \item There is a great deal of literature on kernels and kernel selection. Some common categories:
+    \begin{itemize}
+    \item Simple functions, like the square exponential or M\'atern kernel.
+    \item Spectral mixtures
+    \item Deep learning kernels
+    \end{itemize}
+  \end{itemize}
+
+  IMAGE SHOWING HOW DIFFERENT KERNELS CREATE DIFFERENT FUNCTIONS
+
 \end{frame}
 
 
-
-
-\begin{frame}{}
-  
-\end{frame}
-
-\begin{frame}{}
-  1-2 slides
-  Discussion of parts of GP, specifically importance of the kernel.
-\end{frame}
-
-
-\section{2D Gaussian Processes and Kernels}
+\section[2D Regression]{2D Gaussian Processes and Kernels}
 \label{sec:2d-gauss-proc}
 \begin{frame}{Kernels}
-  Importance of kernels, especially in 2D
+  \begin{itemize}
+  \item The machinery for Gaussian processes extends naturally to multi-dimensional problems. In our case, we examine two dimensions.
+  \item In two dimenions, the kernel can have an even richer structure. 
+  \end{itemize}
+
+
+  IMAGE FROM RW ABOUT RBF KERNELS 
+
 \end{frame}
 
-\begin{frame}{Discussion of Several Kernels}
-  several slides outlining the different kernels 
+\begin{frame}{Kernels in 2D}
+  \begin{itemize}
+  \item Show simplest RBF Kernel
+  \item Show GRBF kernel
+  \item Show NN kernel
+  \end{itemize}
+
+  SHOW IMAGES HERE OF WHAT THE DIFFERENT KERNELS LOOK LIKE
 \end{frame}
 
-\section{Results for 1D and 2D Resonances}
+\section[Results]{GP Regression for 1D and 2D Resonances}
 \label{sec:results-1d-2d}
-\begin{frame}{1D results}
-  1-2 slides
-  talk about kernel, show results
-\end{frame}
 
+\begin{frame}{Overview}
+  \begin{itemize}
+  \item We use GP regression to estimate backgrounds in both one and two dimensional searches.
+  \item In both cases, we mask the region of space where the signal is expected, then use regression to estimate the background in the masked region.
+  \item Use both simulation and control region data to study efficacy of different methods. 
+  \item Majority of studies have been focused on kernel selection and approximation techniques.
+  \end{itemize}
+\end{frame}
 
 \begin{frame}{2D Results}
-  4-5 slides
-  Present information on 2D fits, metrics, successes and challenges
+  \begin{itemize}
+  \item See promising results for estimation in windows of varying sizes over the 2D plane. 
+  \item Depending on region, either generalized RBF kernels or and RBF kernel supplemented with the deep network have shown promising and robust estimative abilities.
+  \end{itemize}
+
+  ADD IMAGES HERE
+\end{frame}
+
+\begin{frame}{2D Results  Continued}
+  MORE RESULTS HERE
+\end{frame}
+
+\section[Statistical Considerations]{Preliminary Statistical Strategy}
+
+\begin{frame}{Notes on Statistical Procedure}
+  \begin{itemize}
+  \item Gaussian process regression provides a complete posterior distribution describing the background. 
+  \item Therefore, a proper statistical treatment requires considering not just the posterior mean, but the complete distribution.
+    \begin{itemize}
+    \item We are working on an implementation in combine, using the eigenvectors of the posterior covariance as nuisance parameters templates. 
+    \item MCMC/SVI can be externally using packages like pyro or emcee to build the statistical model directly in python.
+    \end{itemize}
+  \end{itemize}
+
+  MAYBE IMAGE FROM COMBINE
+\end{frame}
+
+\begin{frame}{Systematic Uncertainties and Validation}
+  \begin{itemize}
+  \item We envision a validation strategy where the kernel hyperparameters are trained on SR data, then the regression is validated by examining the fit quality in simulation and CR data.
+  \item More work needed to determine exactly what systematics should be considered, and how they should be implemented.
+  \end{itemize}
+
+
+  SHOW COMPARISON OF CR AND MC 
 \end{frame}
 
 
 \section{Conclusion}
 \label{sec:conclusion}
 
-\begin{frame}{Ongoing Work}
-Ongoing work
+\begin{frame}{Related Ongoing Work}
+  \begin{itemize}
+  \item Unify kernels for different mass points. We believe this will be relatively straightforward since the GRBF kernel lies in the space of deep kernels. 
+  \item Finalize Combine implementation and perform validation.
+  \item Work on exact definitions of systematic uncertainties.
+  \item 
+  \end{itemize}
   
 \end{frame}
 
 \begin{frame}{Conclusion}
 
-  Conclusion
   
 \end{frame}
 
+
+\appendix
+
+\section{Appendix}
+\label{sec:appendix}
+
+
+\begin{frame}{Luminosity Issues}
+  \relax  
+\end{frame}
+
+\begin{frame}{Table of Common Kernels}
+  \relax  
+\end{frame}
 
 
 \end{document}
