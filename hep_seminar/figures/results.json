@@ -1,0 +1,20 @@
+[
+  {
+    "fit_type": "signal_312_1500_1400",
+    "lower_bound": 1150.0,
+    "window": [
+      1350.0,
+      1650.0
+    ],
+    "force_scale": null,
+    "inject_signal_base": "signal_312_1500_1400",
+    "inject_signal_rate": 12.0,
+    "inject_signal_params": [
+      1500.0,
+      130.0
+    ],
+    "pull_figure_name": "pull_sr_inj_signal_312_1500_1400__lb1150p0__r12p0__m1500p0_s130p0__w_1350p0_1650p0",
+    "length_scale": 647.27099609375,
+    "reduced_chi2": 1.3090016259359087
+  }
+]
