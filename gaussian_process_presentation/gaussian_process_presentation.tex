@@ -23,33 +23,33 @@
   \tableofcontents
 \end{frame}
 
-%\iffalse
-%\section{Introduction and Analysis Status}
-%\label{sec:introduction}
-%
-%\begin{frame}{Bump Hunting}
-%  \begin{itemize}
-%  \item One of the most common classes of searches for new physics are \textit{bump hunts}.
-%  \item Given some sort of smooth description of the standard model background, look for a localized bump of excess events coming from a new physics process.
-%  \item 
-%  \end{itemize}
-%  
-%  Why bbkg est is important
-%\end{frame}
-%
-%\begin{frame}{Background Estimation Strats}
-%  General types of background estimation
-%\end{frame}
-%
-%
-%\begin{frame}{Ad-Hoc}
-%  Drawbacks of ad-hoc parametric
-%\end{frame}
-%
-%\begin{frame}{Glimpse of GP}
-%  Introduce idea of GP
-%\end{frame}
-%\fi
+% \iffalse
+%   \section{Introduction and Analysis Status}
+%   \label{sec:introduction}
+%   
+%   \begin{frame}{Bump Hunting}
+%     \begin{itemize}
+%     \item One of the most common classes of searches for new physics are \textit{bump hunts}.
+%     \item Given some sort of smooth description of the standard model background, look for a localized bump of excess events coming from a new physics process.
+%     \item 
+%     \end{itemize}
+%     
+%     Why bbkg est is important
+%   \end{frame}
+%   
+%   \begin{frame}{Background Estimation Strats}
+%     General types of background estimation
+%   \end{frame}
+%   
+%   
+%   \begin{frame}{Ad-Hoc}
+%     Drawbacks of ad-hoc parametric
+%   \end{frame}
+%   
+%   \begin{frame}{Glimpse of GP}
+%     Introduce idea of GP
+%   \end{frame}
+% \fi
 
 \section[Intro]{Introduction and Analysis Status}
 
@@ -72,15 +72,43 @@
 
 
 \begin{frame}{Analysis Status}
-  The past months have seen substantial progress on several fronts. We summarize below the current major areas of work:
-  \begin{itemize}
-  \item Mass reconstruction.
-  \item Background estimation
-  \item Statistical analysis procedure. 
-  \item Early Run3 data.
-  \item Trigger studies.
-  \item Central MC production.
-  \end{itemize}
+  \begin{block}{}
+    The past months have seen substantial progress on several fronts. We summarize below the current major areas of work:
+  \end{block}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \coloreditem{working}  Mass reconstruction. 
+      \coloreditem{working} Background estimation
+      \coloreditem{prelim} Statistical analysis procedure. 
+      \coloreditem{prelim} Trigger studies.
+      \coloreditem{prelim} Central MC production.
+      \coloreditem{nowork} Early Run3 data.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \begin{itemize}
+          \input{\commonfiles{previous_talks.tex}}
+        \end{itemize}
+    \end{column}
+  \end{columns}
+
+  \begin{center}
+    \begin{tikzpicture}
+      \path[fill=nowork] (0,0) coordinate (A) circle(0.25em);
+      \node[anchor=left, right=0.1em of A] (A1) {No Work} ;
+
+      \path[fill=prelim] ($(A1.east) + (0.2,0)$) coordinate (B) circle(0.25em);
+      \node[anchor=left, right=0.1em of B] (B1) {Preliminary};
+
+
+      \path[fill=working] ($(B1.east) + (0.2,0)$) coordinate (B) circle(0.25em);
+      \node[anchor=left, right=0.1em of B] (C1) {Working Version};
+
+      \path[fill=ready] ($(C1.east) + (0.2,0)$) coordinate (D) circle(0.25em);
+      \node[anchor=left, right=0.1em of D] {Analysis Ready};
+    \end{tikzpicture}
+  \end{center}
 \end{frame}
 
 \begin{frame}{General Search Strategy}
@@ -112,8 +140,6 @@
 \end{frame}
 
 
-
-
 \section[GP Regression]{Gaussian Process Regression Overview}
 \label{sec:gauss-proc-regr}
 
@@ -132,6 +158,7 @@
       k(x,x') &= \mathbb{E} \left[ \left( f(x) - m(x) \right)  \left( f(x') - m(x') \right)\right] 
     \end{split}
   \end{equation}
+
   \begin{alertenv}
     Generally $m(x)$ is assumed to be 0, since this amounts to a shift, and generally the regression deduces the posterior mean very well. 
   \end{alertenv}
@@ -267,8 +294,21 @@
 \end{frame}
 
 \begin{frame}{Conclusion}
+  \begin{itemize}
+  \item The past months have seen substantial progress on the background estimation and statistical analysis procedure.
+  \item Framework can now produce good estimates for 2D backgrounds over a range of locations and masking windows.
+  \item We hope to hear any feedback from experts regarding the methodology, or any comments or suggestions!
+  \end{itemize}
+  \vspace{1cm}
 
-  
+  \begin{center}
+    {\Large Thank you!}
+  \end{center}
+\end{frame}
+
+
+\begin{frame}{Bibliography}
+  \bibliographystyle{plain}
 \end{frame}
 
 

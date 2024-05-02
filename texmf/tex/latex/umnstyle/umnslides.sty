@@ -6,22 +6,31 @@
 \DeclareOption{headerslides}{\headerslidestrue}
 \DeclareOption*{\PackageWarning{umnslides}{Unknown `\CurrentOption`}}
 \ProcessOptions\relax
+\date{2024-05-01}
 
+\RequirePackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, filecolor=blue, citecolor = black, urlcolor=cyan}
 \RequirePackage{umncolors}
 
 \RequirePackage{tikz}
 \usetikzlibrary{fit,positioning,calc,shapes,backgrounds}
 \usetikzlibrary{shapes.geometric, arrows}
 
+\colorlet{nowork}{red!100!green}
+\colorlet{prelim}{red!60!green}
+\colorlet{working}{red!30!green}
+\colorlet{ready}{red!0!green}
+
 
 
 \RequirePackage{hepparticles}
 \RequirePackage{etoolbox}
 \RequirePackage{mathtools}
-\RequirePackage{hyperref}
 \RequirePackage{graphicx}
 
-% \hypersetup{colorlinks=true, linkcolor=blue, filecolor=blue, citecolor = black, urlcolor=cyan}
+
+%\definecolor{links}{HTML}{2A1B81}
+%\hypersetup{colorlinks,linkcolor=,urlcolor=links}
 
 \usebeamertemplate{madrid}
 \useinnertheme{circles}
@@ -95,10 +104,12 @@
   %   \makeatother
   %   \usebeamertemplate{frametitle}[umnbasic]
 \fi
+\addtobeamertemplate{headline}{\hypersetup{allcolors={}}}{}
 \setbeamertemplate{footline}
 {
   \leavevmode%
   \hbox{%
+\hypersetup{allcolors={}}%
   \begin{beamercolorbox}[wd=.33333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
     \usebeamerfont{author in head/foot}\insertauthor
   \end{beamercolorbox}%
@@ -165,6 +176,8 @@
 
 
 
+
+
 \newcommand{\stopq}{\HepGenSusyParticle{t}{}{}}
 \newcommand{\astopq}{\HepGenSusyAntiParticle{t}{}{}}
 \newcommand{\vstopq}{\HepGenSusyParticle{t}{}{*}}
@@ -199,6 +212,50 @@
 \end{tikzpicture}
 }
 
+\def\compparseddatelater#1-#2-#3\otherdate#4-#5-#6\enddate{
+  \ifnum#1=#4 %
+    \ifnum#2=#5 %
+      \ifnum#3=#6 %
+        1 %
+      \else  %
+        \ifnum #3>#6  %
+          1 %
+        \else %
+          0 %
+        \fi %
+      \fi %
+    \else  %
+      \ifnum #2>#5  %
+        1 %
+      \else %
+        0 %
+      \fi %
+    \fi %
+  \else %
+    \ifnum #1>#4  %
+      1  %
+    \else %
+      0 %
+    \fi %
+  \fi
+}
 
+\makeatletter
+\def\parseddatelater#1-#2-#3\enddate {
+  \expandafter\compparseddatelater\beamer@shortdate\otherdate#1-#2-#3\enddate
+}
+
+\newcommand{\ifdatelater}[1]{
+    \edef\islater{\expandafter\parseddatelater#1\enddate}
+    \expandafter\ifnum\islater=1
+    }
+
+\makeatother
+
+\newcommand\prevtalk[2]{
+  \ifdatelater{#1} \item #2 \fi
+}
+
+\newcommand{\coloreditem}[1]{\item[{\tikz[]{\draw[fill=#1] circle (0.25em);}}]}
 
 \endinput
