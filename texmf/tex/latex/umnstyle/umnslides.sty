@@ -9,6 +9,7 @@
 \date{2024-05-01}
 
 \RequirePackage{hyperref}
+\RequirePackage{umnparticles}
 \hypersetup{colorlinks=true, linkcolor=blue, filecolor=blue, citecolor = black, urlcolor=cyan}
 \RequirePackage{umncolors}
 
@@ -23,14 +24,13 @@
 
 
 
-\RequirePackage{hepparticles}
 \RequirePackage{etoolbox}
 \RequirePackage{mathtools}
 \RequirePackage{graphicx}
 
 
-%\definecolor{links}{HTML}{2A1B81}
-%\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+% \definecolor{links}{HTML}{2A1B81}
+% \hypersetup{colorlinks,linkcolor=,urlcolor=links}
 
 \usebeamertemplate{madrid}
 \useinnertheme{circles}
@@ -75,6 +75,7 @@
 \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
 \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
 
+
 % \setbeamertemplate{itemize/enumerate body begin}{\footnotesize}
 \setbeamertemplate{itemize/enumerate subbody begin}{\scriptsize}
 \setbeamertemplate{itemize/enumerate subsubbody begin}{\tiny}
@@ -109,32 +110,32 @@
 {
   \leavevmode%
   \hbox{%
-\hypersetup{allcolors={}}%
-  \begin{beamercolorbox}[wd=.33333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
-    \usebeamerfont{author in head/foot}\insertauthor
-  \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
-    \usebeamerfont{title in head/foot}\insertshorttitle{} -- \insertsectionhead
-  \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
-    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
-    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
-  \end{beamercolorbox}}%
+    \hypersetup{allcolors={}}%
+    \begin{beamercolorbox}[wd=.33333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+      \usebeamerfont{author in head/foot}\insertshortauthor
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+      \usebeamerfont{title in head/foot}\insertshorttitle{} -- \insertsectionhead
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+      \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+      \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+    \end{beamercolorbox}}%
   \vskip0pt%
 }
 % \setbeamertemplate{footline}
 % {
-%   \leavevmode%
-%   \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex]{date in head/foot}%
-%     \usebeamerfont{author in head/foot} %\insertshortdate{}\hspace*{2em}
-%     \insertauthor
-%     \hfill
-%     \inserttitle
-%     \hill
-%     \usebeamerfont{date in head/foot} \insertshortdate{}\hspace*{2em}
-%     \insertframenumber{} / \inserttotalframenumber\hspace*{3ex} 
-%   \end{beamercolorbox}%
-%   \vskip0pt%
+% \leavevmode%
+% \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex]{date in head/foot}%
+%   \usebeamerfont{author in head/foot} %\insertshortdate{}\hspace*{2em}
+%   \insertauthor
+%   \hfill
+%   \inserttitle
+%   \hill
+%   \usebeamerfont{date in head/foot} \insertshortdate{}\hspace*{2em}
+%   \insertframenumber{} / \inserttotalframenumber\hspace*{3ex} 
+% \end{beamercolorbox}%
+% \vskip0pt%
 % }
 
 
@@ -175,41 +176,12 @@
 \colorlet{groupcol}{orange!15}
 
 
-
-
-
-\newcommand{\stopq}{\HepGenSusyParticle{t}{}{}}
-\newcommand{\astopq}{\HepGenSusyAntiParticle{t}{}{}}
-\newcommand{\vstopq}{\HepGenSusyParticle{t}{}{*}}
-\newcommand{\chargino}{\HepGenSusyParticle{\chi}{}{\pm}}
-\newcommand{\neutralino}{\HepGenSusyParticle{\chi}{}{0}}
-\newcommand{\achargino}{\HepGenSusyAntiParticle{\chi}{}{\pm}}
-\newcommand{\aneutralino}{\HepGenSusyAntiParticle{\chi}{}{0}}
-\newcommand{\quarkb}{\HepParticle{b}{}{}}
-
-\newcommand{\aquarkb}{\HepAntiParticle{b}{}{}}
-\newcommand{\aquarku}{\HepAntiParticle{u}{}{}}
-\newcommand{\aquarkt}{\HepAntiParticle{t}{}{}}
-
-\newcommand{\quarkc}{\HepParticle{c}{}{}}
-\newcommand{\quarks}{\HepParticle{s}{}{}}
-\newcommand{\quarkd}{\HepParticle{d}{}{}}
-\newcommand{\quarkt}{\HepParticle{t}{}{}}
-\newcommand{\quarku}{\HepParticle{u}{}{}}
-
-\newcommand{\lepe}{\HepParticle{e}{}{+}}
-\newcommand{\alepe}{\HepParticle{e}{}{-}}
-
-\newcommand{\pizero}{\HepParticle{\pi}{}{0}}
-\newcommand{\piplus}{\HepParticle{\pi}{}{+}}
-
-
 \newcommand{\graphiccite}[2]{
-\begin{tikzpicture}
-  \node[inner sep=0pt,anchor=south west] at (0,0) {#1};
-  \node[anchor=north west] at (0,0) {\tiny
-    \textbf{Source:} #2};
-\end{tikzpicture}
+  \begin{tikzpicture}
+    \node[inner sep=0pt,anchor=south west] at (0,0) {#1};
+    \node[anchor=north west] at (0,0) {\tiny
+      \textbf{Source:} #2};
+  \end{tikzpicture}
 }
 
 \def\compparseddatelater#1-#2-#3\otherdate#4-#5-#6\enddate{
@@ -250,24 +222,49 @@
     \expandafter\ifnum\islater=1
     }
 
-\makeatother
+    \makeatother
 
-\newcommand\prevtalk[2]{
-  \ifdatelater{#1} \item #2 \fi
-}
+    \newcommand\prevtalk[2]{
+      \ifdatelater{#1} \item #2 \fi
+    }
 
-\newcommand{\coloreditem}[1]{\item[{\tikz[]{\draw[fill=#1] circle (0.25em);}}]}
+    \newcommand{\coloreditem}[1]{\item[{\tikz[]{\draw[fill=#1] circle (0.25em);}}]}
 
-\newcommand{\mypos}[1]{\tikz[remember picture]{\coordinate[inner sep=0pt, anchor=base](#1);}}
+    \newcommand{\mypos}[1]{\tikz[baseline, remember picture]{\coordinate[inner sep=0pt, anchor=base](#1);}}
+
+    \pgfmathsetmacro{\myinnersep}{2}% inner sep in mm
+    \newsavebox{\annotbox}
+
+    \newcommand{\markpos}[2]{
+      \sbox{\annotbox}{#2} %
+      #2 %
+      \kern-\wd\annotbox\tikz[remember picture, baseline] \node[minimum width=\wd\annotbox, minimum height=\ht\annotbox + 3*\myinnersep] (#1) {}; %
+    }
+
+    \newcommand{\posannot}[4][60:1cm]{
+      \begin{tikzpicture}[overlay, remember picture]
+        \node[#3] (annot) at ($(#2) +(#1)$) {#4};
+        \draw[->, thick] (annot) -- (gpmean);
+      \end{tikzpicture}
+    }
 
 
-\newenvironment{annotimage}[1]{
-  \begin{tikzpicture}[remember picture]
-  \node[anchor=south west,inner sep=0] (image) at (0,0) {#1};
-    \begin{scope}[x={(image.south east)},y={(image.north west)}]
-    }{
-  \end{scope} \end{tikzpicture}
-}
-  
+    \newenvironment{annotimage}[1]{
+      \begin{tikzpicture}[remember picture]
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {#1};
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]
+        }{
+        \end{scope} \end{tikzpicture}
+    }
 
-\endinput
+    \newenvironment{beamerpopover}{
+      \begin{tikzpicture}[overlay,remember picture]
+        \pgftransformshift{\pgfpointanchor{current page}{center}}
+        \node[align=center, anchor=center,
+        text width=\textwidth %
+        ] at (0,0) %
+        \bgroup %
+      }{\egroup ; %
+      \end{tikzpicture} %
+    }
+    \endinput
