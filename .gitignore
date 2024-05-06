@@ -1,4 +1,9 @@
 !.*
+*.el
+*/*.pdf
+common/**/*.pdf
+*/*.pdf
+
 *~
 *.swp
 *.swo
