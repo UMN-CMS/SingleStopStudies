@@ -1,16 +1,34 @@
 \documentclass[10pt]{beamer}
 \usepackage[headerslides]{umnslides}
 \usepackage{tikz}
+\usepackage{pgfplots}
+\pgfmathsetseed{1234}
 \usetikzlibrary{fit,positioning,calc,shapes,backgrounds}
 \usetikzlibrary{shapes.geometric, arrows}
+\tikzset{>=latex}
+\usepackage{tikz-feynman}
+
 
 
 
 \graphicspath{{./figures}}
 \newcommand{\commonfiles}[1]{../common/#1}
-\usepackage[subpreambles=true]{standalone}
+\usepackage[]{standalone}
 
-\author{Charlie Kapsiak}
+
+
+
+\author[Charlie Kapsiak (UMN Single Stop Group) ]{
+  Nadja Strobbe\inst{1} \and
+  Devin Mahon\inst{1} \and
+  \underline{Charlie Kapsiak}\inst{1} \and
+  Shardul Rao\inst{1} \and
+  Seth Bendigo\inst{1}
+}
+
+
+\institute{\inst{1}University of Minnesota}
+
 \title[Single Stop Update]{RPV Single Stop Search Update}
 \subtitle{Non-parametric 2D Background Estimation Using Gaussian Processes}
 
@@ -59,7 +77,7 @@
 \begin{frame}{Analysis Target Model}
   \begin{itemize}
   \item Searching for the production and decay of a single \stopq{} to 4 standard model quarks through an RPV coupling. 
-  \item Targetting both $\lambda_{312}''$ and $\lambda_{313}''$ .
+  \item Targetting both $\lambda_{312}'',\lambda_{313}'' \in [0.1,0.4]$.
   \item Well motivated channel to look for SUSY:
     \begin{itemize}
     \item Unexplored region of RPV parameter space
@@ -68,10 +86,15 @@
   \end{itemize}
 
 
+
   \begin{center}
     \graphiccite{\includegraphics[width=0.5\textwidth]{figures/xsec.png}}{\cite{rasmussen_gaussian_2006}}\hspace{1em}
     \scalebox{0.7}{\includestandalone{\commonfiles{general/single_stop}}}
   \end{center}
+
+  \begin{beamerpopover}
+  \end{beamerpopover}
+
 \end{frame}
 
 
@@ -83,20 +106,20 @@
     \begin{column}{0.5\textwidth}
       \begin{center} \textbf{Key Analysis Elements} \end{center}
       \begin{itemize}
-      \coloreditem{working} Control/Signal region definitions.
-      \coloreditem{working} Mass reconstruction. 
-      \coloreditem{working} Background estimation
-      \coloreditem{prelim} Statistical analysis procedure. 
-      \coloreditem{prelim} Trigger studies.
-      \coloreditem{prelim} Central MC production.
-      \coloreditem{nowork} Early Run3 data.
+        \coloreditem{working} Control/Signal region definitions.
+        \coloreditem{working} Mass reconstruction. 
+        \coloreditem{working} Background estimation
+        \coloreditem{prelim} Statistical analysis procedure. 
+        \coloreditem{prelim} Trigger studies.
+        \coloreditem{prelim} Central MC production.
+        \coloreditem{nowork} Early Run3 data.
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
       \begin{center} \textbf{Past Presentations} \end{center}
-        \begin{itemize}
-          \input{\commonfiles{previous_talks.tex}}
-        \end{itemize}
+      \begin{itemize}
+        \input{\commonfiles{previous_talks.tex}}
+      \end{itemize}
     \end{column}
   \end{columns}
 
@@ -142,7 +165,7 @@
   \item However, this can introduce bias from the choice of function, and it has been shown that they scale poorly with increasing luminosity \cite{frate_modeling_2017}.
   \item For multidimensional searches, the problem can also be compounded by selecting a function for a potentially nontrivial 2D shape. 
   \end{itemize}
-
+  
 \end{frame}
 
 \begin{frame}{Current Strategy}
@@ -155,9 +178,66 @@
   \end{itemize}
 \end{frame}
 
-
-\section[GP Regression]{Gaussian Process Regression Overview}
+\section[Gaussian Process Regression]{Gaussian Process Regression Overview}
 \label{sec:gauss-proc-regr}
+
+
+\begin{frame}{Representing Histograms With Gaussians}
+  \begin{itemize}
+  \item We seek a way to describe our histogram probabilistically without reference to a specific parametric form. How can this be done?
+  \item The answer: consider each of the N bins to be a random variable: part of a N-multivariate Gaussian (MVN).
+  \item<1-> Consider our falling mass distribution.
+  \item<2-> Imagine for simplicity we rebinned to have just 2 bins.
+  \item<3-> We can represent the underlying distribution as a 2D Gaussian.
+  \end{itemize}
+  \begin{center}
+    \begin{onlyenv}<1>
+      \scalebox{0.5}{\includestandalone{\commonfiles{gp/histogram}}}
+    \end{onlyenv}
+    \def\meanOne{0.8}
+    \def\meanTwo{0.4}
+    \def\binOne{\meanOne}
+    \def\binTwo{\meanTwo}
+    \begin{onlyenv}<2>
+      \scalebox{0.5}{\includestandalone{\commonfiles{gp/sampled_hist}}}
+    \end{onlyenv}
+    \foreach \one/\two [count=\n] in {\meanOne/\meanTwo, 0.6/0.2, 0.9/0.1} { %
+      \pgfmathtruncatemacro\z{\n+2} %
+      \only<\z>{ %
+        \def\binOne{\one} %
+        \def\binTwo{\two} %
+        \scalebox{0.5}{\includestandalone{\commonfiles{gp/sampled_2d}}} %
+        \scalebox{0.5}{\includestandalone{\commonfiles{gp/sampled_hist}}}} %
+    }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Prediction}
+  \begin{itemize}
+  \item The previous slide shows how we can use a MVN to describe a histogram.
+  \item How can we have actual predictive power? How can we incorporate known data to extrapolate to unknown points?
+  \item Answer: Condition the gaussian! If $p(b_{1},b_{2}) \sim \mathcal{N}(b_{1},b_{2})$ then $p(b_{1} | b_{2,obs} ) \sim  \mathcal{N}(b_{1},b_{2,obs})$
+  \end{itemize}
+  \begin{center}
+    \def\meanOne{0.8}
+    \def\meanTwo{0.4}
+    \def\binOne{0.7}
+    \def\binTwo{0.22}
+    \def\binTwoDev{0.1}
+    \scalebox{0.5}{\includestandalone{\commonfiles{gp/conditioned_2d}}} %
+    \scalebox{0.5}{\includestandalone{\commonfiles{gp/conditioned_hist}}} %
+\end{center}
+  
+\end{frame}
+
+
+\begin{frame}{Beyond the Histogram}
+  \begin{itemize}
+  \item The remaining question:
+    \item What if we have more than 2 bins? What if we have infinitely many bins (ie a function)?
+    \item How should we describe the MVN then?
+  \end{itemize}
+\end{frame}
 
 \begin{frame}{What is a Gaussian Process?}
   \begin{definition}
@@ -167,64 +247,43 @@
 
   Generall, the random variables are indexed by real values $x$, since we are generally considering regression over $\mathbb{R}^{n}$.
 
+
   A gaussian process $f(x)$ is is completely defined by its mean and covariance
   \begin{equation}
     \begin{split}
-      m(x) &= \mathbb{E} \left[ f(x) \right] \\
-      k(x,x') &= \mathbb{E} \left[ \left( f(x) - m(x) \right)  \left( f(x') - m(x') \right)\right] 
+      \markpos{gpmean}{m(x)} &= \mathbb{E} \left[ f(x) \right] \\
+      \markpos{gpk}{k(x,x')} &= \mathbb{E} \left[ \left( f(x) - m(x) \right)  \left( f(x') - m(x') \right)\right] 
     \end{split}
   \end{equation}
-%   \begin{alertenv}
-%     Generally $m(x)$ is assumed to be 0, since this amounts to a shift, and generally the regression deduces the posterior mean very well. 
-%   \end{alertenv}
-% 
-%   INCLUDE IMAGE HERE SHOWING HOW 2 POINTS ARE DRAWN FROM 2D GAUSSIAN
+
 
   \begin{center}
     \includegraphics[width=0.4\textwidth]{figures/two_points_1}
     \hspace{1cm}
     \includegraphics[width=0.4\textwidth]{figures/two_points_2}
   \end{center}
-  
+
+  \begin{onlyenv}<2>
+    \posannot{gpmean}{fill=UMNMaroon!10, draw=UMNMaroon}{The mean value of the MVN.}
+    \posannot[-30:4cm]{gpk}{fill=UMNMaroon!10, draw=UMNMaroon}{The covariance between  any two points. \\For any collection of points the the covariance matrix is $K_{ij} = k(x_{i},x_{j})$.}
+  \end{onlyenv}
 \end{frame}
 
-\begin{frame}{Function Distributions}
-  Gaussian process allow us to define distributions over the space of functions. Given a gaussian process $\mathcal{GP} \left( m(x) , k(x,x') \right)$, and some function $h$, then
-  \begin{equation}
-    \mathbf{h} \sim N(m(X) , k(X,X))
-  \end{equation}
-  Given $n$ points in $\mathbb{R}^{k}$, the gaussian process defined a $n$ dimensional multivariate gaussian $\mathcal{N}$. If a function $h(x)$ has has values $h_1,h_2,...,h_{n}$ at those points, then
-  \begin{equation}
-    p \left( h \right) \sim \mathcal{N}(h_{1}, ..., h_{n})
-  \end{equation}
-
-  \begin{center}
-    \graphiccite{\includegraphics[width=0.7\textwidth]{figures/prior_and_conditioning}}{\cite{rasmussen_gaussian_2006}}
-  \end{center}
-\end{frame}
-
-\begin{frame}{Gaussian Process Regression }
-  \begin{itemize}
-  \item The ability to define distributions over functions allows us to do inference using Baye's theorem. 
-  \item Specifically, given $N$ training points and a Gaussian process prior, we can produce a posterior Gaussian process that provides a means to do regression. 
-  \end{itemize}
-  \begin{center}
-    \graphiccite{\includegraphics[width=0.7\textwidth]{figures/prior_and_conditioning}}{\cite{rasmussen_gaussian_2006}}
-  \end{center}
-\end{frame}
+%\begin{frame}{Gaussian Process Regression}
+%  \begin{itemize}
+%  \item The ability to define distributions over functions allows us to do inference using Baye's theorem. 
+%  \item Specifically, given $N$ training points and a Gaussian process prior, we can produce a posterior Gaussian process that provides a means to do regression. 
+%  \end{itemize}
+%  \begin{center}
+%    \graphiccite{\includegraphics[width=0.7\textwidth]{figures/prior_and_conditioning}}{\cite{rasmussen_gaussian_2006}}
+%  \end{center}
+%\end{frame}
 
 \begin{frame}{Kernels}
   \begin{itemize}
   \item The choice of kernel is the most important aspect of Gaussian processes. 
-  \item Different kernels reflect different understandings of how the points should be correlated, how smooth the process the should be, etc. 
-  \item There is a great deal of literature on kernels and kernel selection. Some common categories:
-    \begin{itemize}
-    \item Simple functions, like the square exponential or M\'atern kernel.
-    \item Spectral mixtures
-    \item Deep learning kernels
-    \end{itemize}
+  \item The choice of $k(x,y)$ reflects different understandings of how the points should be correlated, how smooth the process the should be, etc. 
   \end{itemize}
-
   \begin{center}
     \graphiccite{\includegraphics[width=0.4\textwidth]{figures/different_scale}}{\cite{rasmussen_gaussian_2006}}
   \end{center}
@@ -255,7 +314,7 @@
   SHOW IMAGES HERE OF WHAT THE DIFFERENT KERNELS LOOK LIKE
 \end{frame}
 
-\section[Results]{GP Regression for 1D and 2D Resonances}
+\section[Results]{Regression for 1D and 2D Resonances}
 \label{sec:results-1d-2d}
 
 \begin{frame}{Overview}
@@ -375,7 +434,20 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Function Distributions}
+  Gaussian process allow us to define distributions over the space of functions. Given a gaussian process $\mathcal{GP} \left( m(x) , k(x,x') \right)$, and some function $h$, then
+  \begin{equation}
+    \mathbf{h} \sim N(m(X) , k(X,X))
+  \end{equation}
+  Given $n$ points in $\mathbb{R}^{k}$, the gaussian process defined a $n$ dimensional multivariate gaussian $\mathcal{N}$. If a function $h(x)$ has has values $h_1,h_2,...,h_{n}$ at those points, then
+  \begin{equation}
+    p \left( h \right) \sim \mathcal{N}(h_{1}, ..., h_{n})
+  \end{equation}
 
+  \begin{center}
+    \graphiccite{\includegraphics[width=0.7\textwidth]{figures/prior_and_conditioning}}{\cite{rasmussen_gaussian_2006}}
+  \end{center}
+\end{frame}
 
 
 \end{document}
@@ -384,7 +456,7 @@
 
 % Local Variables:
 % eval: (progn (setq process-environment (copy-sequence process-environment))
-%       (let ((texmfpath (file-name-concat (file-name-directory (directory-file-name (file-name-directory (buffer-file-name)))) "texmf"))\binom{}{})
-%      (setq-local TeX-style-path (append TeX-style-path  (directory-files-recursively texmfpath "auto" t)))
-%      (setenv "TEXMFHOME" texmfpath )))
+% (let ((texmfpath (file-name-concat (file-name-directory (directory-file-name (file-name-directory (buffer-file-name)))) "texmf"))\binom{}{})
+% (setq-local TeX-style-path (append TeX-style-path  (directory-files-recursively texmfpath "auto" t)))
+% (setenv "TEXMFHOME" texmfpath )))
 % End:

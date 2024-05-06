@@ -1,0 +1,29 @@
+\documentclass[tikz,crop,preview, border=1cm, landscape]{standalone}
+
+\def\meanOne{0.8}
+\def\meanTwo{0.4}
+\def\binOne{0.7}
+\def\binTwo{0.22}
+
+\usepackage{pgfplots}
+\begin{document}
+\pgfmathdeclarefunction{gauss}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+}
+\begin{tikzpicture}
+  \def\center{(axis cs: \meanOne,\meanTwo)} 
+  \begin{scope}
+    \begin{axis}[
+      ymin=0, ymax=1,
+      xmin=0, xmax=1,
+      xlabel={Bin 1 Value},
+      ylabel={Bin 2 Value},
+      title=MV Gaussian Process]
+      \draw[rotate around={45:\center}] \center ellipse (10pt and 20pt); 
+      \draw[rotate around={45:\center},] \center ellipse (20pt and 40pt);
+      \draw[thick,orange] (axis cs:\binOne,0) -- (axis cs:\binOne,1);
+      \addplot+[draw=blue, domain=0:1,mark=none,samples=50]({0.1 * gauss(0.43,0.1)},{x});
+     \end{axis}
+  \end{scope}
+\end{tikzpicture}
+\end{document}

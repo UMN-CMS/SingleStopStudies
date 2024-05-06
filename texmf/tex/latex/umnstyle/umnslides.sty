@@ -238,13 +238,13 @@
     \newcommand{\markpos}[2]{
       \sbox{\annotbox}{#2} %
       #2 %
-      \kern-\wd\annotbox\tikz[remember picture, baseline] \node[minimum width=\wd\annotbox, minimum height=\ht\annotbox + 3*\myinnersep] (#1) {}; %
+      \kern-\wd\annotbox\tikz[remember picture, baseline] \node[ minimum width=\wd\annotbox, minimum height=\ht\annotbox + 3*\myinnersep] (#1) {}; %
     }
 
     \newcommand{\posannot}[4][60:1cm]{
       \begin{tikzpicture}[overlay, remember picture]
-        \node[#3] (annot) at ($(#2) +(#1)$) {#4};
-        \draw[->, thick] (annot) -- (gpmean);
+        \node[#3, align=center] (annot) at ($(#2) +(#1)$) {#4};
+        \draw[->, thick] (annot) -- (#2);
       \end{tikzpicture}
     }
 

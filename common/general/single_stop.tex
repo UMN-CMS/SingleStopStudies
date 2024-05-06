@@ -2,73 +2,48 @@
 \usepackage{tikz}
 \usepackage{tikz-feynman}
 \usepackage{hepparticles}
+\usepackage{umnparticles}
 \begin{document}
 \begin{tikzpicture}
-  \def\stopq{\HepGenSusyParticle{t}{}{}}
-  \def\astopq{\HepGenSusyAntiParticle{t}{}{}}
-  \def\vstopq{\HepGenSusyParticle{t}{}{*}}
-  \def\chargino{\HepGenSusyParticle{\chi}{}{\pm}}
-  \def\neutralino{\HepGenSusyParticle{\chi}{}{0}}
-  \def\achargino{\HepGenSusyAntiParticle{\chi}{}{\pm}}
-  \def\aneutralino{\HepGenSusyAntiParticle{\chi}{}{0}}
-  \def\quarkb{\HepParticle{b}{}{}}
-
-  \def\aquarkb{\HepAntiParticle{b}{}{}}
-  \def\aquarku{\HepAntiParticle{u}{}{}}
-  \def\aquarkt{\HepAntiParticle{t}{}{}}
-
-  \def\quarkc{\HepParticle{c}{}{}}
-  \def\quarks{\HepParticle{s}{}{}}
-  \def\quarkd{\HepParticle{d}{}{}}
-  \def\quarkt{\HepParticle{t}{}{}}
-  \def\quarku{\HepParticle{u}{}{}}
-
-  \def\lepe{\HepParticle{e}{}{+}}
-  \def\alepe{\HepParticle{e}{}{-}}
-
-  \def\pizero{\HepParticle{\pi}{}{0}}
-  \def\piplus{\HepParticle{\pi}{}{+}}
-
-  \def\drawdiagram#1#2{
-    \tikzset{
-      rpv vertex/.style={
-        circle,
-        inner sep=0pt,
-        draw,
-        minimum size=4pt,
-        fill=red,
-        % node contents= {},
-      }
+  \tikzset{
+    rpv vertex/.style={
+      circle,
+      inner sep=0pt,
+      draw,
+      minimum size=4pt,
+      fill=red,
+      % node contents= {},
     }
-    \begin{feynman}
-      \vertex[] (base);
-      \vertex[left=of base, rpv vertex] (stop) {};
-      \vertex[above left =of stop] (q1) {#1};
-      \vertex[below left =of stop] (q2) {#2};
-      \vertex[above right=of base] (stopb) {\aquarkb} ;
-      \vertex[below right=of base] (a2);
-      \vertex[above right=of a2] (xb) {\quarkb};
-
-      \vertex[below right=of a2, rpv vertex] (a3) {};
-      \vertex[below right=of a3] (xs) {#1};
-      \vertex[above right=of a3] (xd) {#2};
-      \diagram*{
-        (q1) -- [] (stop);
-        (q1) -- [] (stop);
-        (q2) -- [] (stop);
-        (stop) -- [edge label=\stopq] (base);
-        (base) -- [] (stopb);
-        (base) -- [ edge label'=\chargino] (a2);
-        (a2) -- [ edge label'=\vstopq] (a3);
-        (a2) -- [] (xb);
-        (a3) -- [] (xs);
-        (a3) -- [] (xd);
-      };
-    \end{feynman}
-
   }
+  \begin{feynman}
+    \vertex[] (base);
+    \vertex[left=of base, rpv vertex] (stop) {};
+    \vertex[above left =of stop] (q1) {$d_{i}$};
+    \vertex[below left =of stop] (q2) {$d_{j}$};
+    \vertex[above right=of base] (stopb) {\aquarkb} ;
+    \vertex[below right=of base] (a2);
+    \vertex[above right=of a2] (xb) {\quarkb};
 
+    \vertex[below right=of a2, rpv vertex] (a3) {};
+    \vertex[below right=of a3] (xs) {${d_{i}}$};
+    \vertex[above right=of a3] (xd) {${d_{j}}$};
+    \diagram*{
+      (q1) -- [] (stop);
+      (q1) -- [] (stop);
+      (q2) -- [] (stop);
+      (stop) -- [dashed, edge label=\stopq$^{*}$] (base);
+      (base) -- [] (stopb);
+      (base) -- [ edge label'=\achargino] (a2);
+      (a2) -- [dashed, edge label'=\stopq$^{*}$] (a3);
+      (a2) -- [] (xb);
+      (a3) -- [] (xs);
+      (a3) -- [] (xd);
+    };
+  \end{feynman}
 
-  \drawdiagram{$d_{i}$}{$d_{j}$}
+  \begin{scope}[yshift = -2.7cm, xshift=-2.2cm]
+    \node[rpv vertex] (rpv) {};
+    \node[right=0.4em of rpv] {RPV Coupling};
+  \end{scope}
 \end{tikzpicture}
 \end{document}

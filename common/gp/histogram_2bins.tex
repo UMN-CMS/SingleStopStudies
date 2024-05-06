@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{standalone}
 \usepackage{tikz}
 \usepackage{pgfplots}
 
@@ -14,24 +14,17 @@
 }
 \gaussianOneD{mygaussian}{0}
 \begin{tikzpicture}
-  \begin{scope}[scale=0.5]
-    \begin{axis}[
-      xmin=-3,xmax=3,
-      yticklabel=\empty,
-      xticklabel=\empty,
-      ]
-      \addplot[samples=100] plot  {mygaussian(x)};
-    \end{axis}
-  \end{scope}
-  \begin{scope}[scale=0.5]
-    \begin{axis}[
-      xmin=-3,xmax=3,
-      yticklabel=\empty,
-      xticklabel=\empty,
-      ]
-      \addplot[samples=100] plot  {mygaussian(x)};
-    \end{axis}
-  \end{scope}
+  \begin{axis}[
+    ymin=0, ymax=1.1,
+    xmin=975, xmax=2500,
+    xlabel={m [GeV]},
+    ylabel={Events},
+    nodes near coords={\node (plot-\coordindex) at (axis cs:
+\pgfkeysvalueof{/data point/x}, \pgfkeysvalueof{/data point/y}) {};}
+    ]
+    \addplot+[blue, const plot mark mid, domain=1000:2500, samples=2, mark=none] plot  {40^(-(x-1000)/2000)};
+  \end{axis}
+
 \end{tikzpicture}
 
 \end{document}
