@@ -258,4 +258,16 @@
 
 \newcommand{\coloreditem}[1]{\item[{\tikz[]{\draw[fill=#1] circle (0.25em);}}]}
 
+\newcommand{\mypos}[1]{\tikz[remember picture]{\coordinate[inner sep=0pt, anchor=base](#1);}}
+
+
+\newenvironment{annotimage}[1]{
+  \begin{tikzpicture}[remember picture]
+  \node[anchor=south west,inner sep=0] (image) at (0,0) {#1};
+    \begin{scope}[x={(image.south east)},y={(image.north west)}]
+    }{
+  \end{scope} \end{tikzpicture}
+}
+  
+
 \endinput

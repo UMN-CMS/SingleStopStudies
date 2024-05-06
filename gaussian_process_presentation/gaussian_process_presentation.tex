@@ -58,7 +58,8 @@
 
 \begin{frame}{Analysis Target Model}
   \begin{itemize}
-  \item Searching for then production and decay of a single \stopq{} to 4 standard model quarks through an RPV coupling. 
+  \item Searching for the production and decay of a single \stopq{} to 4 standard model quarks through an RPV coupling. 
+  \item Targetting both $\lambda_{312}''$ and $\lambda_{313}''$ .
   \item Well motivated channel to look for SUSY:
     \begin{itemize}
     \item Unexplored region of RPV parameter space
@@ -124,11 +125,12 @@
   \item Key point is to effectively estimate the background. 
   \item However, a simple cut strategy on one mass axis can result in sculpting of the background, making estimation difficult. 
   \end{itemize}
-
+  \vspace{-0.5cm}
   \begin{tikzpicture}
   \end{tikzpicture}
   \begin{center}
-    \scalebox{0.5}{\includestandalone{\commonfiles{general/two_peaks}}}
+    \scalebox{0.5}{\includestandalone{\commonfiles{general/two_peaks}}}\hspace{1cm}
+    \includegraphics[width=0.35\textwidth]{figures/2D_peak}
   \end{center}
 \end{frame}
 
@@ -271,7 +273,7 @@
 
 \begin{frame}{2D Results}
   \begin{itemize}
-  \item See promising results for estimation in windows of varying sizes over the 2D plane. 
+  \item We see promising results for estimation in windows of varying sizes over the 2D plane. 
   \item Depending on region, either generalized RBF kernels or and RBF kernel supplemented with the deep network have shown promising and robust estimative abilities.
   \end{itemize}
 
@@ -282,7 +284,9 @@
 
 \begin{frame}{General RBF Fit Results}
   \begin{center}
-    \includegraphics[width=0.9\textwidth]{figures/grbf_results} 
+    \begin{annotimage}{\includegraphics[width=0.85\textwidth]{figures/grbf_results}}
+      \draw[thick,red, -latex] (1,0.5) node[black, align=center, anchor=west] {{\tiny Challenging area for RBF}} -- (0.8,0.22);
+    \end{annotimage}
   \end{center}
 \end{frame}
 
@@ -318,9 +322,8 @@
 \begin{frame}{Related Ongoing Work}
   \begin{itemize}
   \item Unify kernels for different mass points. We believe this will be relatively straightforward since the GRBF kernel lies in the space of deep kernels. 
-  \item Finalize Combine implementation and perform validation.
+  \item Finalize Combine implementation and perform validation using external MCMC.
   \item Work on exact definitions of systematic uncertainties.
-  \item 
   \end{itemize}
   
 \end{frame}
@@ -352,12 +355,27 @@
 
 
 \begin{frame}{Luminosity Issues}
-  \relax  
+  \relax
 \end{frame}
 
 \begin{frame}{Table of Common Kernels}
-  \relax  
+  \begin{center}
+    \graphiccite{\includegraphics[width=0.8\textwidth]{figures/kernel_table}}{\cite{rasmussen_gaussian_2006}}
+  \end{center}
 \end{frame}
+
+\begin{frame}{Model Selection}
+  \begin{itemize}
+  \item The choice of kernel, both in terms of structure and hyperparameters, is referred to as model selection. 
+  \item There is no one answer to model selection and in fact, it furnishes a deep opprotunity to learn about the problem.
+    Generally requires a balance of rigor, numerical tractibility, and heuristics.  
+  \item A true heirarchical model, were we define priors over models and apply Baye's rule repeatedly, is generally intractible.
+  \item More often, we must use our knowkledge of the problem to select appropriate kernels. For example, knowing that the problem at hand is stationary, isotropic, smooth, etc. 
+  \item The choice of hyperparameters is often done by marginalizing the evidence over the training data.
+  \end{itemize}
+\end{frame}
+
+
 
 
 \end{document}
