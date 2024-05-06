@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\begin{document}
+\def\gaussianTwoD#1#2#3{
+  \pgfmathdeclarefunction{#1}{2}{
+    \pgfmathparse{exp( -((##1 - #2)^2 + (##2-#3)^2 ))}
+  }
+}
+
+\def\gaussianOneD#1#2{
+  \pgfmathdeclarefunction{#1}{1}{\pgfmathparse{2.71^(-((##1 - #2)^2))}}
+}
+\gaussianOneD{mygaussian}{0}
+\begin{tikzpicture}
+  \begin{scope}[scale=0.5]
+    \begin{axis}[
+      xmin=-3,xmax=3,
+      yticklabel=\empty,
+      xticklabel=\empty,
+      ]
+      \addplot[samples=100] plot  {mygaussian(x)};
+    \end{axis}
+  \end{scope}
+  \begin{scope}[scale=0.5]
+    \begin{axis}[
+      xmin=-3,xmax=3,
+      yticklabel=\empty,
+      xticklabel=\empty,
+      ]
+      \addplot[samples=100] plot  {mygaussian(x)};
+    \end{axis}
+  \end{scope}
+\end{tikzpicture}
+
+\end{document}
