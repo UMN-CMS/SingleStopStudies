@@ -1,6 +1,6 @@
 TEX_COMMAND=latexmk -pdf -shell-escape
 OUTDIR=$(abspath build)
-SOURCE_DIRS=gaussian_process_fit gaussian_process_presentation
+SOURCE_DIRS=gaussian_process_fit gaussian_process_presentation hep_seminar
 TARGETS=$(foreach d,$(SOURCE_DIRS),build/$d.pdf) 
 
 define make_tex
