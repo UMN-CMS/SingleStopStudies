@@ -5,8 +5,8 @@ TARGETS=$(foreach d,$(SOURCE_DIRS),build/$d.pdf)
 
 define make_tex
 build/$1.pdf: export TEXMFHOME=$(abspath texmf)
+build/$1.pdf: export BIBINPUTS=$(pwd)
 build/$1.pdf: $1/$1.tex
-
 	mkdir -p $$(OUTDIR)/$(1)
 	@echo "Building $$@ from $$<"
 	@echo "OUTDIR IS $$(abspath $$(OUTDIR))"
