@@ -296,7 +296,7 @@
     \markpos{term1}{-\frac{1}{2}\bm{y}^T(K+\sigma^2_n I)^{-1}\bm{y}}
     - \markpos{term2}{\frac{1}{2}\log|K+\sigma^2_n I|}
     - \frac{n}{2}\log2\pi
- \end{align}
+  \end{align}
   \begin{center}
     \graphiccite{\includegraphics[width=0.4\textwidth]{figures/different_scale}}{\cite{rasmussen_gaussian_2006}}
   \end{center}
@@ -363,7 +363,7 @@
     \item We are working on an implementation in combine, using the eigenvectors of the posterior covariance as nuisance parameters templates. 
     \item MCMC/SVI can be externally using packages like pyro or emcee to build the statistical model directly in python.
     \end{itemize}
-    \item {\bfseries This is is an area of active work. } However, we have made steady progress and have an ``alpha'' implementation.
+  \item {\bfseries This is is an area of active work. } However, we have made steady progress and have an ``alpha'' implementation.
   \end{itemize}
 
 
@@ -374,8 +374,8 @@
 %   \item We envision a validation strategy where the kernel hyperparameters are trained on SR data, then the regression is validated by examining the fit quality in simulation and CR data.
 %   \item More work needed to determine exactly what systematics should be considered, and how they should be implemented.
 %   \end{itemize}
-% 
-% 
+%   
+%   
 %   SHOW COMPARISON OF CR AND MC 
 % \end{frame}
 
@@ -454,7 +454,11 @@
 
 % Local Variables:
 % eval: (progn (setq process-environment (copy-sequence process-environment))
-% (let ((texmfpath (file-name-concat (file-name-directory (directory-file-name (file-name-directory (buffer-file-name)))) "texmf"))\binom{}{})
+% (let* ( (basedir (file-name-directory (directory-file-name (file-name-directory (buffer-file-name)))))
+% (texmfpath (file-name-concat  basedir "texmf"))
+% )
 % (setq-local TeX-style-path (append TeX-style-path  (directory-files-recursively texmfpath "auto" t)))
-% (setenv "TEXMFHOME" texmfpath )))
+% (setenv "TEXMFHOME" texmfpath )
+% (setenv "BIBINPUTS" basedir ))
+% )
 % End:
