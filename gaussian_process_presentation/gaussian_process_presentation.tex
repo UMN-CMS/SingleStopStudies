@@ -363,38 +363,32 @@
     \item We are working on an implementation in combine, using the eigenvectors of the posterior covariance as nuisance parameters templates. 
     \item MCMC/SVI can be externally using packages like pyro or emcee to build the statistical model directly in python.
     \end{itemize}
-  \end{itemize}
-
-  MAYBE IMAGE FROM COMBINE
-\end{frame}
-
-\begin{frame}{Systematic Uncertainties and Validation}
-  \begin{itemize}
-  \item We envision a validation strategy where the kernel hyperparameters are trained on SR data, then the regression is validated by examining the fit quality in simulation and CR data.
-  \item More work needed to determine exactly what systematics should be considered, and how they should be implemented.
+    \item {\bfseries This is is an area of active work. } However, we have made steady progress and have an ``alpha'' implementation.
   \end{itemize}
 
 
-  SHOW COMPARISON OF CR AND MC 
 \end{frame}
+
+% \begin{frame}{Systematic Uncertainties and Validation}
+%   \begin{itemize}
+%   \item We envision a validation strategy where the kernel hyperparameters are trained on SR data, then the regression is validated by examining the fit quality in simulation and CR data.
+%   \item More work needed to determine exactly what systematics should be considered, and how they should be implemented.
+%   \end{itemize}
+% 
+% 
+%   SHOW COMPARISON OF CR AND MC 
+% \end{frame}
 
 
 \section{Conclusion}
 \label{sec:conclusion}
 
-\begin{frame}{Related Ongoing Work}
-  \begin{itemize}
-  \item Unify kernels for different mass points. We believe this will be relatively straightforward since the GRBF kernel lies in the space of deep kernels. 
-  \item Finalize Combine implementation and perform validation using external MCMC.
-  \item Work on exact definitions of systematic uncertainties.
-  \end{itemize}
-  
-\end{frame}
 
 \begin{frame}{Conclusion}
   \begin{itemize}
   \item The past months have seen substantial progress on the background estimation and statistical analysis procedure.
-  \item Framework can now produce good estimates for 2D backgrounds over a range of locations and masking windows.
+  \item Framework can now produce good estimates for 2D backgrounds over a range of locations and masking windows. Ongoing work on improving and unifying estimation. 
+  \item We hope to present on further topics in the coming weeks, including trigger studies and data/mc comparisons, hopefully for Run3 as well. 
   \item We hope to hear any feedback from experts regarding the methodology, or any comments or suggestions!
   \end{itemize}
   \vspace{1cm}
