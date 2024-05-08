@@ -2,6 +2,7 @@
 \usepackage[headerslides]{umnslides}
 \usepackage{tikz}
 \usepackage{pgfplots}
+\usepackage{bm}
 \pgfmathsetseed{1234}
 \usetikzlibrary{fit,positioning,calc,shapes,backgrounds}
 \usetikzlibrary{shapes.geometric, arrows}
@@ -226,7 +227,7 @@
     \def\binTwoDev{0.1}
     \scalebox{0.5}{\includestandalone{\commonfiles{gp/conditioned_2d}}} %
     \scalebox{0.5}{\includestandalone{\commonfiles{gp/conditioned_hist}}} %
-\end{center}
+  \end{center}
   
 \end{frame}
 
@@ -234,8 +235,8 @@
 \begin{frame}{Beyond the Histogram}
   \begin{itemize}
   \item The remaining question:
-    \item What if we have more than 2 bins? What if we have infinitely many bins (ie a function)?
-    \item How should we describe the MVN then?
+  \item What if we have more than 2 bins? What if we have infinitely many bins (ie a function)?
+  \item How should we describe the MVN then?
   \end{itemize}
 \end{frame}
 
@@ -269,41 +270,45 @@
   \end{onlyenv}
 \end{frame}
 
-%\begin{frame}{Gaussian Process Regression}
-%  \begin{itemize}
-%  \item The ability to define distributions over functions allows us to do inference using Baye's theorem. 
-%  \item Specifically, given $N$ training points and a Gaussian process prior, we can produce a posterior Gaussian process that provides a means to do regression. 
-%  \end{itemize}
-%  \begin{center}
-%    \graphiccite{\includegraphics[width=0.7\textwidth]{figures/prior_and_conditioning}}{\cite{rasmussen_gaussian_2006}}
-%  \end{center}
-%\end{frame}
+% \begin{frame}{Gaussian Process Regression}
+%   \begin{itemize}
+%   \item The ability to define distributions over functions allows us to do inference using Baye's theorem. 
+%   \item Specifically, given $N$ training points and a Gaussian process prior, we can produce a posterior Gaussian process that provides a means to do regression. 
+%   \end{itemize}
+%   \begin{center}
+%     \graphiccite{\includegraphics[width=0.7\textwidth]{figures/prior_and_conditioning}}{\cite{rasmussen_gaussian_2006}}
+%   \end{center}
+% \end{frame}
 
 \begin{frame}{Kernels}
   \begin{itemize}
   \item The choice of kernel is the most important aspect of Gaussian processes. 
   \item The choice of $k(x,y)$ reflects different understandings of how the points should be correlated, how smooth the functions should be, etc. 
   \item The choice of kernel consists of both the selection of the form and the hyperparameters. 
+    \begin{itemize}
+    \item The kernel form is chosen based on the properties of the problem at hand.
+    \item The hyperparameters are chosen to optimize the evidence. 
+    \end{itemize}
   \end{itemize}
+
+  \begin{align}
+    \log p(\bm{y}|X) =
+    \markpos{term1}{-\frac{1}{2}\bm{y}^T(K+\sigma^2_n I)^{-1}\bm{y}}
+    - \markpos{term2}{\frac{1}{2}\log|K+\sigma^2_n I|}
+    - \frac{n}{2}\log2\pi
+ \end{align}
   \begin{center}
     \graphiccite{\includegraphics[width=0.4\textwidth]{figures/different_scale}}{\cite{rasmussen_gaussian_2006}}
   \end{center}
+  \begin{onlyenv}<2>
+    \posannot{term1}{fill=UMNMaroon!10, draw=UMNMaroon}{Compatibility of model with data}
+    \posannot[210:3cm]{term2}{fill=UMNMaroon!10, draw=UMNMaroon}{Overfitting penalty works against kernels with large determinants.}
+  \end{onlyenv}
 \end{frame}
 
 
-\section[2D Regression]{2D Gaussian Processes and Kernels}
+\section[GPR Result]{GPR For Combinatorial Backgrounds}
 \label{sec:2d-gauss-proc}
-\begin{frame}{Kernels}
-  \begin{itemize}
-  \item The machinery for Gaussian processes extends naturally to multi-dimensional problems. In our case, we examine two dimensions.
-  \item In two dimenions, the kernel can have an even richer structure. 
-  \end{itemize}
-
-  \begin{center}
-    \graphiccite{\includegraphics[width=0.4\textwidth]{figures/2d_rbf_kernels}}{\cite{rasmussen_gaussian_2006}}
-  \end{center}
-
-\end{frame}
 
 \begin{frame}{Kernels in 2D}
   \begin{itemize}
@@ -315,8 +320,6 @@
   SHOW IMAGES HERE OF WHAT THE DIFFERENT KERNELS LOOK LIKE
 \end{frame}
 
-\section[Results]{Regression for 1D and 2D Resonances}
-\label{sec:results-1d-2d}
 
 \begin{frame}{Overview}
   \begin{itemize}

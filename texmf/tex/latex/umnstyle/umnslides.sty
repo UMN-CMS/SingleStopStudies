@@ -236,9 +236,13 @@
     \newsavebox{\annotbox}
 
     \newcommand{\markpos}[2]{
-      \sbox{\annotbox}{#2} %
+      \ifmmode %
+        \sbox{\annotbox}{$\displaystyle #2 $} %
+      \else %
+        \sbox{\annotbox}{#2} %
+      \fi %
       #2 %
-      \kern-\wd\annotbox\tikz[remember picture, baseline] \node[ minimum width=\wd\annotbox, minimum height=\ht\annotbox + 3*\myinnersep] (#1) {}; %
+      \kern-\wd\annotbox\tikz[remember picture, baseline] \node[ minimum width=\wd\annotbox, minimum height=\ht\annotbox + 2*\myinnersep] (#1) {}; %
     }
 
     \newcommand{\posannot}[4][60:1cm]{
