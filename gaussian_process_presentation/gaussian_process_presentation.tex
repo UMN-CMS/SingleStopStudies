@@ -8,6 +8,7 @@
 \usetikzlibrary{shapes.geometric, arrows}
 \tikzset{>=latex}
 \usepackage{tikz-feynman}
+\pgfkeys{/tikzfeynman/warn luatex=false}
 
 
 
@@ -142,10 +143,26 @@
   \end{center}
 \end{frame}
 
+\begin{frame}{Resonance Reconstruction}
+  \begin{itemize}
+  \item Both the \textcolor{blue}{\stopq{}} and the \textcolor{red}{\chargino{}} form resonances over the background. 
+  \item Ongoing effort to define algorithms to reconstruct the masses from jets
+    \begin{itemize}
+    \item Different algorithms are needed depending on mass splitting
+    \item Techniques using flavor information have proven fruitful
+    \end{itemize}
+    \item In two dimensions, resonances can be decorrelated by defining an alternative variable $\frac{m_{\stopq}}{m_{\chargino}}$
+  \end{itemize}
+  \vspace{-0.5cm}
+  \begin{center}
+    \scalebox{0.5}{\includestandalone{\commonfiles{general/two_peaks}}}\hspace{1cm}
+  \end{center}
+\end{frame}
+
 \begin{frame}{General Search Strategy}
   \begin{itemize}
-  \item General search strategy is to perform a one or two dimensional bump hunt for both the \stopq{} and the \chargino{} resonances. 
-  \item For many mass splittings, the resonances are well separated both in $m_{\stopq, reco}$ and $m_{\chargino, reco}$ space, providing additional discriminating power.
+  \item General search strategy is to perform a one or two dimensional bump hunt for both the \textcolor{blue}{\stopq{}} and the \textcolor{red}{\chargino{}} resonances. 
+  \item For many mass splittings, the resonances are well separated both in \textcolor{blue}{$m_{\stopq, reco}$} and \textcolor{red}{$m_{\chargino, reco}$} space, providing additional discriminating power.
   \item Key point is to effectively estimate the background. 
   \item However, a simple cut strategy on one mass axis can result in sculpting of the background, making estimation difficult. 
   \end{itemize}
@@ -418,6 +435,9 @@
 \begin{frame}{Table of Common Kernels}
   \begin{center}
     \graphiccite{\includegraphics[width=0.8\textwidth]{figures/kernel_table}}{\cite{rasmussen_gaussian_2006}}
+  \end{center}
+  \begin{center}
+    Some common kernels used in GPR. In the table, ``S'' indicates if the kernel is stationary, and ``ND'' indicates if the kernel is non-degenerate (does not have a finite number of nonzero eigenvalues).
   \end{center}
 \end{frame}
 
