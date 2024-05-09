@@ -1,0 +1,110 @@
+[
+  {
+    "fit_type": "signal_312_1500_1400",
+    "lower_bound": 1050,
+    "window": [
+      1350.0,
+      1650.0
+    ],
+    "force_scale": 100.0,
+    "inject_signal_base": "signal_312_1500_1400",
+    "inject_signal_rate": 15.0,
+    "inject_signal_params": [
+      1500.0,
+      90.0
+    ],
+    "pull_figure_name": "pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_100p0__m1500p0_s90p0__w_1350p0_1650p0",
+    "length_scale": 100.0,
+    "reduced_chi2": 254.40134746214167
+  },
+  {
+    "fit_type": "signal_312_1500_1400",
+    "lower_bound": 1050,
+    "window": [
+      1350.0,
+      1650.0
+    ],
+    "force_scale": 350.0,
+    "inject_signal_base": "signal_312_1500_1400",
+    "inject_signal_rate": 15.0,
+    "inject_signal_params": [
+      1500.0,
+      90.0
+    ],
+    "pull_figure_name": "pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_350p0__m1500p0_s90p0__w_1350p0_1650p0",
+    "length_scale": 350.0,
+    "reduced_chi2": 2.919980708228882
+  },
+  {
+    "fit_type": "signal_312_1500_1400",
+    "lower_bound": 1050,
+    "window": [
+      1350.0,
+      1650.0
+    ],
+    "force_scale": 600.0,
+    "inject_signal_base": "signal_312_1500_1400",
+    "inject_signal_rate": 15.0,
+    "inject_signal_params": [
+      1500.0,
+      90.0
+    ],
+    "pull_figure_name": "pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_600p0__m1500p0_s90p0__w_1350p0_1650p0",
+    "length_scale": 600.0,
+    "reduced_chi2": 3.053084340829537
+  },
+  {
+    "fit_type": "signal_312_1500_1400",
+    "lower_bound": 1050,
+    "window": [
+      1350.0,
+      1650.0
+    ],
+    "force_scale": 850.0,
+    "inject_signal_base": "signal_312_1500_1400",
+    "inject_signal_rate": 15.0,
+    "inject_signal_params": [
+      1500.0,
+      90.0
+    ],
+    "pull_figure_name": "pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_850p0__m1500p0_s90p0__w_1350p0_1650p0",
+    "length_scale": 850.0,
+    "reduced_chi2": 3.165212666419522
+  },
+  {
+    "fit_type": "signal_312_1500_1400",
+    "lower_bound": 1050,
+    "window": [
+      1350.0,
+      1650.0
+    ],
+    "force_scale": 1100.0,
+    "inject_signal_base": "signal_312_1500_1400",
+    "inject_signal_rate": 15.0,
+    "inject_signal_params": [
+      1500.0,
+      90.0
+    ],
+    "pull_figure_name": "pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_1100p0__m1500p0_s90p0__w_1350p0_1650p0",
+    "length_scale": 1100.0,
+    "reduced_chi2": 6.694457261491336
+  },
+  {
+    "fit_type": "signal_312_1500_1400",
+    "lower_bound": 1050,
+    "window": [
+      1350.0,
+      1650.0
+    ],
+    "force_scale": 1350.0,
+    "inject_signal_base": "signal_312_1500_1400",
+    "inject_signal_rate": 15.0,
+    "inject_signal_params": [
+      1500.0,
+      90.0
+    ],
+    "pull_figure_name": "pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_1350p0__m1500p0_s90p0__w_1350p0_1650p0",
+    "length_scale": 1350.0,
+    "reduced_chi2": 12.694182448122662
+  }
+]
