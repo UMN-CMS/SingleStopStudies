@@ -12,6 +12,8 @@
 \RequirePackage{umnparticles}
 \hypersetup{colorlinks=true, linkcolor=blue, filecolor=blue, citecolor = black, urlcolor=cyan}
 \RequirePackage{umncolors}
+\RequirePackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
 
 \RequirePackage{tikz}
 \usetikzlibrary{fit,positioning,calc,shapes,backgrounds}
@@ -139,17 +141,7 @@
 % }
 
 
-\newenvironment{twocol}[1][0.5]
-{ 
-  \newdimen\splitterdimen
-  \splitterdimen=#1\textwidth
-  \def\splitcols{\end{column} \begin{column}{\textwidth-\splitterdimen}}%
-  \begin{columns}
-    \begin{column}{\splitterdimen}
-    }{
-    \end{column}
-  \end{columns}
-}
+\newenvironment{halfcol}{\begin{column}{0.5\textwidth}}{\end{column}}
 % \renewenvironment{twocol}{ 
 % \newdimen\splitterdimen{0.5\textwidth}
 % \def\splitcols{\end{column} \begin{column}{\splitterdimen}}
@@ -176,12 +168,16 @@
 \colorlet{groupcol}{orange!15}
 
 
-\newcommand{\graphiccite}[2]{
+
+\newcommand{\blockcite}[2]{
   \begin{tikzpicture}
     \node[inner sep=0pt,anchor=south west] at (0,0) {#1};
-    \node[anchor=north west] at (0,0) {\tiny
-      \textbf{Source:} #2};
+    \node[anchor=north west] at (0,0) {\tiny #2};
   \end{tikzpicture}
+}
+
+\newcommand{\graphiccite}[3]{
+  \blockcite{\includegraphics[width=#2\textwidth]{#1}}{\textbf{Source}: \cite{#3}}
 }
 
 \def\compparseddatelater#1-#2-#3\otherdate#4-#5-#6\enddate{

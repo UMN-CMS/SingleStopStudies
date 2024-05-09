@@ -80,7 +80,7 @@
   \begin{itemize}
   \item Searching for the production and decay of a single \stopq{} to 4 standard model quarks through an RPV coupling. 
   \item Targetting both $\lambda_{312}'',\lambda_{313}'' \in [0.1,0.4]$.
-  \item Well motivated channel to look for SUSY:
+  \item Well motivated channel to look for SUSY \cite{evans_lhc_2013}:
     \begin{itemize}
     \item Unexplored region of RPV parameter space
     \item Large cross section allows us to probe higher masses
@@ -90,7 +90,7 @@
 
 
   \begin{center}
-    \graphiccite{\includegraphics[width=0.5\textwidth]{figures/xsec.png}}{\cite{rasmussen_gaussian_2006}}\hspace{1em}
+    \graphiccite{figures/xsec.png}{0.5}{rasmussen_gaussian_2006}\hspace{1em}
     \scalebox{0.7}{\includestandalone{\commonfiles{general/single_stop}}}
   \end{center}
 
@@ -177,13 +177,23 @@
 
 
 \begin{frame}{Estimation Strategies}
-  \begin{itemize}
-  \item For all bump hunts, key technique is estimation of the background shape. 
-  \item Traditional bump hunts have used ad-hoc functions, chosen because they approximate the observed shape. 
-  \item However, this can introduce bias from the choice of function, and it has been shown that they scale poorly with increasing luminosity \cite{frate_modeling_2017}.
-  \item For multidimensional searches, the problem can also be compounded by selecting a function for a potentially nontrivial 2D shape. 
-  \end{itemize}
-  
+  \begin{columns}
+    \begin{halfcol}
+      \begin{itemize}
+      \item For all bump hunts, key technique is estimation of the background shape. 
+      \item Traditional bump hunts have used ad-hoc functions \cite{zisopoulos_parametric_2023}, chosen because they approximate the observed shape. 
+      \item However, this can introduce bias from the choice of function, and it has been shown that they scale poorly with increasing luminosity \cite{frate_modeling_2017}.
+      \item For multidimensional searches, the problem can also be compounded by selecting a function for a potentially nontrivial 2D shape. 
+      \end{itemize}
+    \end{halfcol}
+
+    \begin{halfcol}
+      \begin{center}
+        \graphiccite{figures/fit_table}{1}{zisopoulos_parametric_2023}
+      \end{center}
+    \end{halfcol}
+
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Current Strategy}
@@ -240,8 +250,8 @@
     \def\meanOne{0.8}
     \def\meanTwo{0.4}
     \def\binOne{0.7}
-    \def\binTwo{0.22}
-    \def\binTwoDev{0.1}
+    \def\binTwo{0.48}
+    \def\binTwoStd{0.1}
     \scalebox{0.5}{\includestandalone{\commonfiles{gp/conditioned_2d}}} %
     \scalebox{0.5}{\includestandalone{\commonfiles{gp/conditioned_hist}}} %
   \end{center}
@@ -315,7 +325,7 @@
     - \frac{n}{2}\log2\pi
   \end{align}
   \begin{center}
-    \graphiccite{\includegraphics[width=0.4\textwidth]{figures/different_scale}}{\cite{rasmussen_gaussian_2006}}
+    \graphiccite{figures/different_scale}{0.4}{rasmussen_gaussian_2006}
   \end{center}
   \begin{onlyenv}<2>
     \posannot{term1}{fill=UMNMaroon!10, draw=UMNMaroon}{Compatibility of model with data}
@@ -362,13 +372,55 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{General RBF Fit Results}
+\begin{frame}{Fit Using Inhomegenous RBF}
   \begin{center}
-    \begin{annotimage}{\includegraphics[width=0.85\textwidth]{figures/grbf_results}}
-      \draw[thick,red, -latex] (1,0.5) node[black, align=center, anchor=west] {{\tiny Challenging area for RBF}} -- (0.8,0.22);
-    \end{annotimage}
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1200_0p5_100_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_100_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_150_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_150_0p07.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_2000_0p7_150_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_2000_0p5_150_0p07.pdf} 
+  \end{center}
+  %\begin{center}
+  %  \begin{annotimage}{\includegraphics[width=0.85\textwidth]{figures/grbf_results}}
+  %    \draw[thick,red, -latex] (1,0.5) node[black, align=center, anchor=west] {{\tiny Challenging area for RBF}} -- (0.8,0.22);
+  %  \end{annotimage}
+  %\end{center}
+\end{frame}
+
+\begin{frame}{Fit Using GRBF}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1200_0p5_100_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_100_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_150_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_150_0p07.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_2000_0p7_150_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_2000_0p5_150_0p07.pdf} 
   \end{center}
 \end{frame}
+
+\begin{frame}{Fit Using Small Deep Kernel}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_1200_0p5_100_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_1500_0p5_100_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_1500_0p5_150_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_1500_0p5_150_0p07.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_2000_0p7_150_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_2000_0p5_150_0p07.pdf} 
+  \end{center}
+\end{frame}
+
+\begin{frame}{Fit Using Large Deep Kernel}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_1200_0p5_100_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_1500_0p5_100_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_1500_0p5_150_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_1500_0p5_150_0p07.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_2000_0p7_150_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_2000_0p5_150_0p07.pdf} 
+  \end{center}
+\end{frame}
+
 
 \section[Statistical Considerations]{Preliminary Statistical Strategy}
 
@@ -416,7 +468,7 @@
 \end{frame}
 
 
-\begin{frame}{Bibliography}
+\begin{frame}[allowframebreaks]{Bibliography}
   \bibliographystyle{plain}
   \bibliography{bibliography.bib}
 \end{frame}
@@ -434,7 +486,7 @@
 
 \begin{frame}{Table of Common Kernels}
   \begin{center}
-    \graphiccite{\includegraphics[width=0.8\textwidth]{figures/kernel_table}}{\cite{rasmussen_gaussian_2006}}
+    \graphiccite{figures/kernel_table}{0.8}{rasmussen_gaussian_2006}
   \end{center}
   \begin{center}
     Some common kernels used in GPR. In the table, ``S'' indicates if the kernel is stationary, and ``ND'' indicates if the kernel is non-degenerate (does not have a finite number of nonzero eigenvalues).
@@ -463,7 +515,7 @@
   \end{equation}
 
   \begin{center}
-    \graphiccite{\includegraphics[width=0.7\textwidth]{figures/prior_and_conditioning}}{\cite{rasmussen_gaussian_2006}}
+    \graphiccite{figures/prior_and_conditioning}{0.7}{rasmussen_gaussian_2006}
   \end{center}
 \end{frame}
 
@@ -478,6 +530,7 @@
 % (texmfpath (file-name-concat  basedir "texmf"))
 % )
 % (setq-local TeX-style-path (append TeX-style-path  (directory-files-recursively texmfpath "auto" t)))
+% (setq-local reftex-bib-path (list basedir))
 % (setenv "TEXMFHOME" texmfpath )
 % (setenv "BIBINPUTS" basedir ))
 % )

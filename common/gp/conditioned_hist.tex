@@ -4,7 +4,7 @@
 \def\meanTwo{0.4}
 \def\binOne{0.7}
 \def\binTwo{0.22}
-\def\binTwoDev{0.1}
+\def\binTwoStd{0.1}
 \usepackage{tikz}
 \usepackage{pgfplots}
 
@@ -22,7 +22,7 @@
       \addplot[dashed, black, const plot mark mid, domain=1000:2500, samples=2, mark=none] plot coordinates {(1000,\meanOne) (2500,\meanTwo)};
       \addplot[orange, thick, mark=*] plot coordinates {(1375,\binOne)};
       \addplot[blue, thick, const plot mark mid, domain=1000:2500, samples=2, mark=none] plot coordinates {(1000,\binOne) (2500,\binTwo)};
-      \draw[fill=blue, opacity=0.1] (axis cs:1750,\binTwo-\binTwoDev) rectangle (axis cs:2500,\binTwo+\binTwoDev);
+      \draw[fill=blue, opacity=0.1] (axis cs:1750,\binTwo-\binTwoStd) rectangle (axis cs:2500,\binTwo+\binTwoStd);
       \legend{Prior, Observed Point, Conditioned}
     \end{axis}
   \end{scope}
