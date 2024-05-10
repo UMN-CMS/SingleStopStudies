@@ -151,7 +151,7 @@
     \item Different algorithms are needed depending on mass splitting
     \item Techniques using flavor information have proven fruitful
     \end{itemize}
-    \item In two dimensions, resonances can be decorrelated by defining an alternative variable $\frac{m_{\stopq}}{m_{\chargino}}$
+  \item In two dimensions, resonances can be decorrelated by defining an alternative variable $\frac{m_{\stopq}}{m_{\chargino}}$
   \end{itemize}
   \vspace{-0.5cm}
   \begin{center}
@@ -177,23 +177,22 @@
 
 
 \begin{frame}{Estimation Strategies}
-  \begin{columns}
-    \begin{halfcol}
+  \begin{splitcol}[0.55]
+    \begin{col}
       \begin{itemize}
-      \item For all bump hunts, key technique is estimation of the background shape. 
+      \item For all bump hunts, key technique is estimation of the background shape. The region where signal is expected blinded, then the fit is used to estimated the background.
       \item Traditional bump hunts have used ad-hoc functions \cite{zisopoulos_parametric_2023}, chosen because they approximate the observed shape. 
       \item However, this can introduce bias from the choice of function, and it has been shown that they scale poorly with increasing luminosity \cite{frate_modeling_2017}.
       \item For multidimensional searches, the problem can also be compounded by selecting a function for a potentially nontrivial 2D shape. 
       \end{itemize}
-    \end{halfcol}
+    \end{col}
 
-    \begin{halfcol}
+    \begin{col}
       \begin{center}
         \graphiccite{figures/fit_table}{1}{zisopoulos_parametric_2023}
       \end{center}
-    \end{halfcol}
-
-  \end{columns}
+    \end{col}
+  \end{splitcol}
 \end{frame}
 
 \begin{frame}{Current Strategy}
@@ -307,44 +306,75 @@
 %   \end{center}
 % \end{frame}
 
-\begin{frame}{Kernels}
+\begin{frame}{Kernels and Scales}
   \begin{itemize}
   \item The choice of kernel is the most important aspect of Gaussian processes. 
   \item The choice of $k(x,y)$ reflects different understandings of how the points should be correlated, how smooth the functions should be, etc. 
   \item The choice of kernel consists of both the selection of the form and the hyperparameters. 
     \begin{itemize}
-    \item The kernel form is chosen based on the properties of the problem at hand.
-    \item The hyperparameters are chosen to optimize the evidence. 
+    \item The hyperparameters are chosen to optimize the evidence. Often the most important hyperparameter is the correlation length, or length scale.
     \end{itemize}
   \end{itemize}
-
-  \begin{align}
+  \begin{equation}
     \log p(\bm{y}|X) =
     \markpos{term1}{-\frac{1}{2}\bm{y}^T(K+\sigma^2_n I)^{-1}\bm{y}}
     - \markpos{term2}{\frac{1}{2}\log|K+\sigma^2_n I|}
     - \frac{n}{2}\log2\pi
-  \end{align}
-  \begin{center}
-    \graphiccite{figures/different_scale}{0.4}{rasmussen_gaussian_2006}
-  \end{center}
+  \end{equation}
   \begin{onlyenv}<2>
     \posannot{term1}{fill=UMNMaroon!10, draw=UMNMaroon}{Compatibility of model with data}
     \posannot[210:3cm]{term2}{fill=UMNMaroon!10, draw=UMNMaroon}{Overfitting penalty works against kernels with large determinants.}
   \end{onlyenv}
+
 \end{frame}
+\begin{frame}{Kernels and Scales Continued}
+  \begin{itemize}
+  \item The most common kernel is the RBF kernel
+    \begin{equation}
+      k_{\text{RBF}}(\mathbf{x_1}, \mathbf{x_2}) = \exp \left( -\frac{1}{2} \frac{(\mathbf{x_1} - \mathbf{x_2})^2}{ \ell^{2}} \right)
+    \end{equation}
+  \item Let us see how this kernel lets us extrapolate $m_{\stopq}$ in to the blinded window indicated by the red bars, for different length scales $\ell$.
+  \end{itemize}
+
+  \begin{center}
+    \blockcite{\markimage{\includegraphics[width=0.31\textwidth]{figures/fitplots/pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_100p0__m1500p0_s90p0__w_1350p0_1650p0}}{0.4,0.6}{ls1}}{Scale = 100GeV}
+    \blockcite{{\includegraphics[width=0.31\textwidth]{figures/fitplots/pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_600p0__m1500p0_s90p0__w_1350p0_1650p0}}{}{}}{Scale = 600GeV}
+    \blockcite{\markimage{\includegraphics[width=0.31\textwidth]{figures/fitplots/pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_1350p0__m1500p0_s90p0__w_1350p0_1650p0}}{0.3,0.7}{ls2}}{Scale = 1350GeV}
+  \end{center}
+  \begin{onlyenv}<3>
+    \posannot[30:3cm]{ls1}{fill=UMNMaroon!10, draw=UMNMaroon}{Small length scales have no extrapolating power.}
+    \posannot[210:3cm]{ls2}{fill=UMNMaroon!10, draw=UMNMaroon}{Long lengths scales can't fit well.}
+  \end{onlyenv}
+\end{frame}
+
+
+
+
+
 
 
 \section[GPR Result]{GPR For Combinatorial Backgrounds}
 \label{sec:2d-gauss-proc}
 
 \begin{frame}{Kernels in 2D}
+  Below are several  of the kernels used in our studies.
   \begin{itemize}
-  \item Show simplest RBF Kernel
-  \item Show GRBF kernel
-  \item Show NN kernel
+  \item Diagonal RBF
+    \begin{equation}
+      k(\bm{x},\bm{x'}) = e^{ -\frac{1}{2} \left(  \bm{x} - \bm{x'}\right) D \left(  \bm{x} - \bm{x'}\right)}
+    \end{equation}
+    where $D$ is a diagonal matrix,
+  \item General RBF kernel
+    \begin{equation}
+      k(\bm{x},\bm{x'}) = e^{ -\frac{1}{2} \left(  \bm{x} - \bm{x'}\right) M \left(  \bm{x} - \bm{x'}\right)}
+    \end{equation}
+    where $M$ is any positive semi-definite matrix.
+  \item Feature Extractor RBF
+    \begin{equation}
+      k(\bm{x},\bm{x'}) =  k_{RBF}(NN(\bm{x}),NN(\bm{x'}))
+    \end{equation}
+    where $NN$ is an simple neural network ``feature extractor''.
   \end{itemize}
-
-  SHOW IMAGES HERE OF WHAT THE DIFFERENT KERNELS LOOK LIKE
 \end{frame}
 
 
@@ -355,7 +385,6 @@
   \item Use both simulation and control region data to study efficacy of different methods. 
   \item Majority of studies have been focused on kernel selection and approximation techniques.
   \end{itemize}
-
   \begin{center}
     \includegraphics[width=0.7\textwidth]{figures/example_masking}
   \end{center}
@@ -366,49 +395,48 @@
   \item We see promising results for estimation in windows of varying sizes over the 2D plane. 
   \item Depending on region, either generalized RBF kernels or and RBF kernel supplemented with the deep network have shown promising and robust estimative abilities.
   \end{itemize}
-
-  \begin{center}
-    \includegraphics[width=\textwidth]{figures/nn_results_1} 
-  \end{center}
 \end{frame}
 
-\begin{frame}{Fit Using Inhomegenous RBF}
+\begin{frame}{Fit Using Diagonal RBF}
   \begin{center}
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1200_0p5_100_0p05.pdf} 
+    \markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1200_0p5_100_0p05.pdf}}{0.3,0.5}{rbf2}
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_100_0p05.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_150_0p05.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_150_0p07.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_150_0p05.pdf}
+    \markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_150_0p07.pdf}}{0.3,0.3}{rbf1}
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_2000_0p7_150_0p05.pdf} 
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_2000_0p5_150_0p07.pdf} 
   \end{center}
-  %\begin{center}
-  %  \begin{annotimage}{\includegraphics[width=0.85\textwidth]{figures/grbf_results}}
-  %    \draw[thick,red, -latex] (1,0.5) node[black, align=center, anchor=west] {{\tiny Challenging area for RBF}} -- (0.8,0.22);
-  %  \end{annotimage}
-  %\end{center}
+  \begin{onlyenv}<2>
+    \posannot{rbf1}{fill=UMNMaroon!10, draw=UMNMaroon}{Poor pulls near peaked regions}
+    \posannot[-20:3]{rbf2}{fill=UMNMaroon!10, draw=UMNMaroon}{Ridge region results in ``waves'' of poor pulls.}
+  \end{onlyenv}
 \end{frame}
 
 \begin{frame}{Fit Using GRBF}
   \begin{center}
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1200_0p5_100_0p05.pdf} 
+    \markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1200_0p5_100_0p05.pdf}}{0.3,0.5}{rbf2}
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_100_0p05.pdf} 
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_150_0p05.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_150_0p07.pdf} 
+    \markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_150_0p07.pdf}}{0.3,0.3}{rbf1}
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_2000_0p7_150_0p05.pdf} 
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_2000_0p5_150_0p07.pdf} 
   \end{center}
+  \begin{onlyenv}<2>
+    \posannot[20:3]{rbf1}{fill=UMNMaroon!10, draw=UMNMaroon}{Allowing off-diagonal terms improved pulls.}
+    \posannot[-20:3]{rbf2}{fill=UMNMaroon!10, draw=UMNMaroon}{Ridge behavior is reduced.}
+  \end{onlyenv}
 \end{frame}
 
-\begin{frame}{Fit Using Small Deep Kernel}
-  \begin{center}
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_1200_0p5_100_0p05.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_1500_0p5_100_0p05.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_1500_0p5_150_0p05.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_1500_0p5_150_0p07.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_2000_0p7_150_0p05.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_2000_0p5_150_0p07.pdf} 
-  \end{center}
-\end{frame}
+% \begin{frame}{Fit Using Small Deep Kernel}
+%   \begin{center}
+%     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_1200_0p5_100_0p05.pdf} 
+%     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_1500_0p5_100_0p05.pdf} 
+%     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_1500_0p5_150_0p05.pdf} 
+%     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_1500_0p5_150_0p07.pdf} 
+%     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_2000_0p7_150_0p05.pdf} 
+%     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_2000_0p5_150_0p07.pdf} 
+%   \end{center}
+% \end{frame}
 
 \begin{frame}{Fit Using Large Deep Kernel}
   \begin{center}
@@ -419,6 +447,13 @@
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_2000_0p7_150_0p05.pdf} 
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_2000_0p5_150_0p07.pdf} 
   \end{center}
+  \begin{onlyenv}<2>
+    \begin{beamerpopover}
+      \begin{block}{}
+        Kernel with a ANN feature extractor can eliminate the ridge behavior while still providing good predictive performance.
+      \end{block}
+    \end{beamerpopover}
+  \end{onlyenv}
 \end{frame}
 
 

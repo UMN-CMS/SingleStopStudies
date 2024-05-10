@@ -52,6 +52,7 @@
     \end{frame}
   }
 \fi
+
 \setbeamercolor{frametitle}{fg = UMNGold, bg = UMNMaroon }
 \setbeamercolor{title}{fg = UMNGold, bg = UMNMaroon }
 \setbeamercolor{author in head/foot}{fg = UMNGold, bg = UMNDarkMaroon }
@@ -150,6 +151,26 @@
 %   \end{column}\end{columns}
 % }
 
+
+
+\newenvironment{splitcol}[1][0.5]{
+  \begin{columns}
+    \newcounter{colCounter}
+    \setcounter{colCounter}{0}
+    \newdimen\colOneDim
+    \colOneDim=\dimexpr #1\textwidth \relax
+    \newdimen\colTwoDim
+    \colTwoDim=\dimexpr\textwidth-\colOneDim\relax
+    \newenvironment{col}{
+      \begin{column}{\ifnum\value{colCounter}=0 \colOneDim \else \colTwoDim \fi}
+      }{
+      \end{column}
+      \setcounter{colCounter}{1}
+    }
+  }{
+  \end{columns}
+}
+
 \colorlet{mylightblue}{blue!60!cyan!80!black!15}
 \colorlet{mypurple}{blue!50!red!70}
 \colorlet{gaugecol}{red!90!black!70} % Wiki red
@@ -179,6 +200,62 @@
 \newcommand{\graphiccite}[3]{
   \blockcite{\includegraphics[width=#2\textwidth]{#1}}{\textbf{Source}: \cite{#3}}
 }
+
+
+\newcommand{\coloreditem}[1]{\item[{\tikz[]{\draw[fill=#1] circle (0.25em);}}]}
+
+\newcommand{\mypos}[1]{\tikz[baseline, remember picture]{\coordinate[inner sep=0pt, anchor=base](#1);}}
+
+\pgfmathsetmacro{\myinnersep}{2}% inner sep in mm
+\newsavebox{\annotbox}
+
+\newcommand{\markpos}[2]{
+  \ifmmode %
+    \sbox{\annotbox}{$\displaystyle #2 $} %
+  \else %
+    \sbox{\annotbox}{#2} %
+  \fi %
+  #2 %
+  \kern-\wd\annotbox\tikz[remember picture, baseline] \node[ minimum width=\wd\annotbox, minimum height=\ht\annotbox + 2*\myinnersep] (#1) {}; %
+}
+
+\newcommand{\posannot}[4][60:1cm]{
+  \begin{tikzpicture}[overlay, remember picture]
+    \node[#3, align=center] (annot) at ($(#2) +(#1)$) {#4};
+    \draw[->, thick] (annot) -- (#2);
+  \end{tikzpicture}
+}
+
+
+\newenvironment{annotimage}[1]{
+  \begin{tikzpicture}[remember picture]
+    \node[anchor=south west,inner sep=0] (image) at (0,0) {#1};
+    \begin{scope}[x={(image.south east)},y={(image.north west)}]
+    }{
+    \end{scope} \end{tikzpicture}
+}
+
+
+\newenvironment{beamerpopover}{
+  \begin{tikzpicture}[overlay,remember picture]
+    \pgftransformshift{\pgfpointanchor{current page}{center}}
+    \node[align=center, anchor=center,
+    text width=\textwidth %
+    ] at (0,0) %
+    \bgroup %
+  }{\egroup ; %
+  \end{tikzpicture} %
+}
+
+\newcommand{\markimage}[3]{
+  \begin{tikzpicture}[remember picture]
+    \node[anchor=south west,inner sep=0] (image) at (0,0) {#1};
+    \begin{scope}[x={(image.south east)},y={(image.north west)}]
+      \coordinate (#3) at (#2);
+    \end{scope}
+  \end{tikzpicture}
+}
+
 
 \def\compparseddatelater#1-#2-#3\otherdate#4-#5-#6\enddate{
   \ifnum#1=#4 %
@@ -212,59 +289,15 @@
 \def\parseddatelater#1-#2-#3\enddate {
   \expandafter\compparseddatelater\beamer@shortdate\otherdate#1-#2-#3\enddate
 }
+\makeatother
 
 \newcommand{\ifdatelater}[1]{
     \edef\islater{\expandafter\parseddatelater#1\enddate}
     \expandafter\ifnum\islater=1
     }
 
-    \makeatother
-
     \newcommand\prevtalk[2]{
       \ifdatelater{#1} \item #2 \fi
     }
 
-    \newcommand{\coloreditem}[1]{\item[{\tikz[]{\draw[fill=#1] circle (0.25em);}}]}
-
-    \newcommand{\mypos}[1]{\tikz[baseline, remember picture]{\coordinate[inner sep=0pt, anchor=base](#1);}}
-
-    \pgfmathsetmacro{\myinnersep}{2}% inner sep in mm
-    \newsavebox{\annotbox}
-
-    \newcommand{\markpos}[2]{
-      \ifmmode %
-        \sbox{\annotbox}{$\displaystyle #2 $} %
-      \else %
-        \sbox{\annotbox}{#2} %
-      \fi %
-      #2 %
-      \kern-\wd\annotbox\tikz[remember picture, baseline] \node[ minimum width=\wd\annotbox, minimum height=\ht\annotbox + 2*\myinnersep] (#1) {}; %
-    }
-
-    \newcommand{\posannot}[4][60:1cm]{
-      \begin{tikzpicture}[overlay, remember picture]
-        \node[#3, align=center] (annot) at ($(#2) +(#1)$) {#4};
-        \draw[->, thick] (annot) -- (#2);
-      \end{tikzpicture}
-    }
-
-
-    \newenvironment{annotimage}[1]{
-      \begin{tikzpicture}[remember picture]
-        \node[anchor=south west,inner sep=0] (image) at (0,0) {#1};
-        \begin{scope}[x={(image.south east)},y={(image.north west)}]
-        }{
-        \end{scope} \end{tikzpicture}
-    }
-
-    \newenvironment{beamerpopover}{
-      \begin{tikzpicture}[overlay,remember picture]
-        \pgftransformshift{\pgfpointanchor{current page}{center}}
-        \node[align=center, anchor=center,
-        text width=\textwidth %
-        ] at (0,0) %
-        \bgroup %
-      }{\egroup ; %
-      \end{tikzpicture} %
-    }
     \endinput
