@@ -122,6 +122,10 @@
       \begin{itemize}
         \input{\commonfiles{previous_talks.tex}}
       \end{itemize}
+      \begin{center} \textbf{Expected Talks} \end{center}
+      \begin{itemize}
+      \item ...
+      \end{itemize}
     \end{column}
   \end{columns}
 
@@ -197,11 +201,11 @@
 
 \begin{frame}{Current Strategy}
   \begin{itemize}
-  \item We have implemented our background estimation using Gaussian process regression \cite{rasmussen_gaussian_2006}.
+  \item We have implemented our background estimation using Gaussian process regression (GPR) \cite{rasmussen_gaussian_2006}.
   \item This is non-parametric technique that reduces bias from the choice of parametric function.
   \item It has been shown to be robust against increasing luminosity\cite{frate_modeling_2017}.
   \item It is naturally extensible to multiple dimensions.
-  \item Very well studied in statistics literature, and has a large number of well established implementations \cite{gardner_gpytorch_2021}. 
+  \item Very well studied in statistics literature\cite{gardner_gpytorch_2021}, and has a large number of well established implementations \cite{noauthor_comparison_2024, gardner_gpytorch_2021}.
   \end{itemize}
 \end{frame}
 
@@ -343,7 +347,7 @@
   \end{center}
   \begin{onlyenv}<3>
     \posannot[30:3cm]{ls1}{fill=UMNMaroon!10, draw=UMNMaroon}{Small length scales have no extrapolating power.}
-    \posannot[210:3cm]{ls2}{fill=UMNMaroon!10, draw=UMNMaroon}{Long lengths scales can't fit well.}
+    \posannot[210:3cm]{ls2}{fill=UMNMaroon!10, draw=UMNMaroon}{Long length scales can't fit the data.}
   \end{onlyenv}
 \end{frame}
 
@@ -353,7 +357,7 @@
 
 
 
-\section[GPR Result]{GPR For Combinatorial Backgrounds}
+\section[Regression Results]{GPR For Combinatorial Backgrounds}
 \label{sec:2d-gauss-proc}
 
 \begin{frame}{Kernels in 2D}
@@ -402,10 +406,14 @@
     \markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1200_0p5_100_0p05.pdf}}{0.3,0.5}{rbf2}
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_100_0p05.pdf} 
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_150_0p05.pdf}
+  \end{center}
+
+  \begin{center}
     \markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_150_0p07.pdf}}{0.3,0.3}{rbf1}
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_2000_0p7_150_0p05.pdf} 
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_2000_0p5_150_0p07.pdf} 
   \end{center}
+
   \begin{onlyenv}<2>
     \posannot{rbf1}{fill=UMNMaroon!10, draw=UMNMaroon}{Poor pulls near peaked regions}
     \posannot[-20:3]{rbf2}{fill=UMNMaroon!10, draw=UMNMaroon}{Ridge region results in ``waves'' of poor pulls.}
@@ -414,16 +422,20 @@
 
 \begin{frame}{Fit Using GRBF}
   \begin{center}
-    \markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1200_0p5_100_0p05.pdf}}{0.3,0.5}{rbf2}
+    \markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1200_0p5_100_0p05.pdf}}{0.3,0.5}{grbf1}
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_100_0p05.pdf} 
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_150_0p05.pdf} 
-    \markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_150_0p07.pdf}}{0.3,0.3}{rbf1}
+  \end{center}
+
+  \begin{center}
+    \markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_150_0p07.pdf}}{0.3,0.3}{grbf2}
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_2000_0p7_150_0p05.pdf} 
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_2000_0p5_150_0p07.pdf} 
   \end{center}
+
   \begin{onlyenv}<2>
-    \posannot[20:3]{rbf1}{fill=UMNMaroon!10, draw=UMNMaroon}{Allowing off-diagonal terms improved pulls.}
-    \posannot[-20:3]{rbf2}{fill=UMNMaroon!10, draw=UMNMaroon}{Ridge behavior is reduced.}
+    \posannot[20:3]{grbf2}{fill=UMNMaroon!10, draw=UMNMaroon}{Allowing off-diagonal terms improved pulls.}
+    \posannot[-20:3]{grbf1}{fill=UMNMaroon!10, draw=UMNMaroon}{Ridge behavior is reduced.}
   \end{onlyenv}
 \end{frame}
 
@@ -443,10 +455,14 @@
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_1200_0p5_100_0p05.pdf} 
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_1500_0p5_100_0p05.pdf} 
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_1500_0p5_150_0p05.pdf} 
+  \end{center}
+
+  \begin{center}
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_1500_0p5_150_0p07.pdf} 
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_2000_0p7_150_0p05.pdf} 
     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_2000_0p5_150_0p07.pdf} 
   \end{center}
+
   \begin{onlyenv}<2>
     \begin{beamerpopover}
       \begin{block}{}
