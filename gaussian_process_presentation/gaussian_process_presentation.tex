@@ -122,10 +122,6 @@
       \begin{itemize}
         \input{\commonfiles{previous_talks.tex}}
       \end{itemize}
-      \begin{center} \textbf{Expected Talks} \end{center}
-      \begin{itemize}
-      \item ...
-      \end{itemize}
     \end{column}
   \end{columns}
 
@@ -315,8 +311,11 @@
   \item The choice of kernel is the most important aspect of Gaussian processes. 
   \item The choice of $k(x,y)$ reflects different understandings of how the points should be correlated, how smooth the functions should be, etc. 
   \item The choice of kernel consists of both the selection of the form and the hyperparameters. 
+  \item Two methods, fully Bayesian and point estimates.
     \begin{itemize}
-    \item The hyperparameters are chosen to optimize the evidence. Often the most important hyperparameter is the correlation length, or length scale.
+    \item The fully Bayesian method is often computationally intractible.
+    \item The point estimation method is faster and works especially well with modern ML frameworks. 
+    \item The hyperparameters are chosen to optimize the evidence (plays roll of a loss). Often the most important hyperparameter is the model complexity (aka length scale).
     \end{itemize}
   \end{itemize}
   \begin{equation}
@@ -345,7 +344,7 @@
     \blockcite{{\includegraphics[width=0.31\textwidth]{figures/fitplots/pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_600p0__m1500p0_s90p0__w_1350p0_1650p0}}{}{}}{Scale = 600GeV}
     \blockcite{\markimage{\includegraphics[width=0.31\textwidth]{figures/fitplots/pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_1350p0__m1500p0_s90p0__w_1350p0_1650p0}}{0.3,0.7}{ls2}}{Scale = 1350GeV}
   \end{center}
-  \begin{onlyenv}<3>
+  \begin{onlyenv}<2>
     \posannot[30:3cm]{ls1}{fill=UMNMaroon!10, draw=UMNMaroon}{Small length scales have no extrapolating power.}
     \posannot[210:3cm]{ls2}{fill=UMNMaroon!10, draw=UMNMaroon}{Long length scales can't fit the data.}
   \end{onlyenv}
@@ -360,8 +359,20 @@
 \section[Regression Results]{GPR For Combinatorial Backgrounds}
 \label{sec:2d-gauss-proc}
 
+\begin{frame}{Overview}
+  \begin{itemize}
+  \item We use GP regression to estimate backgrounds in both one and two dimensional searches.
+  \item In both cases, we mask the region of space where the signal is expected, then use regression to estimate the background in the masked region.
+  \item Use both simulation and control region data to study efficacy of different methods. 
+  \item Majority of studies have been focused on kernel selection and approximation techniques.
+  \end{itemize}
+  \begin{center}
+    \includegraphics[width=0.35\textwidth]{figures/training_points}
+  \end{center}
+\end{frame}
+
 \begin{frame}{Kernels in 2D}
-  Below are several  of the kernels used in our studies.
+  Multidimentional kernels can have a more interesting structure. Below are several of the kernels used in our studies.
   \begin{itemize}
   \item Diagonal RBF
     \begin{equation}
@@ -382,17 +393,6 @@
 \end{frame}
 
 
-\begin{frame}{Overview}
-  \begin{itemize}
-  \item We use GP regression to estimate backgrounds in both one and two dimensional searches.
-  \item In both cases, we mask the region of space where the signal is expected, then use regression to estimate the background in the masked region.
-  \item Use both simulation and control region data to study efficacy of different methods. 
-  \item Majority of studies have been focused on kernel selection and approximation techniques.
-  \end{itemize}
-  \begin{center}
-    \includegraphics[width=0.7\textwidth]{figures/example_masking}
-  \end{center}
-\end{frame}
 
 \begin{frame}{2D Results}
   \begin{itemize}
@@ -450,17 +450,17 @@
 %   \end{center}
 % \end{frame}
 
-\begin{frame}{Fit Using Large Deep Kernel}
+\begin{frame}{Fit Using ANN Augmented RBF}
   \begin{center}
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_1200_0p5_100_0p05.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_1500_0p5_100_0p05.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_1500_0p5_150_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_1200_0p5_100_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_1500_0p5_100_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_1500_0p5_150_0p05.pdf} 
   \end{center}
 
   \begin{center}
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_1500_0p5_150_0p07.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_2000_0p7_150_0p05.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_256_128_16/E_2000_0p5_150_0p07.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_1500_0p5_150_0p07.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_2000_0p7_150_0p05.pdf} 
+    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_2000_0p5_150_0p07.pdf} 
   \end{center}
 
   \begin{onlyenv}<2>
@@ -520,7 +520,9 @@
 
 
 \begin{frame}[allowframebreaks]{Bibliography}
-  \bibliographystyle{plain}
+%  \bibliographystyle{plain}
+% \bibliographystyle{amsalpha}
+\bibliographystyle{ieeetr}
   \bibliography{bibliography.bib}
 \end{frame}
 
@@ -555,7 +557,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Function Distributions}
+\begin{frame}{Gaussian Processes as Function Distributions}
   Gaussian process allow us to define distributions over the space of functions. Given a gaussian process $\mathcal{GP} \left( m(x) , k(x,x') \right)$, and some function $h$, then
   \begin{equation}
     \mathbf{h} \sim N(m(X) , k(X,X))
