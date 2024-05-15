@@ -153,23 +153,25 @@
 
 
 
+\makeatletter
+\newcounter{col@Counter}
 \newenvironment{splitcol}[1][0.5]{
   \begin{columns}
-    \newcounter{colCounter}
-    \setcounter{colCounter}{0}
+    \setcounter{col@Counter}{0}
     \newdimen\colOneDim
     \colOneDim=\dimexpr #1\textwidth \relax
     \newdimen\colTwoDim
     \colTwoDim=\dimexpr\textwidth-\colOneDim\relax
     \newenvironment{col}{
-      \begin{column}{\ifnum\value{colCounter}=0 \colOneDim \else \colTwoDim \fi}
+      \begin{column}{\ifnum\value{col@Counter}=0 \colOneDim \else \colTwoDim \fi}
       }{
       \end{column}
-      \setcounter{colCounter}{1}
+      \setcounter{col@Counter}{1}
     }
   }{
   \end{columns}
 }
+\makeatother
 
 \colorlet{mylightblue}{blue!60!cyan!80!black!15}
 \colorlet{mypurple}{blue!50!red!70}

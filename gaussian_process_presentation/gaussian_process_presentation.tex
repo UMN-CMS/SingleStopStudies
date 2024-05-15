@@ -151,7 +151,7 @@
     \item Different algorithms are needed depending on mass splitting
     \item Techniques using flavor information have proven fruitful
     \end{itemize}
-  \item In two dimensions, resonances can be decorrelated by defining an alternative variable $\frac{m_{\stopq}}{m_{\chargino}}$
+  \item In two dimensions, resonances can be decorrelated by defining an alternative variable $\frac{m_{\chargino}}{m_{\stopq}}$
   \end{itemize}
   \vspace{-0.5cm}
   \begin{center}
@@ -202,6 +202,7 @@
   \item It has been shown to be robust against increasing luminosity\cite{frate_modeling_2017}.
   \item It is naturally extensible to multiple dimensions.
   \item Very well studied in statistics literature\cite{gardner_gpytorch_2021}, and has a large number of well established implementations \cite{noauthor_comparison_2024, gardner_gpytorch_2021}.
+  \item 1D GPR been used in approved analysis EXO-21-004 \cite{cms_collaboration_searches_2024}.
   \end{itemize}
 \end{frame}
 
@@ -374,17 +375,17 @@
 \begin{frame}{Kernels in 2D}
   Multidimentional kernels can have a more interesting structure. Below are several of the kernels used in our studies.
   \begin{itemize}
-  \item Diagonal RBF
+  \item Diagonal RBF (RBF)
     \begin{equation}
       k(\bm{x},\bm{x'}) = e^{ -\frac{1}{2} \left(  \bm{x} - \bm{x'}\right) D \left(  \bm{x} - \bm{x'}\right)}
     \end{equation}
     where $D$ is a diagonal matrix,
-  \item General RBF kernel
+  \item General RBF (GRBF) kernel
     \begin{equation}
       k(\bm{x},\bm{x'}) = e^{ -\frac{1}{2} \left(  \bm{x} - \bm{x'}\right) M \left(  \bm{x} - \bm{x'}\right)}
     \end{equation}
     where $M$ is any positive semi-definite matrix.
-  \item Feature Extractor RBF
+  \item Feature Extractor RBF (NNRBF)
     \begin{equation}
       k(\bm{x},\bm{x'}) =  k_{RBF}(NN(\bm{x}),NN(\bm{x'}))
     \end{equation}
@@ -473,6 +474,32 @@
 \end{frame}
 
 
+\begin{frame}{Covariances}
+  \begin{splitcol}[0.65]
+    \begin{col}
+      \begin{itemize}
+      \item We can examine the actual posterior covariance of the gaussian process to get a better sense of what the kernel is learning.
+      \item See how the more advanced kernels take in to account the ``falling direction'' of the combinatorial background.
+      \end{itemize}
+    \end{col}
+    \begin{col}
+      \includegraphics[width=1.0\textwidth]{figures/training_points}
+    \end{col}
+  \end{splitcol}
+  \begin{center}
+    \begin{annotimage}{\includegraphics[width=0.30\textwidth]{figures/covars/rbf_E_1500_0p5_150_0p07.pdf}}
+      \node[anchor=west] at (0.12,0.8) {\tiny RBF};
+    \end{annotimage}
+    \begin{annotimage}{\includegraphics[width=0.30\textwidth]{figures/covars/grbf_E_1500_0p5_150_0p07.pdf}}
+      \node[anchor=west] at (0.12,0.8) {\tiny GRBF};
+    \end{annotimage}
+    \begin{annotimage}{\includegraphics[width=0.30\textwidth]{figures/covars/nnrbf_32_16_8_E_1500_0p5_150_0p07.pdf}}
+      \node[anchor=west] at (0.12,0.8) {\tiny NNRBF};
+    \end{annotimage}
+  \end{center}
+\end{frame}
+
+
 \section[Statistical Considerations]{Preliminary Statistical Strategy}
 
 \begin{frame}{Notes on Statistical Procedure}
@@ -520,9 +547,9 @@
 
 
 \begin{frame}[allowframebreaks]{Bibliography}
-%  \bibliographystyle{plain}
-% \bibliographystyle{amsalpha}
-\bibliographystyle{ieeetr}
+  % \bibliographystyle{plain}
+  % \bibliographystyle{amsalpha}
+  \bibliographystyle{ieeetr}
   \bibliography{bibliography.bib}
 \end{frame}
 
