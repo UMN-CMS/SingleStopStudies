@@ -45,7 +45,7 @@
       \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
         {
           \hypersetup{allcolors=.}
-          \usebeamerfont{title}\insertsectionhead\par%
+          \usebeamerfont{title}\insertsection\par%
         }
       \end{beamercolorbox}
       \vfill
@@ -210,15 +210,21 @@
 
 \pgfmathsetmacro{\myinnersep}{2}% inner sep in mm
 \newsavebox{\annotbox}
+\newlength{\markpossep}
+\setlength{\markpossep}{1pt}
 
 \newcommand{\markpos}[2]{
   \ifmmode %
-    \sbox{\annotbox}{$\displaystyle #2 $} %
+    \sbox{\annotbox}{$\displaystyle\relax#2$} %
   \else %
     \sbox{\annotbox}{#2} %
   \fi %
-  #2 %
-  \kern-\wd\annotbox\tikz[remember picture, baseline] \node[ minimum width=\wd\annotbox, minimum height=\ht\annotbox + 2*\myinnersep] (#1) {}; %
+  {#2}\kern\dimexpr - \wd\annotbox - \markpossep \relax%
+  \tikz[remember picture, baseline=-2pt]{
+    \node[inner sep=0pt, anchor=base,
+    %fill=red,opacity=0.2,
+    minimum width=\dimexpr\wd\annotbox + 2\markpossep\relax,
+    minimum height=\dimexpr \ht\annotbox+\dp\annotbox+2\markpossep\relax] (#1) {};} 
 }
 
 \newcommand{\posannot}[4][60:1cm]{

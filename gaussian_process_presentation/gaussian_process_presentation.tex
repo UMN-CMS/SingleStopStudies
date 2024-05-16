@@ -357,7 +357,7 @@
 
 
 
-\section[Regression Results]{GPR For Combinatorial Backgrounds}
+\section[Regression Results]{2D Gaussian Process Regression For Combinatorial Backgrounds}
 \label{sec:2d-gauss-proc}
 
 \begin{frame}{Overview}
@@ -416,7 +416,7 @@
   \end{center}
 
   \begin{onlyenv}<2>
-    \posannot{rbf1}{fill=UMNMaroon!10, draw=UMNMaroon}{Poor pulls near peaked regions}
+    \posannot{rbf1}{fill=UMNMaroon!10, draw=UMNMaroon}{Poor pulls near complex regions}
     \posannot[-20:3]{rbf2}{fill=UMNMaroon!10, draw=UMNMaroon}{Ridge region results in ``waves'' of poor pulls.}
   \end{onlyenv}
 \end{frame}
@@ -475,28 +475,48 @@
 
 
 \begin{frame}{Covariances}
-  \begin{splitcol}[0.65]
-    \begin{col}
-      \begin{itemize}
-      \item We can examine the actual posterior covariance of the gaussian process to get a better sense of what the kernel is learning.
-      \item See how the more advanced kernels take in to account the ``falling direction'' of the combinatorial background.
-      \end{itemize}
-    \end{col}
-    \begin{col}
-      \includegraphics[width=1.0\textwidth]{figures/training_points}
-    \end{col}
-  \end{splitcol}
-  \begin{center}
-    \begin{annotimage}{\includegraphics[width=0.30\textwidth]{figures/covars/rbf_E_1500_0p5_150_0p07.pdf}}
-      \node[anchor=west] at (0.12,0.8) {\tiny RBF};
-    \end{annotimage}
-    \begin{annotimage}{\includegraphics[width=0.30\textwidth]{figures/covars/grbf_E_1500_0p5_150_0p07.pdf}}
-      \node[anchor=west] at (0.12,0.8) {\tiny GRBF};
-    \end{annotimage}
-    \begin{annotimage}{\includegraphics[width=0.30\textwidth]{figures/covars/nnrbf_32_16_8_E_1500_0p5_150_0p07.pdf}}
-      \node[anchor=west] at (0.12,0.8) {\tiny NNRBF};
-    \end{annotimage}
-  \end{center}
+  \begin{onlyenv}<1>
+    \begin{splitcol}[0.65]
+      \begin{col}
+        \begin{itemize}
+        \item We can examine the actual posterior covariance of the gaussian process to get a better sense of what the kernel is learning.
+        \item See how the more advanced kernels take in to account the ``falling direction'' of the combinatorial background.
+        \item Below shows how the red point covaries with all other points in the plane
+        \end{itemize}
+      \end{col}
+      \begin{col}
+        \includegraphics[width=1.0\textwidth]{figures/training_points}
+      \end{col}
+    \end{splitcol}
+  \end{onlyenv}
+  \begin{onlyenv}<2>
+    \begin{center}
+      \begin{annotimage}{\includegraphics[width=0.30\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_150_0p07.pdf}}
+        \node[anchor=west] at (0.12,0.8) {\tiny RBF};
+      \end{annotimage}
+      \begin{annotimage}{\includegraphics[width=0.30\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_150_0p07.pdf}}
+        \node[anchor=west] at (0.12,0.8) {\tiny GRBF};
+      \end{annotimage}
+      \begin{annotimage}{\includegraphics[width=0.30\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_1500_0p5_150_0p07.pdf}}
+        \node[anchor=west] at (0.12,0.8) {\tiny NNRBF};
+      \end{annotimage}
+    \end{center}
+  \end{onlyenv}
+  \begin{onlyenv}<1-2>
+    \begin{center}
+      \begin{annotimage}{\includegraphics[width=0.30\textwidth]{figures/covars/rbf_E_1500_0p5_150_0p07.pdf}}
+        \node[anchor=west] at (0.12,0.8) {\tiny RBF};
+      \end{annotimage}
+      \begin{annotimage}{\includegraphics[width=0.30\textwidth]{figures/covars/grbf_E_1500_0p5_150_0p07.pdf}}
+        \node[anchor=west] at (0.12,0.8) {\tiny GRBF};
+      \end{annotimage}
+      \begin{annotimage}{\includegraphics[width=0.30\textwidth]{figures/covars/nnrbf_32_16_8_E_1500_0p5_150_0p07.pdf}}
+        \node[anchor=west] at (0.12,0.8) {\tiny NNRBF};
+      \end{annotimage}
+    \end{center}
+  \end{onlyenv}
+
+  
 \end{frame}
 
 
@@ -510,10 +530,8 @@
     \item We are working on an implementation in combine, using the eigenvectors of the posterior covariance as nuisance parameters templates. 
     \item MCMC/SVI can be externally using packages like pyro or emcee to build the statistical model directly in python.
     \end{itemize}
-  \item {\bfseries This is is an area of active work. } However, we have made steady progress and have an ``alpha'' implementation.
+  \item {\bfseries This is is an area of active work. } However, we have made steady progress and have an ``alpha'' implementation. Hope to present statistical framework in next 1-2 months.
   \end{itemize}
-
-
 \end{frame}
 
 % \begin{frame}{Systematic Uncertainties and Validation}
@@ -535,8 +553,8 @@
   \begin{itemize}
   \item The past months have seen substantial progress on the background estimation and statistical analysis procedure.
   \item Framework can now produce good estimates for 2D backgrounds over a range of locations and masking windows. Ongoing work on improving and unifying estimation. 
-  \item We hope to present on further topics in the coming weeks, including trigger studies and data/mc comparisons, hopefully for Run3 as well. 
-  \item We hope to hear any feedback from experts regarding the methodology, or any comments or suggestions!
+  \item We hope to present on further topics in the coming weeks/months, including trigger studies and data/mc comparisons for Run2 and Run3, and out finalized statitiscal procedure.
+  \item We hope to hear any feedback from experts regarding the methodology, or any general comments or suggestions!
   \end{itemize}
   \vspace{1cm}
 
@@ -544,6 +562,8 @@
     {\Large Thank you!}
   \end{center}
 \end{frame}
+
+
 
 
 \begin{frame}[allowframebreaks]{Bibliography}
