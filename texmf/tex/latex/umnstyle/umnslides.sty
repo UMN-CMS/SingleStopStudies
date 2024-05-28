@@ -192,10 +192,10 @@
 
 
 
-\newcommand{\blockcite}[2]{
+\newcommand{\blockcite}[3][(0,0)]{
   \begin{tikzpicture}
-    \node[inner sep=0pt,anchor=south west] at (0,0) {#1};
-    \node[anchor=north west] at (0,0) {\tiny #2};
+    \node[inner sep=0pt,anchor=south west] at (0,0) {#2};
+    \node[anchor=north west] at #1 {\tiny #3};
   \end{tikzpicture}
 }
 

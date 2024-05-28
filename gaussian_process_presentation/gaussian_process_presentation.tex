@@ -454,38 +454,43 @@
   \end{center}
 \end{frame}
 
+
+\newcommand{\makegrid}[6]{
+  \begin{center}
+    \blockcite[(0,1em)]{#1}{$m_{\stopq}=1200\,,\,m_{\chi}=600$}
+    \blockcite[(0,1em)]{#2}{$m_{\stopq}=1500\,,\,m_{\chi}=750$}
+    \blockcite[(0,1em)]{#3}{$m_{\stopq}=1200\,,\,m_{\chi}=750$}
+  \end{center}
+  \begin{center}
+    \blockcite[(0,1em)]{#4}{$m_{\stopq}=1500\,,\,m_{\chi}=1000$}
+    \blockcite[(0,1em)]{#5}{$m_{\stopq}=2000\,,\,m_{\chi}=1000$}
+    \blockcite[(0,1em)]{#6}{$m_{\stopq}=2000\,,\,m_{\chi}=1400$}
+  \end{center}
+
+}
+
 \begin{frame}{Fit Using Diagonal RBF}
-  \begin{center}
-    \markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1200_0p5_100_0p05.pdf}}{0.3,0.5}{rbf2}
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_100_0p05.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_150_0p05.pdf}
-  \end{center}
-
-  \begin{center}
-    \markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_150_0p07.pdf}}{0.3,0.3}{rbf1}
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_2000_0p7_150_0p05.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_2000_0p5_150_0p07.pdf} 
-  \end{center}
-
+  \makegrid%
+  {\markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1200_0p5_100_0p05.pdf}}{0.3,0.5}{rbf2}}%
+  {\includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_100_0p05.pdf}}%
+  {\includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_150_0p05.pdf}}%
+  {\markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_1500_0p5_150_0p07.pdf}}{0.3,0.3}{rbf1} }%
+  {\includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_2000_0p7_150_0p05.pdf}}%
+  {\includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_2000_0p5_150_0p07.pdf}}%
   \begin{onlyenv}<2>
-    \posannot{rbf1}{fill=UMNMaroon!10, draw=UMNMaroon}{Poor pulls near complex regions}
+    \posannot[20:3]{rbf1}{fill=UMNMaroon!10, draw=UMNMaroon}{Poor pulls near complex regions}
     \posannot[-20:3]{rbf2}{fill=UMNMaroon!10, draw=UMNMaroon}{Ridge region results in ``waves'' of poor pulls.}
   \end{onlyenv}
 \end{frame}
 
 \begin{frame}{Fit Using GRBF}
-  \begin{center}
-    \markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1200_0p5_100_0p05.pdf}}{0.3,0.5}{grbf1}
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_100_0p05.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_150_0p05.pdf} 
-  \end{center}
-
-  \begin{center}
-    \markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_150_0p07.pdf}}{0.3,0.3}{grbf2}
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_2000_0p7_150_0p05.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_2000_0p5_150_0p07.pdf} 
-  \end{center}
-
+  \makegrid%
+  {\markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1200_0p5_100_0p05.pdf}}{0.3,0.5}{grbf1}}%
+  {\includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_100_0p05.pdf}}%
+  {\includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_150_0p05.pdf}}%
+  {\markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_1500_0p5_150_0p07.pdf}}{0.3,0.3}{grbf2} }%
+  {\includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_2000_0p7_150_0p05.pdf}}%
+  {\includegraphics[width=0.3\textwidth]{figures/2dpullplots/grbf/E_2000_0p5_150_0p07.pdf}}%
   \begin{onlyenv}<2>
     \posannot[20:3]{grbf2}{fill=UMNMaroon!10, draw=UMNMaroon}{Allowing off-diagonal terms improved pulls.}
     \posannot[-20:3]{grbf1}{fill=UMNMaroon!10, draw=UMNMaroon}{Ridge behavior is reduced.}
@@ -504,17 +509,13 @@
 % \end{frame}
 
 \begin{frame}{Fit Using ANN Augmented RBF}
-  \begin{center}
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_1200_0p5_100_0p05.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_1500_0p5_100_0p05.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_1500_0p5_150_0p05.pdf} 
-  \end{center}
-
-  \begin{center}
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_1500_0p5_150_0p07.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_2000_0p7_150_0p05.pdf} 
-    \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_2000_0p5_150_0p07.pdf} 
-  \end{center}
+  \makegrid%
+  {\markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_1200_0p5_100_0p05.pdf}}{0.3,0.5}{nnrbf_32_16_81}}%
+  {\includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_1500_0p5_100_0p05.pdf}}%
+  {\includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_1500_0p5_150_0p05.pdf}}%
+  {\markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_1500_0p5_150_0p07.pdf}}{0.3,0.3}{nnrbf_32_16_82} }%
+  {\includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_2000_0p7_150_0p05.pdf}}%
+  {\includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_2000_0p5_150_0p07.pdf}}%
 
   \begin{onlyenv}<2>
     \begin{beamerpopover}
