@@ -30,14 +30,15 @@
 }
 
 
+\newif\iflong
+
 \institute{\inst{1}University of Minnesota}
 
 \title[Single Stop Update]{RPV Single Stop Search Update}
 \subtitle{Non-parametric 2D Background Estimation Using Gaussian Processes}
+\date{2024-05-30}
 
 \begin{document}
-
-
 
 \begin{frame}
   \maketitle
@@ -99,6 +100,7 @@
 \end{frame}
 
 
+\iflong
 \begin{frame}{Current Analysis Status}
   \begin{block}{}
     The past months have seen substantial progress on several fronts. We summarize below the current major areas of work:
@@ -141,13 +143,14 @@
     \end{tikzpicture}
   \end{center}
 \end{frame}
+\fi
 
 \newcommand{\specialcell}[2][c]{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
 \begin{frame}[label=regions]{General Analysis Features}
   \begin{itemize}
   \item No leptons.
   \item A moderate number of jets, several with high $p_{T}$.
-  \item Multiple b-jets (jets identified to have come from a \quarkb), and large angular separation between b-jets. 
+  \item Multiple b-jets, and large angular separation between b-jets. 
   \end{itemize}
 
   \begin{center}
@@ -155,18 +158,19 @@
       \begin{tabular}{|ccccc|}
         \hline
         \multicolumn{5}{|c|}{Baseline Selections} \\ \hline
-        \multicolumn{5}{|c|}{\texttt{HLT\_PFHT1050 | HLT\_AK8PFJet400\_TrimMass30}} \\
+        \multicolumn{5}{|c|}{\texttt{HLT\_PFHT* | HLT\_AK8PFJet*\_TrimMass*}} \\
         \multicolumn{5}{|c|}{$4 \leq \mathrm{N_j} \leq 6$ ($p_{\mathrm{T,j}} > 30~\text{GeV}$, $|\eta_{\mathrm{j}}| < 2.4$)} \\
         \multicolumn{5}{|c|}{$p_{\mathrm{T,j_1}} > 300~\text{GeV}$} \\
         \multicolumn{5}{|c|}{$\mathrm{N}_e , \mathrm{N}_\mu  = 0$} \\
-        \multicolumn{5}{|c|}{$\Delta R_{\mathrm{b_1,b_2}} > 1$ } \\ 
+        \multicolumn{5}{|c|}{$\Delta R_{\mathrm{b_1,b_2}} > 1$ (SR Only)} \\ 
         \multicolumn{5}{|c|}{\rule[-0.5em]{0em}{0em}$m_4 \equiv m_{\mathrm{j_1,j_2,j_3,j_4}}$} \\ \hline
         \specialcell{$\lambda_{312}$\\ Uncompressed SR}
         & \specialcell{$\lambda_{312}$\\ Compressed SR}
         & \specialcell{$\lambda_{313}$\\ Uncompressed SR}
         & \specialcell{$\lambda_{313}$\\ Compressed SR}
         & \specialcell{Control Region} \\ \hline
-        $\mathrm{N_b } \geq 2$ & $\mathrm{N_b } \geq 2$ & $\mathrm{N_b } \geq 3$ & $\mathrm{N_b} \geq 3$ & $\mathrm{N_{b}} = 0$ \\
+        $\mathrm{N_{b,m} } \geq 2$ & $\mathrm{N_{b,m} } \geq 2$ & $\mathrm{N_{b,t} } \geq 3$ & $\mathrm{N_{b,t}} \geq 3$ & $\mathrm{N_{b,l}} = 0$ \\
+        $\mathrm{N_{b,t} } \geq 1$ & $\mathrm{N_{b,t} } \geq 1$ &  & & \\
         \rule[-0.5em]{0em}{0em}$m_3 \equiv m_{\mathrm{j_2,j_3,j_4}}$ & $m_3 \equiv m_{\mathrm{j_1,j_2,j_3}}$ & $m_3 \equiv m_{\mathrm{j_2,j_3,j_4}}$ & $m_3 \equiv m_{\mathrm{j_1,j_2,j_3}}$ & {} \\
         \hline
       \end{tabular}
@@ -599,7 +603,7 @@
     \item We are working on an implementation in Combine, using the eigenvectors of the posterior covariance as nuisance parameters templates. 
     \item MCMC/SVI can be externally using packages like pyro or emcee to build the statistical model directly in python.
     \end{itemize}
-  \item {\bfseries This is is an area of active work. } However, we have made steady progress and have an ``alpha'' implementation. Hope to present statistical framework in next 1-2 months.
+\iflong  \item {\bfseries This is is an area of active work. } However, we have made steady progress and have an ``alpha'' implementation. Hope to present statistical framework in next 1-2 months. \fi
   \end{itemize}
 \end{frame}
 
@@ -622,7 +626,7 @@
   \begin{itemize}
   \item The past months have seen substantial progress on the background estimation and statistical analysis procedure.
   \item Framework can now produce good estimates for 2D backgrounds over a range of locations and masking windows. Ongoing work on improving and unifying estimation. 
-  \item We hope to present on further topics in the coming weeks/months, including trigger studies and data/mc comparisons for Run2 and Run3, and out finalized statitiscal procedure.
+ \iflong \item We hope to present on further topics in the coming weeks/months, including trigger studies and data/mc comparisons for Run2 and Run3, and out finalized statitiscal procedure. \fi
   \item We hope to hear any feedback from experts regarding the methodology, or any general comments or suggestions!
   \end{itemize}
   \vspace{1cm}
