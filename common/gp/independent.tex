@@ -27,7 +27,7 @@
     xmin=0,xmax=1,
     every axis x label/.style={at={(axis description cs:1,-0.15)},anchor=north east}
     ]
-    \addplot[blue, samples=100] {0.1 * gauss1(x)};
+    \addplot[blue, samples=400] {0.1 * gauss1(x)};
     \draw[blue] (axis cs:\binOne,0) -- (axis cs:\binOne,{0.1 * gauss1(\binOne)});
   \end{axis}
   \begin{axis}[
@@ -42,7 +42,7 @@
     xmin=0,xmax=1,
     x label style={at={(axis description cs:1,-0.15)},anchor=north east}
     ]
-    \addplot[blue, samples=100] {0.1 * gauss2(x)};
+    \addplot[blue, samples=400] {0.1 * gauss2(x)};
     \draw[blue] (axis cs:\binTwo,0) -- (axis cs:\binTwo,{0.1 * gauss2(\binTwo)});
   \end{axis}
 \end{tikzpicture}

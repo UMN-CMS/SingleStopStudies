@@ -10,6 +10,32 @@
 \usepackage{tikz-feynman}
 \pgfkeys{/tikzfeynman/warn luatex=false}
 \usepgfplotslibrary{groupplots}
+%\includeonlyframes{current}
+\usepackage{listings}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
 
 
 
@@ -27,10 +53,12 @@
   \underline{Charlie Kapsiak}\inst{1} \and
   Shardul Rao\inst{1} \and
   Seth Bendigo\inst{1}
+  Catherine Welch\inst{1}
 }
 
 
 \newif\iflong
+\longtrue
 
 \institute{\inst{1}University of Minnesota}
 
@@ -81,12 +109,16 @@
 \begin{frame}{Analysis Target}
   \begin{itemize}
   \item Searching for the production and decay of a single \stopq{} to 4 standard model quarks through an RPV coupling. 
-  \item Targetting both $\lambda_{312}'',\lambda_{313}'' \in [0.1,0.4]$.
+  \item Targeting both $\lambda_{312}'',\lambda_{313}'' \in [0.1,0.4]$.
+    \begin{itemize}
+    \item Intermediate values between long lived ($\lambda < 0.1$) and direct dijet decays ($\lambda > 0.4$)
+    \end{itemize}
   \item Well motivated channel to look for SUSY \cite{evans_lhc_2013}:
     \begin{itemize}
     \item Unexplored region of RPV parameter space
     \item Large cross section allows us to probe higher masses
     \end{itemize}
+  \item For more information see \href{https://indico.cern.ch/event/1324384/\#2-rpv-single-top-squark-analys}{2023-10-06: Introduction Talk}
   \end{itemize}
 
   \begin{center}
@@ -101,48 +133,48 @@
 
 
 \iflong
-\begin{frame}{Current Analysis Status}
-  \begin{block}{}
-    The past months have seen substantial progress on several fronts. We summarize below the current major areas of work:
-  \end{block}
-  \begin{columns}[t]
-    \begin{column}{0.5\textwidth}
-      \begin{center} \textbf{Key Analysis Elements} \end{center}
-      \begin{itemize}
-        \coloreditem{working} Control/Signal region definitions.
-        \coloreditem{working} Mass reconstruction. 
-        \coloreditem{working} Background estimation
-        \coloreditem{prelim} Statistical analysis procedure. 
-        \coloreditem{prelim} Trigger studies.
-        \coloreditem{prelim} Central MC production.
-        \coloreditem{early} Early Run3 data.
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \begin{center} \textbf{Past Presentations} \end{center}
-      \begin{itemize}
-        \input{\commonfiles{previous_talks.tex}}
-      \end{itemize}
-    \end{column}
-  \end{columns}
+  \begin{frame}{Current Analysis Status}
+    \begin{block}{}
+      The past months have seen substantial progress on several fronts. We summarize below the current major areas of work:
+    \end{block}
+    % \begin{columns}[t]
+    %   \begin{column}{0.5\textwidth}
+    \begin{center} \textbf{Key Analysis Elements} \end{center}
+    \begin{itemize}
+      \coloreditem{ready} Control/Signal region definitions.
+      \coloreditem{working} Mass reconstruction. 
+      \coloreditem{working} Background estimation
+      \coloreditem{prelim} Statistical analysis procedure. 
+      \coloreditem{prelim} Trigger studies.
+      \coloreditem{prelim} Central MC production.
+      \coloreditem{early} Early Run3 data.
+    \end{itemize}
+    % \end{column}
+    % \begin{column}{0.5\textwidth}
+    %   \begin{center} \textbf{Past Presentations} \end{center}
+    %   \begin{itemize}
+    %     \input{\commonfiles{previous_talks.tex}}
+    %   \end{itemize}
+    % \end{column}
+    % \end{columns}
 
-  \begin{center}
-    \begin{tikzpicture}
-      \path[fill=early] (0,0) coordinate (A) circle(0.25em);
-      \node[anchor=left, right=0.1em of A] (A1) {Early Stages} ;
+    \begin{center}
+      \begin{tikzpicture}
+        \path[fill=early] (0,0) coordinate (A) circle(0.25em);
+        \node[anchor=left, right=0.1em of A] (A1) {Early Stages} ;
 
-      \path[fill=prelim] ( $ (A1.east) + (0.2,0)$) coordinate (B) circle(0.25em);
-      \node[anchor=left, right=0.1em of B] (B1) {Preliminary};
+        \path[fill=prelim] ( $ (A1.east) + (0.2,0)$) coordinate (B) circle(0.25em);
+        \node[anchor=left, right=0.1em of B] (B1) {Preliminary};
 
 
-      \path[fill=working] ( $ (B1.east) + (0.2,0) $ ) coordinate (B) circle(0.25em);
-      \node[anchor=left, right=0.1em of B] (C1) {Working Version};
+        \path[fill=working] ( $ (B1.east) + (0.2,0) $ ) coordinate (B) circle(0.25em);
+        \node[anchor=left, right=0.1em of B] (C1) {Working Version};
 
-      \path[fill=ready] ( $(C1.east) + (0.2,0) $) coordinate (D) circle(0.25em);
-      \node[anchor=left, right=0.1em of D] {Analysis Ready};
-    \end{tikzpicture}
-  \end{center}
-\end{frame}
+        \path[fill=ready] ( $(C1.east) + (0.2,0) $) coordinate (D) circle(0.25em);
+        \node[anchor=left, right=0.1em of D] {Analysis Ready};
+      \end{tikzpicture}
+    \end{center}
+  \end{frame}
 \fi
 
 \newcommand{\specialcell}[2][c]{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
@@ -150,7 +182,8 @@
   \begin{itemize}
   \item No leptons.
   \item A moderate number of jets, several with high $p_{T}$.
-  \item Multiple b-jets, and large angular separation between b-jets. 
+  \item Multiple b-jets with large angular separation.
+  \item Resonances from both the $\stopq$ and the $\chargino$.
   \end{itemize}
 
   \begin{center}
@@ -161,16 +194,16 @@
         \multicolumn{5}{|c|}{\texttt{HLT\_PFHT* | HLT\_AK8PFJet*\_TrimMass*}} \\
         \multicolumn{5}{|c|}{$4 \leq \mathrm{N_j} \leq 6$ ($p_{\mathrm{T,j}} > 30~\text{GeV}$, $|\eta_{\mathrm{j}}| < 2.4$)} \\
         \multicolumn{5}{|c|}{$p_{\mathrm{T,j_1}} > 300~\text{GeV}$} \\
-        \multicolumn{5}{|c|}{$\mathrm{N}_e , \mathrm{N}_\mu  = 0$} \\
-        \multicolumn{5}{|c|}{$\Delta R_{\mathrm{b_1,b_2}} > 1$ (SR Only)} \\ 
+        \multicolumn{5}{|c|}{$\mathrm{N}_e (\text{tight}), \mathrm{N}_\mu (\text{medium})  = 0$} \\
         \multicolumn{5}{|c|}{\rule[-0.5em]{0em}{0em}$m_4 \equiv m_{\mathrm{j_1,j_2,j_3,j_4}}$} \\ \hline
-        \specialcell{$\lambda_{312}$\\ Uncompressed SR}
-        & \specialcell{$\lambda_{312}$\\ Compressed SR}
-        & \specialcell{$\lambda_{313}$\\ Uncompressed SR}
-        & \specialcell{$\lambda_{313}$\\ Compressed SR}
+        \rule{0em}{1.4em}\specialcell{$\lambda_{312}''$\\ Uncompressed SR}
+        & \specialcell{$\lambda_{312}''$\\ Compressed SR}
+        & \specialcell{$\lambda_{313}''$\\ Uncompressed SR}
+        & \specialcell{$\lambda_{313}''$\\ Compressed SR}
         & \specialcell{Control Region} \\ \hline
-        $\mathrm{N_{b,m} } \geq 2$ & $\mathrm{N_{b,m} } \geq 2$ & $\mathrm{N_{b,t} } \geq 3$ & $\mathrm{N_{b,t}} \geq 3$ & $\mathrm{N_{b,l}} = 0$ \\
-        $\mathrm{N_{b,t} } \geq 1$ & $\mathrm{N_{b,t} } \geq 1$ &  & & \\
+        $\mathrm{N_{b,M} } \geq 2$ & $\mathrm{N_{b,M} } \geq 2$ & $\mathrm{N_{b,T} } \geq 3$ & $\mathrm{N_{b,M}}  \geq 3$ & $\mathrm{N_{b,L}} = 0$ \\
+        $\mathrm{N_{b,T} } \geq 1$ & $\mathrm{N_{b,T} } \geq 1$ &  & & \\
+        $\Delta R_{b_{1},b_{2}} > 1$ & $\Delta R_{b_{1},b_{2}} > 1$ & $\Delta R_{b_{1},b_{2}} > 1$ & $\Delta R_{b_{1},b_{2}} > 1$ &  \\
         \rule[-0.5em]{0em}{0em}$m_3 \equiv m_{\mathrm{j_2,j_3,j_4}}$ & $m_3 \equiv m_{\mathrm{j_1,j_2,j_3}}$ & $m_3 \equiv m_{\mathrm{j_2,j_3,j_4}}$ & $m_3 \equiv m_{\mathrm{j_1,j_2,j_3}}$ & {} \\
         \hline
       \end{tabular}
@@ -183,16 +216,17 @@
 \begin{frame}{Resonance Reconstruction}
   \begin{itemize}
   \item Both the \textcolor{blue}{\stopq{}} and the \textcolor{red}{\chargino{}} form resonances over the background. 
+  \item Looking for 2 peaks, $m_{4} \approx m_{\stopq}$ and $m_{3} \approx m_{\chargino}$.
   \item Ongoing effort to define algorithms to reconstruct the masses from jets
     \begin{itemize}
     \item Different algorithms are needed depending on mass splitting
     \item Techniques using flavor information have proven fruitful
     \end{itemize}
-  \item<2> In two dimensions, resonances can be decorrelated by defining an alternative variable $\frac{m_{\chargino}}{m_{\stopq}}$
+  \item<2-> In two dimensions, resonances can be decorrelated by defining an alternative variable $\frac{m_{3}}{m_{4}}$
   \end{itemize}
   \begin{center}
     \begin{onlyenv}<1>
-      \scalebox{0.6}{\includestandalone{\commonfiles{general/two_peaks}}}
+      \scalebox{0.55}{\includestandalone{\commonfiles{general/two_peaks}}}
     \end{onlyenv}
     \begin{onlyenv}<2->
       \begin{annotimage}{\includegraphics[width=0.30\textwidth]{figures/2d_basic_plots/m14_vs_m24_Skim_QCDInclusive2018.pdf}}
@@ -220,14 +254,19 @@
   \item General search strategy is to perform a one or two dimensional bump hunt for both the \textcolor{blue}{\stopq{}} and the \textcolor{red}{\chargino{}} resonances. 
   \item For many mass splittings, the resonances are well separated both in \textcolor{blue}{$m_{\stopq, reco}$} and \textcolor{red}{$m_{\chargino, reco}$} space, providing additional discriminating power.
   \item Key point is to effectively estimate the background. 
-  \item However, a simple cut strategy on one mass axis can result in sculpting of the background, making estimation difficult. 
+  \item However, a simple cut strategy on one mass axis can result in sculpting of the background, making estimation difficult. We must therefore model correlations appropriately, or seek a method that handles this automatically.
   \end{itemize}
   \vspace{-0.5cm}
   \begin{tikzpicture}
   \end{tikzpicture}
   \begin{center}
-    \scalebox{0.5}{\includestandalone{\commonfiles{general/two_peaks}}}\hspace{1cm}
-    \includegraphics[width=0.35\textwidth]{figures/2D_peak}
+    \includegraphics[width=0.4\textwidth]{figures/SigPlotLPPFactor1.pdf}
+    \includegraphics[width=0.4\textwidth]{figures/SigPlotLPPFactor16.pdf}
+    % \scalebox{0.5}{\includestandalone{\commonfiles{general/two_peaks}}}\hspace{1cm}
+    % \includegraphics[width=0.35\textwidth]{figures/2D_peak}
+  \end{center}
+  \begin{center}
+    \tiny Plots showing the simple significance $\text{S} / \sqrt{\text{B}}$ for $\lambda_{312}''=0.1$(left) and $\lambda_{312}''=0.4$ (right).
   \end{center}
 \end{frame}
 
@@ -240,7 +279,7 @@
         The region where signal is expected is blinded, then the fit is used to estimated the background.
       \item Traditional bump hunts have used ad-hoc functions \cite{zisopoulos_parametric_2023}, chosen because they approximate the observed shape. 
       \item However, this can introduce bias from the choice of function, and it has been shown that they scale poorly with increasing luminosity \cite{frate_modeling_2017}.
-      \item For multidimensional searches, the problem can also be compounded by selecting a function for a potentially nontrivial 2D shape. 
+      \item For multidimensional searches, the problem can also be compounded by the complexity of selecting an appropriate 2D function.
       \end{itemize}
     \end{col}
     \begin{col}
@@ -254,7 +293,7 @@
 \begin{frame}{Current Strategy}
   \begin{itemize}
   \item We have implemented our background estimation using Gaussian process regression (GPR) \cite{rasmussen_gaussian_2006}.
-  \item This is non-parametric technique that reduces bias from the choice of parametric function.
+  \item Non-parametric technique that eliminated bias from the choice of parametric form.
   \item It has been shown to be robust against increasing luminosity\cite{frate_modeling_2017}.
   \item It is naturally extensible to multiple dimensions.
   \item Very well studied in statistics literature\cite{rasmussen_gaussian_2006}, and has a large number of well established implementations \cite{noauthor_comparison_2024, gardner_gpytorch_2021}.
@@ -267,44 +306,57 @@
 
 
 \begin{frame}{Representing Histograms With Gaussians}
-  \begin{itemize}
-  \item We seek a way to describe our histogram probabilistically without reference to a specific parametric form. How can this be done?
-  \item The answer: consider each of the N bins to be a random variable: part of a N-Multivariate Normal (MVN).
-  \item<1-> Consider our falling mass distribution.
-  \item<2-> Imagine for simplicity we rebinned to have just 2 bins.
-  \item<3-> We can represent the underlying distribution as a 2D Gaussian.
-  \end{itemize}
-  \begin{center}
-    \begin{onlyenv}<1>
-      \scalebox{0.5}{\includestandalone{\commonfiles{gp/histogram}}}
-    \end{onlyenv}
+  \begin{overprint}
+    \begin{itemize}
+    \item We seek a way to describe our histogram probabilistically without reference to a specific parametric form. How can this be done?
+    \item The answer: consider each of the N bins to be a random variable: part of a Multivariate Normal (MVN).
+    \item<1-> Consider our falling mass distribution.
+    \item<2-> Imagine for simplicity we rebinned to have just 2 bins.
+    \item<3-> We can represent the underlying distribution as a 2D Gaussian.
+    \end{itemize}
+  \end{overprint}
+  \begin{overprint}
+    \begin{center}
+      \begin{onlyenv}<1>
+        \scalebox{0.5}{\includestandalone{\commonfiles{gp/histogram}}}
+      \end{onlyenv}
+    \end{center}
     \def\meanOne{0.8}
     \def\meanTwo{0.4}
     \def\binOne{0.7}
     \def\binOneStd{0.1}
     \def\binTwo{0.48}
     \def\binTwoStd{0.1}
-    \begin{onlyenv}<2>
-      \scalebox{0.5}{\includestandalone{\commonfiles{gp/independent}}}%
-      \scalebox{0.5}{\includestandalone{\commonfiles{gp/sampled_hist}}}%
-    \end{onlyenv}%
-    \begin{onlyenv}<3> %
-      \scalebox{0.5}{\includestandalone{\commonfiles{gp/sampled_hist}}}%
+
+    \begin{onlyenv}<2> %
+      \begin{center}
+        \scalebox{0.5}{\includestandalone{\commonfiles{gp/sampled_hist}}}%
+      \end{center}
     \end{onlyenv}
+
+    \begin{onlyenv}<3>
+      \begin{center}
+        \scalebox{0.5}{\includestandalone{\commonfiles{gp/independent}}}%
+        \scalebox{0.5}{\includestandalone{\commonfiles{gp/sampled_hist}}}%
+      \end{center}
+    \end{onlyenv}%
     \foreach \one/\two [count=\n] in {\meanOne/\meanTwo, 0.6/0.2, 0.9/0.1} { %
       \pgfmathtruncatemacro\z{\n+3} %
       \only<\z>{ %
         \def\binOne{\one} %
         \def\binTwo{\two} %
-        \scalebox{0.5}{\includestandalone{\commonfiles{gp/sampled_2d}}} %
-        \scalebox{0.5}{\includestandalone{\commonfiles{gp/sampled_hist}}}} %
+        \begin{center}
+          \scalebox{0.5}{\includestandalone{\commonfiles{gp/sampled_2d}}} %
+          \scalebox{0.5}{\includestandalone{\commonfiles{gp/sampled_hist}}}
+        \end{center}
+      } %
     }
-  \end{center}
+  \end{overprint}
 \end{frame}
 
 \begin{frame}{Prediction}
   \begin{itemize}
-  \item The previous slide shows how we can use a MVN to describe a histogram.
+  \item The previous slide shows how we can use an MVN to describe a histogram.
   \item How can we have actual predictive power? How can we incorporate known data to extrapolate to unknown points?
   \item Answer: Condition the gaussian! If $p(b_{1},b_{2}) \sim \mathcal{N}(b_{1},b_{2})$ then $p(b_{1} | b_{2,obs} ) \sim  \mathcal{N}(b_{1},b_{2,obs})$
   \end{itemize}
@@ -369,8 +421,8 @@
   \item The choice of kernel is the most important aspect of Gaussian processes. 
   \item The choice of $k(x,y)$ reflects our understanding of how the points should be correlated, how smooth the functions should be, etc. 
   \item The choice of kernel consists of both the selection of the form and the hyperparameters. 
-  \item Form chosen to reflect prior understanding of how regions of space should be related.
-  \item Hyperparameters are chosen to maximize the evidence: 
+  \item The form of the kernel is chosen to reflect prior understanding of how regions of space should be related.
+  \item One a kernel is chosen, hyperparameters are determined algorithmically, so as to maximize the marginal log likelihood: 
   \end{itemize}
   \begin{equation}
     \log p(\bm{y}|X) =
@@ -382,8 +434,8 @@
     \posannot{term1}{fill=UMNMaroon!10, draw=UMNMaroon}{Compatibility of model with data}
     \posannot[210:3cm]{term2}{fill=UMNMaroon!10, draw=UMNMaroon}{Overfitting penalty works against kernels with large determinants.}
   \end{onlyenv}
-
 \end{frame}
+
 \begin{frame}{Kernels and Scales Continued}
   \begin{itemize}
   \item The most common kernel is the RBF kernel
@@ -399,19 +451,20 @@
     \blockcite{\markimage{\includegraphics[width=0.31\textwidth]{figures/fitplots/pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_1350p0__m1500p0_s90p0__w_1350p0_1650p0}}{0.3,0.7}{ls2}}{Scale = 1350GeV}
   \end{center}
   \begin{onlyenv}<2>
-    \posannot[30:3cm]{ls1}{fill=UMNMaroon!10, draw=UMNMaroon}{Small length scales have no extrapolating power.}
-    \posannot[210:3cm]{ls2}{fill=UMNMaroon!10, draw=UMNMaroon}{Long length scales can't fit the data.}
+    \posannot[30:3cm]{ls1}{fill=UMNMaroon!10, draw=UMNMaroon}{Small length scales have have large \\uncertainties in their regressions.}
+    \posannot[210:3cm]{ls2}{fill=UMNMaroon!10, draw=UMNMaroon}{Long length scales can't accomodate local variations.}
   \end{onlyenv}
 \end{frame}
 
-\section[Regression Results]{2D Gaussian Process Regression For Combinatorial Backgrounds}
+\section[Regression Results]{2D Background Estimation With Gaussian Processes}
 \label{sec:2d-gauss-proc}
 
 \begin{frame}{Overview}
   \begin{itemize}
   \item We mask the region of space where the signal is expected, then use regression to estimate the background in the masked region.
-  \item Both simulation and control region data have been examined. Background looks very similar in both cases. Here we present results with CR data to improve sample size. 
+  \item Both SR simulation and CR data have been examined. Background looks very similar in both cases. Here we present results with CR data to improve sample size. 
   \item Majority of studies have been focused on kernel selection and approximation techniques.
+  \item All plots are over the plain background, with no signal injected.
   \end{itemize}
   \begin{center}
     \includegraphics[width=0.35\textwidth]{figures/training_points}
@@ -440,21 +493,18 @@
 \end{frame}
 
 
-
-\begin{frame}{2D Results}
-  \begin{itemize}
-  \item We see promising results for estimation in windows of varying sizes over the 2D plane. 
-  \item All plots are over the plain background, with no signal injected.
-  \item Depending on region, either generalized RBF kernels or and RBF kernel supplemented with the deep network have shown promising and robust estimative abilities.
-  \end{itemize}
-\end{frame}
-
 \begin{frame}{Full Plane Fit With RBF}
   \begin{center}
-    \begin{annotimage}{\includegraphics[width=0.45\textwidth]{figures/rbf_gp_mean.pdf}}
-    \end{annotimage}
-    \begin{annotimage}{\includegraphics[width=0.45\textwidth]{figures/2dpullplots/rbf/NoWindow.pdf}}
-    \end{annotimage}
+    \begin{onlyenv}<1>
+      \begin{annotimage}{\includegraphics[width=0.45\textwidth]{figures/rbf_gp_mean.pdf}}
+      \end{annotimage}
+      \begin{annotimage}{\includegraphics[width=0.45\textwidth]{figures/2dpullplots/rbf/NoWindow.pdf}}
+      \end{annotimage}
+    \end{onlyenv}
+    % \begin{onlyenv}<2>
+    %   \begin{annotimage}{\includegraphics[width=0.65\textwidth]{figures/2dpullplots/rbf/NoWindow.pdf}}
+    %   \end{annotimage}
+    % \end{onlyenv}
   \end{center}
 \end{frame}
 
@@ -463,12 +513,12 @@
   \begin{center}
     \blockcite[(0,1em)]{#1}{$m_{\stopq}=1200\,,\,m_{\chi}=600$}
     \blockcite[(0,1em)]{#2}{$m_{\stopq}=1500\,,\,m_{\chi}=750$}
-    \blockcite[(0,1em)]{#3}{$m_{\stopq}=1200\,,\,m_{\chi}=750$}
+    \blockcite[(0,1em)]{#3}{$m_{\stopq}=1500\,,\,m_{\chi}=750$}
   \end{center}
   \begin{center}
-    \blockcite[(0,1em)]{#4}{$m_{\stopq}=1500\,,\,m_{\chi}=1000$}
-    \blockcite[(0,1em)]{#5}{$m_{\stopq}=2000\,,\,m_{\chi}=1000$}
-    \blockcite[(0,1em)]{#6}{$m_{\stopq}=2000\,,\,m_{\chi}=1400$}
+    \blockcite[(0,1em)]{#4}{$m_{\stopq}=1500\,,\,m_{\chi}=750$}
+    \blockcite[(0,1em)]{#5}{$m_{\stopq}=2000\,,\,m_{\chi}=1400$}
+    \blockcite[(0,1em)]{#6}{$m_{\stopq}=2000\,,\,m_{\chi}=1000$}
   \end{center}
 
 }
@@ -482,7 +532,7 @@
   {\includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_2000_0p7_150_0p05.pdf}}%
   {\includegraphics[width=0.3\textwidth]{figures/2dpullplots/rbf/E_2000_0p5_150_0p07.pdf}}%
   \begin{onlyenv}<2>
-    \posannot[20:3]{rbf1}{fill=UMNMaroon!10, draw=UMNMaroon}{Poor pulls near complex regions}
+    \posannot[20:3]{rbf1}{fill=UMNMaroon!10, draw=UMNMaroon}{Poor pulls near complex regions \\ because correlation structure is ignored.}
     \posannot[-20:3]{rbf2}{fill=UMNMaroon!10, draw=UMNMaroon}{Ridge region results in ``waves'' of poor pulls.}
   \end{onlyenv}
 \end{frame}
@@ -587,7 +637,7 @@
     We see that GPR can provide a quality estimate of the background over a wide range of blinding windows. How can we use this to extract signal and set limits?
   \end{block}
   \begin{enumerate}
-  \item Determine appropriate kernel form using MC and CR Data.
+  \item Determine appropriate kernel form using MC and CR Data. We will derive a systematic to account for differences between regions for the kernel choice.
   \item For each signal, use MC to determine blinding window. 
   \item Run GPR on the blinded SR to determine the kernel hyperparameters, and to estimate the background in the window.
   \item Test fit quality of optimized kernel in CR and MC to validate, derive systematic related to deviation.
@@ -600,11 +650,96 @@
   \item Gaussian process regression provides a complete posterior distribution describing the background. 
   \item Therefore, a proper statistical treatment requires considering not just the posterior mean, but the complete distribution.
     \begin{itemize}
-    \item We are working on an implementation in Combine, using the eigenvectors of the posterior covariance as nuisance parameters templates. 
-    \item MCMC/SVI can be externally using packages like pyro or emcee to build the statistical model directly in python.
+    \item We are working on an implementation in Combine, using the eigenvectors of the posterior covariance as nuisance parameter templates. 
+    \item We also have a working implementation of MCMC/Variational Inference using a well established probablistic programming language, Pyro.
     \end{itemize}
-\iflong  \item {\bfseries This is is an area of active work. } However, we have made steady progress and have an ``alpha'' implementation. Hope to present statistical framework in next 1-2 months. \fi
+    \iflong  \item {\bfseries This is is an area of active work. } However, we have made steady progress and have an ``alpha'' implementation. Hope to present statistical framework in next 1-2 months. \fi
   \end{itemize}
+\end{frame}
+
+\tikzset{onslide/.code args={<#1>#2}{%
+    \only<#1>{\pgfkeysalso{#2}} 
+  }}
+\tikzset{highlight/.style={fill=MyOrange!20}}
+
+\begin{frame}[fragile, label=current]{Statistical Modeling with Combine}
+  \begin{center}
+    \begin{tikzpicture}[every node/.style={draw, rounded corners, minimum width=2cm, minimum height=1cm, align=center, font=\small},
+      >=latex,
+      ]
+      \node[onslide=<1>{highlight}] (A) {Perform Regression};
+      \node[right=0.5cm of A, onslide=<2>{highlight}] (B) {Transform MVN};
+      \node[right=0.5cm of B, onslide=<3>{highlight}] (C) {Produce Datacard \\ and Systematics};
+      \node[right=0.5cm of C, onslide=<4>{highlight}] (D) {Run Combine};
+      \draw[->] (A.east) -- (B.west);
+      \draw[->] (B.east) -- (C.west);
+      \draw[->] (C.east) -- (D.west);
+    \end{tikzpicture}
+  \end{center} 
+  \begin{overlayarea}{\textwidth}{0.8\textwidth}
+    \begin{center}
+      \begin{onlyenv}<1>
+        \begin{itemize}
+        \item The regression is run using the process described in the previous section.
+        \item The output of the regression is the posterior gaussian process, a MVN over both all the points in the plane, both blinded and unblinded.
+        \end{itemize}
+      \end{onlyenv}
+      \begin{onlyenv}<2>
+        \begin{itemize}
+        \item We diagonalize the MVN to produce ``eigen-variation'', compatible with combine's statistical model.
+        \item The MVN mean is used as the nominal background estimate.
+        \item Key transformation used is this:
+          \begin{equation}
+            z \sim \mathcal{N} \left( \mu,\Sigma \right) \implies  A z + b \sim \mathcal{N} \left( A \mu + b , A \Sigma A^{T} \right)
+          \end{equation}
+        %\item Since $\Sigma$ is PSD, we can write $\Sigma = Q \Lambda Q^{T} = Q \Lambda^{1/2} \Lambda^{1/2} Q^{T}$
+
+        %\item Suppose that our posterior MVN is given by $\mathcal{N} \left( \mu,\Sigma \right)$ of dimension N. Then if $z_{n} \sim \mathcal{N} \left( 0,1 \right) $ it follows that
+        %  \begin{equation}
+        %    Q \Lambda^{1/2} z + \mu \sim \mathcal{N} \left(  \mu ,  \Sigma \right)
+        %  \end{equation}
+        \end{itemize}
+
+      \end{onlyenv}
+      \begin{onlyenv}<3>
+        \begin{itemize}
+        \item The the background mean and eigenvariations are converted to ROOT histograms.
+        \item We generate a datacard using these variations.
+        \end{itemize}
+
+        \begin{lstlisting}
+bin               SignalRegion  SignalRegion      
+process           Signal        BackgroundEstimate
+process           0             1                 
+rate              -1            -1                
+##################################################
+EVAR_0     shape  -             1                 
+EVAR_1     shape  -             1                 
+EVAR_2     shape  -             1                 
+EVAR_3     shape  -             1                 
+        \end{lstlisting}
+
+      \end{onlyenv}
+      \begin{onlyenv}<4>
+        \begin{itemize}
+        \item Combine can be run as usual to produce significance estimates.
+        \end{itemize}
+        \begin{lstlisting}
+$ combine -M Significance datacard.txt -t -1 --expectSignal=0
+ -- Significance -- 
+Significance: 0
+Done in 0.04 min (cpu), 0.04 min (real)
+        \end{lstlisting}
+        \begin{lstlisting}
+$ combine -M Significance datacard.txt -t -1 --expectSignal=1
+ -- Significance -- 
+Significance: 3.38566
+Done in 0.02 min (cpu), 0.02 min (real)
+        \end{lstlisting}
+
+      \end{onlyenv}
+    \end{center}
+  \end{overlayarea}
 \end{frame}
 
 % \begin{frame}{Systematic Uncertainties and Validation}
@@ -626,7 +761,7 @@
   \begin{itemize}
   \item The past months have seen substantial progress on the background estimation and statistical analysis procedure.
   \item Framework can now produce good estimates for 2D backgrounds over a range of locations and masking windows. Ongoing work on improving and unifying estimation. 
- \iflong \item We hope to present on further topics in the coming weeks/months, including trigger studies and data/mc comparisons for Run2 and Run3, and out finalized statitiscal procedure. \fi
+    \iflong \item We hope to present on further topics in the coming weeks/months, including trigger studies and data/mc comparisons for Run2 and Run3, and out finalized statitiscal procedure. \fi
   \item We hope to hear any feedback from experts regarding the methodology, or any general comments or suggestions!
   \end{itemize}
   \vspace{1cm}
