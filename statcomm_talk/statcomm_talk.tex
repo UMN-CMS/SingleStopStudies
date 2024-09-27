@@ -184,11 +184,7 @@
   \begin{itemize}
   \item Both the \textcolor{blue}{\stopq{}} and the \textcolor{red}{\chargino{}} form resonances over the background. 
   \item Looking for 2 peaks, $m_{4} \approx m_{\stopq}$ and $m_{3} \approx m_{\chargino}$.
-  \item Ongoing effort to define algorithms to reconstruct the masses from jets
-    \begin{itemize}
-    \item Different algorithms are needed depending on mass splitting
-    \item Techniques using flavor information have proven fruitful
-    \end{itemize}
+  \item Nearly finalized algorithms for mass recosntruction using a simple NN based jet tagger.
   \item<2-> In two dimensions, resonances can be decorrelated by defining an alternative variable $\frac{m_{3}}{m_{4}}$
   \end{itemize}
   \begin{center}
@@ -265,7 +261,6 @@
 \begin{frame}{Current Strategy}
   \begin{itemize}
   \item We have implemented our background estimation using Gaussian process regression (GPR) \cite{rasmussen_gaussian_2006}.
-  \item Non-parametric technique that eliminated bias from the choice of parametric form.
   \item It has been shown to be robust against increasing luminosity\cite{frate_modeling_2017}.
   \item It is naturally extensible to multiple dimensions.
   \item Very well studied in statistics literature\cite{rasmussen_gaussian_2006}, and has a large number of well established implementations \cite{noauthor_comparison_2024, gardner_gpytorch_2021}.
@@ -434,12 +429,13 @@
 \begin{frame}{Overview}
   \begin{itemize}
   \item We mask the region of space where the signal is expected, then use regression to estimate the background in the masked region.
+  \item Hyperparameters are determined empirically.
   \item Both SR simulation and CR data have been examined. Background looks very similar in both cases. Here we present results with CR data to improve sample size. 
   \item Majority of studies have been focused on kernel selection and approximation techniques.
   \item All plots are over the plain background, with no signal injected.
   \end{itemize}
   \begin{center}
-    \includegraphics[width=0.35\textwidth]{figures/training_points}
+    \includegraphics[width=0.3\textwidth]{figures/training_points}
   \end{center}
 \end{frame}
 
@@ -603,7 +599,7 @@
 \section[Statistical Considerations]{Preliminary Statistical Strategy and Inquiries}
 
 
-\begin{frame}{Overview}
+\begin{frame}{Strategy Overview}
   \begin{onlyenv}<1>
     \begin{block}{}
       We see that GPR can provide a good estimate of the background over a wide range of blinding windows. How can we use this to extract signal and set limits?
@@ -743,7 +739,7 @@ Done in 0.02 min (cpu), 0.02 min (real)
 \begin{frame}{Points of Concern}
   We are hoping for your expert input on several aspects of the procedure. 
   \begin{itemize}
-  \item Our most pressing question for proceeding with the analysis is the handling of model selection systematics
+  \item Our most pressing question for proceeding with the analysis is the handling of model selection systematics. At what level does it seem necessary to consider the systematic in non-parametric model selection.
   \item This process does not take in to account systematics related to model selection, ie the choice of kernel (including its hyperparameters)?
   \item One solution is to take a fully bayesian approach, however it is less clear in the case of deep kernels how to handle this? 
   \item It would be nice to be able to use Combine for the final fit, does the proposed method of using the ``eigen-variations'' seem valid as combine inputs?
