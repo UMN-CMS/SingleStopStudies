@@ -116,13 +116,13 @@
     \end{itemize}
   \item For more information see: %\href{https://indico.cern.ch/event/1324384/\#2-rpv-single-top-squark-analys}{2023-10-06: Introduction Talk}
 
-  \begin{itemize}
-    \input{\commonfiles{previous_talks.tex}}
-  \end{itemize}
+    \begin{itemize}
+      \input{\commonfiles{previous_talks.tex}}
+    \end{itemize}
   \end{itemize}
 
   \begin{center}
-    %\graphiccite{figures/xsec.png}{0.5}{rasmussen_gaussian_2006}\hspace{1em}
+    % \graphiccite{figures/xsec.png}{0.5}{rasmussen_gaussian_2006}\hspace{1em}
     \includegraphics[width=0.5\textwidth]{figures/xsec.png}
     \scalebox{0.7}{\includestandalone{\commonfiles{general/single_stop}}}
   \end{center}
@@ -138,26 +138,26 @@
 %     \begin{block}{}
 %       The past months have seen substantial progress on several fronts. We summarize below the current major areas of work:
 %     \end{block}
-%     % \begin{columns}[t]
-%     %  \begin{column}{0.5\textwidth}
-%     \begin{center} \textbf{Key Analysis Elements} \end{center}
-%     \begin{itemize}
-%       \coloreditem{ready} Control/Signal region definitions.
-%       \coloreditem{working} Mass reconstruction. 
-%       \coloreditem{working} Background estimation
-%       \coloreditem{prelim} Statistical analysis procedure. 
-%       \coloreditem{prelim} Trigger studies.
-%       \coloreditem{prelim} Central MC production.
-%       \coloreditem{prelim} Early Run3 data.
-%     \end{itemize}
-%     % \end{column}
-%     % \begin{column}{0.5\textwidth}
-%     %   \begin{center} \textbf{Past Presentations} \end{center}
-%     %   \begin{itemize}
-%     %     \input{\commonfiles{previous_talks.tex}}
-%     %   \end{itemize}
-%     % \end{column}
-%     % \end{columns}
+%     %     \begin{columns}[t]
+%     %       \begin{column}{0.5\textwidth}
+%         \begin{center} \textbf{Key Analysis Elements} \end{center}
+%         \begin{itemize}
+%           \coloreditem{ready} Control/Signal region definitions.
+%           \coloreditem{working} Mass reconstruction. 
+%           \coloreditem{working} Background estimation
+%           \coloreditem{prelim} Statistical analysis procedure. 
+%           \coloreditem{prelim} Trigger studies.
+%           \coloreditem{prelim} Central MC production.
+%           \coloreditem{prelim} Early Run3 data.
+%         \end{itemize}
+%     %       \end{column}
+%     %       \begin{column}{0.5\textwidth}
+%     %         \begin{center} \textbf{Past Presentations} \end{center}
+%     %         \begin{itemize}
+%     %           \input{\commonfiles{previous_talks.tex}}
+%     %         \end{itemize}
+%     %       \end{column}
+%     %     \end{columns}
 
 %     \begin{center}
 %       \begin{tikzpicture}
@@ -185,13 +185,14 @@
   \item Both the \textcolor{blue}{\stopq{}} and the \textcolor{red}{\chargino{}} form resonances over the background. 
   \item Looking for 2 peaks, $m_{4} \approx m_{\stopq}$ and $m_{3} \approx m_{\chargino}$.
   \item Nearly finalized algorithms for mass recosntruction using a simple NN based jet tagger.
+  \item Mass splitting defined two regions, compressed and uncompressed.
   \item<2-> In two dimensions, resonances can be decorrelated by defining an alternative variable $\frac{m_{3}}{m_{4}}$
   \end{itemize}
   \begin{center}
     \begin{onlyenv}<1>
       \scalebox{0.55}{\includestandalone{\commonfiles{general/two_peaks}}}
     \end{onlyenv}
-    \begin{onlyenv}<2->
+    \begin{onlyenv}<2>
       \begin{annotimage}{\includegraphics[width=0.30\textwidth]{figures/2d_basic_plots/m14_vs_m24_Skim_QCDInclusive2018.pdf}}
         \node[anchor=south] at (0.5, -0.05){\scriptsize QCD Simulation};
       \end{annotimage}
@@ -215,22 +216,19 @@
 \begin{frame}{General Search Strategy}
   \begin{itemize}
   \item General search strategy is to perform a one or two dimensional bump hunt for both the \textcolor{blue}{\stopq{}} and the \textcolor{red}{\chargino{}} resonances. 
-  \item For many mass splittings, the resonances are well separated both in \textcolor{blue}{$m_{\stopq, reco}$} and \textcolor{red}{$m_{\chargino, reco}$} space, providing additional discriminating power.
-  \item Key point is to effectively estimate the background. 
-  \item However, a simple cut strategy on one mass axis can result in sculpting of the background, making estimation difficult. We must therefore model correlations appropriately, or seek a method that handles this automatically.
+  \item For uncompressed region, the resonances are well separated both in \textcolor{blue}{$m_{\stopq, reco}$} and \textcolor{red}{$m_{\chargino, reco}$} space, providing additional discriminating power.
+  \item  We must therefore model correlations appropriately, or seek a method that handles this automatically.
   \end{itemize}
   \vspace{-0.5cm}
-  \begin{tikzpicture}
-  \end{tikzpicture}
-  \begin{center}
-    \includegraphics[width=0.4\textwidth]{figures/SigPlotLPPFactor1.pdf}
-    \includegraphics[width=0.4\textwidth]{figures/SigPlotLPPFactor16.pdf}
-    % \scalebox{0.5}{\includestandalone{\commonfiles{general/two_peaks}}}\hspace{1cm}
-    % \includegraphics[width=0.35\textwidth]{figures/2D_peak}
-  \end{center}
-  \begin{center}
-    \tiny Plots showing the simple significance $\text{S} / \sqrt{\text{B}}$ for $\lambda_{312}''=0.1$(left) and $\lambda_{312}''=0.4$ (right).
-  \end{center}
+  % \begin{center}
+  %   \includegraphics[width=0.4\textwidth]{figures/SigPlotLPPFactor1.pdf}
+  %   \includegraphics[width=0.4\textwidth]{figures/SigPlotLPPFactor16.pdf}
+  %   %   \scalebox{0.5}{\includestandalone{\commonfiles{general/two_peaks}}}\hspace{1cm}
+  %   %   \includegraphics[width=0.35\textwidth]{figures/2D_peak}
+  % \end{center}
+  % \begin{center}
+  %   \tiny Plots showing the simple significance $\text{S} / \sqrt{\text{B}}$ for $\lambda_{312}''=0.1$(left) and $\lambda_{312}''=0.4$ (right).
+  % \end{center}
 \end{frame}
 
 
@@ -308,16 +306,16 @@
 %       \end{center}
 %     \end{onlyenv}%
 %     \foreach \one/\two [count=\n] in {\meanOne/\meanTwo, 0.6/0.2, 0.9/0.1} { %
-%       \pgfmathtruncatemacro\z{\n+3} %
-%       \only<\z>{ %
-%         \def\binOne{\one} %
-%         \def\binTwo{\two} %
-%         \begin{center}
-%           \scalebox{0.5}{\includestandalone{\commonfiles{gp/sampled_2d}}} %
-%           \scalebox{0.5}{\includestandalone{\commonfiles{gp/sampled_hist}}}
-%         \end{center}
-%       } %
-%     }
+%     \pgfmathtruncatemacro\z{\n+3} %
+%     \only<\z>{ %
+%     \def\binOne{\one} %
+%     \def\binTwo{\two} %
+%     \begin{center}
+%       \scalebox{0.5}{\includestandalone{\commonfiles{gp/sampled_2d}}} %
+%       \scalebox{0.5}{\includestandalone{\commonfiles{gp/sampled_hist}}}
+%     \end{center}
+%   } %
+%   }
 %   \end{overprint}
 % \end{frame}
 
@@ -336,7 +334,7 @@
 %     \scalebox{0.5}{\includestandalone{\commonfiles{gp/conditioned_2d}}} %
 %     \scalebox{0.5}{\includestandalone{\commonfiles{gp/conditioned_hist}}} %
 %   \end{center}
-  
+
 % \end{frame}
 
 
@@ -358,70 +356,70 @@
 %     \begin{split}
 %       \markpos{gpmean}{m(x)} &= \mathbb{E} \left[ f(x) \right] \\
 %       \markpos{gpk}{k(x,x')} &= \mathbb{E} \left[ \left( f(x) - m(x) \right)  \left( f(x') - m(x') \right)\right] 
-%     \end{split}
-%   \end{equation}
+                                 %     \end{split}
+                                 %                                  \end{equation}
 
-%   \begin{center}
-%     \includegraphics[width=0.4\textwidth]{figures/two_points_1}
-%     \hspace{1cm}
-%     \includegraphics[width=0.4\textwidth]{figures/two_points_2}
-%   \end{center}
+                                 %                                  \begin{center}
+                                 %                                  \includegraphics[width=0.4\textwidth]{figures/two_points_1}
+                                 %                                  \hspace{1cm}
+                                 %                                  \includegraphics[width=0.4\textwidth]{figures/two_points_2}
+                                 %                                  \end{center}
 
-%   \begin{onlyenv}<2>
-%     \posannot[20:3cm]{gpmean}{fill=UMNMaroon!10, draw=UMNMaroon}{The mean value of the MVN == Background Estimate }
-%     \posannot[-30:4cm]{gpk}{fill=UMNMaroon!10, draw=UMNMaroon}{The covariance between  any two points. \\ These are the background estimate error bars.}
-%   \end{onlyenv}
-% \end{frame}
+                                 %                                  \begin{onlyenv}<2>
+                                 %                                  \posannot[20:3cm]{gpmean}{fill=UMNMaroon!10, draw=UMNMaroon}{The mean value of the MVN == Background Estimate }
+                                 %                                  \posannot[-30:4cm]{gpk}{fill=UMNMaroon!10, draw=UMNMaroon}{The covariance between  any two points. \\ These are the background estimate error bars.}
+                                 %                                  \end{onlyenv}
+                                 %                                  \end{frame}
 
-% % \begin{frame}{Gaussian Process Regression}
-% %   \begin{itemize}
-% %   \item The ability to define distributions over functions allows us to do inference using Baye's theorem. 
-% %   \item Specifically, given $N$ training points and a Gaussian process prior, we can produce a posterior Gaussian process that provides a means to do regression. 
-% %   \end{itemize}
-% %   \begin{center}
-% %     \graphiccite{\includegraphics[width=0.7\textwidth]{figures/prior_and_conditioning}}{\cite{rasmussen_gaussian_2006}}
-% %   \end{center}
-% % \end{frame}
+                                 % %                                  \begin{frame}{Gaussian Process Regression}
+                                 % %                                    \begin{itemize}
+                                 % %                                    \item The ability to define distributions over functions allows us to do inference using Baye's theorem. 
+                                 % %                                    \item Specifically, given $N$ training points and a Gaussian process prior, we can produce a posterior Gaussian process that provides a means to do regression. 
+                                 % %                                    \end{itemize}
+                                 % %                                    \begin{center}
+                                 % %                                      \graphiccite{\includegraphics[width=0.7\textwidth]{figures/prior_and_conditioning}}{\cite{rasmussen_gaussian_2006}}
+                                 % %                                    \end{center}
+                                 % %                                  \end{frame}
 
-% \begin{frame}[label=kernelscales]{Kernels and Scales}
-%   \begin{itemize}
-%   \item The choice of kernel is the most important aspect of Gaussian processes. 
-%   \item The choice of $k(x,y)$ reflects our understanding of how the points should be correlated, how smooth the functions should be, etc. 
-%   \item The choice of kernel consists of both the selection of the form and the hyperparameters. 
-%   \item The form of the kernel is chosen to reflect prior understanding of how regions of space should be related.
-%   \item One a kernel is chosen, hyperparameters are determined algorithmically, so as to maximize the marginal log likelihood: 
-%   \end{itemize}
-%   \begin{equation}
-%     \log p(\bm{y}|X) =
-%     \markpos{term1}{-\frac{1}{2}\bm{y}^T(K+\sigma^2_n I)^{-1}\bm{y}}
-%     - \markpos{term2}{\frac{1}{2}\log|K+\sigma^2_n I|}
-%     - \frac{n}{2}\log2\pi
-%   \end{equation}
-%   \begin{onlyenv}<2>
-%     \posannot{term1}{fill=UMNMaroon!10, draw=UMNMaroon}{Compatibility of model with data}
-%     \posannot[210:3cm]{term2}{fill=UMNMaroon!10, draw=UMNMaroon}{Overfitting penalty works against kernels with large determinants.}
-%   \end{onlyenv}
-% \end{frame}
+                                 %                                  \begin{frame}[label=kernelscales]{Kernels and Scales}
+                                 %                                  \begin{itemize}
+                                 %                                  \item The choice of kernel is the most important aspect of Gaussian processes. 
+                                 %                                  \item The choice of $k(x,y)$ reflects our understanding of how the points should be correlated, how smooth the functions should be, etc. 
+                                 %                                  \item The choice of kernel consists of both the selection of the form and the hyperparameters. 
+                                 %                                  \item The form of the kernel is chosen to reflect prior understanding of how regions of space should be related.
+                                 %                                  \item One a kernel is chosen, hyperparameters are determined algorithmically, so as to maximize the marginal log likelihood: 
+                                 %                                  \end{itemize}
+                                 %                                  \begin{equation}
+                                 %                                  \log p(\bm{y}|X) =
+                                 %                                  \markpos{term1}{-\frac{1}{2}\bm{y}^T(K+\sigma^2_n I)^{-1}\bm{y}}
+                                 %                                  - \markpos{term2}{\frac{1}{2}\log|K+\sigma^2_n I|}
+                                 %                                  - \frac{n}{2}\log2\pi
+                                 %                                  \end{equation}
+                                 %                                  \begin{onlyenv}<2>
+                                 %                                  \posannot{term1}{fill=UMNMaroon!10, draw=UMNMaroon}{Compatibility of model with data}
+                                 %                                  \posannot[210:3cm]{term2}{fill=UMNMaroon!10, draw=UMNMaroon}{Overfitting penalty works against kernels with large determinants.}
+                                 %                                  \end{onlyenv}
+                                 %                                  \end{frame}
 
-% \begin{frame}{Kernels and Scales Continued}
-%   \begin{itemize}
-%   \item The most common kernel is the RBF kernel
-%     \begin{equation}
-%       k_{\text{RBF}}(\mathbf{x_1}, \mathbf{x_2}) = \exp \left( -\frac{1}{2} \frac{(\mathbf{x_1} - \mathbf{x_2})^2}{ \ell^{2}} \right)
-%     \end{equation}
-%   \item Let us see how this kernel lets us extrapolate $m_{\stopq}$ in to the blinded window indicated by the red bars, for different length scales $\ell$, using QCD Simulation on $m_{\stopq}$.
-%   \end{itemize}
+                                 %                                  \begin{frame}{Kernels and Scales Continued}
+                                 %                                  \begin{itemize}
+                                 %                                  \item The most common kernel is the RBF kernel
+                                 %                                  \begin{equation}
+                                 %                                  k_{\text{RBF}}(\mathbf{x_1}, \mathbf{x_2}) = \exp \left( -\frac{1}{2} \frac{(\mathbf{x_1} - \mathbf{x_2})^2}{ \ell^{2}} \right)
+                                 %                                  \end{equation}
+                                 %                                  \item Let us see how this kernel lets us extrapolate $m_{\stopq}$ in to the blinded window indicated by the red bars, for different length scales $\ell$, using QCD Simulation on $m_{\stopq}$.
+                                 %                                  \end{itemize}
 
-%   \begin{center}
-%     \blockcite{\markimage{\includegraphics[width=0.31\textwidth]{figures/fitplots/pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_100p0__m1500p0_s90p0__w_1350p0_1650p0}}{0.4,0.6}{ls1}}{Scale = 100GeV}
-%     \blockcite{{\includegraphics[width=0.31\textwidth]{figures/fitplots/pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_600p0__m1500p0_s90p0__w_1350p0_1650p0}}{}{}}{Scale = 600GeV}
-%     \blockcite{\markimage{\includegraphics[width=0.31\textwidth]{figures/fitplots/pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_1350p0__m1500p0_s90p0__w_1350p0_1650p0}}{0.3,0.7}{ls2}}{Scale = 1350GeV}
-%   \end{center}
-%   \begin{onlyenv}<2>
-%     \posannot[30:3cm]{ls1}{fill=UMNMaroon!10, draw=UMNMaroon}{Small length scales have have large \\uncertainties in their regressions.}
-%     \posannot[210:3cm]{ls2}{fill=UMNMaroon!10, draw=UMNMaroon}{Long length scales can't accomodate local variations.}
-%   \end{onlyenv}
-% \end{frame}
+                                 %                                  \begin{center}
+                                 %                                  \blockcite{\markimage{\includegraphics[width=0.31\textwidth]{figures/fitplots/pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_100p0__m1500p0_s90p0__w_1350p0_1650p0}}{0.4,0.6}{ls1}}{Scale = 100GeV}
+                                 %                                  \blockcite{{\includegraphics[width=0.31\textwidth]{figures/fitplots/pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_600p0__m1500p0_s90p0__w_1350p0_1650p0}}{}{}}{Scale = 600GeV}
+                                 %                                  \blockcite{\markimage{\includegraphics[width=0.31\textwidth]{figures/fitplots/pull_sr_inj_signal_312_1500_1400__lb1050__r15p0__fs_1350p0__m1500p0_s90p0__w_1350p0_1650p0}}{0.3,0.7}{ls2}}{Scale = 1350GeV}
+                                 %                                  \end{center}
+                                 %                                  \begin{onlyenv}<2>
+                                 %                                  \posannot[30:3cm]{ls1}{fill=UMNMaroon!10, draw=UMNMaroon}{Small length scales have have large \\uncertainties in their regressions.}
+                                 %                                  \posannot[210:3cm]{ls2}{fill=UMNMaroon!10, draw=UMNMaroon}{Long length scales can't accomodate local variations.}
+                                 %                                  \end{onlyenv}
+                                 %                                  \end{frame}
 
 \section[Regression Results]{2D Background Estimation With Gaussian Processes}
 \label{sec:2d-gauss-proc}
@@ -440,7 +438,7 @@
 \end{frame}
 
 \begin{frame}{Kernels in 2D}
-  Multidimentional kernels can have a richer structure than 1D kernels. Below are several of the candidates used in our studies.
+  Multidimensional kernels can have a richer structure than 1D kernels. Below are several of the candidates used in our studies.
   \begin{itemize}
   \item Diagonal RBF (RBF)
     \begin{equation}
@@ -452,7 +450,7 @@
       k(\bm{x},\bm{x'}) = e^{ -\frac{1}{2} \left(  \bm{x} - \bm{x'}\right) M \left(  \bm{x} - \bm{x'}\right)}
     \end{equation}
     where $M$ is any positive semi-definite matrix.
-  \item Feature Extractor RBF (NNRBF)
+  \item Deep Kernel
     \begin{equation}
       k(\bm{x},\bm{x'}) =  k_{RBF}(NN(\bm{x}),NN(\bm{x'}))
     \end{equation}
@@ -462,18 +460,24 @@
 
 
 \begin{frame}{Full Plane Fit With RBF}
-  \begin{center}
-    \begin{onlyenv}<1>
-      \begin{annotimage}{\includegraphics[width=0.45\textwidth]{figures/rbf_gp_mean.pdf}}
-      \end{annotimage}
-      \begin{annotimage}{\includegraphics[width=0.45\textwidth]{figures/2dpullplots/rbf/NoWindow.pdf}}
-      \end{annotimage}
-    \end{onlyenv}
-    % \begin{onlyenv}<2>
-    %   \begin{annotimage}{\includegraphics[width=0.65\textwidth]{figures/2dpullplots/rbf/NoWindow.pdf}}
-    %   \end{annotimage}
-    % \end{onlyenv}
-  \end{center}
+  \begin{itemize}
+  \item We want a kernel that can accurately extrapolate to unknown regions of the mass plane.
+  \item In the following examples, we show the quality of the regression (as pulls) when blinding different regions of the plane (shown in green).
+  \item All plots are for background only. 
+  \item Hyperparameters are maximized using the marginal log likelihood.
+  \end{itemize}
+  % \begin{center}
+  %   \begin{onlyenv}<1>
+  %     \begin{annotimage}{\includegraphics[width=0.45\textwidth]{figures/rbf_gp_mean.pdf}}
+  %     \end{annotimage}
+  %     \begin{annotimage}{\includegraphics[width=0.45\textwidth]{figures/2dpullplots/rbf/NoWindow.pdf}}
+  %     \end{annotimage}
+  %   \end{onlyenv}
+  %   %   \begin{onlyenv}<2>
+  %   %     \begin{annotimage}{\includegraphics[width=0.65\textwidth]{figures/2dpullplots/rbf/NoWindow.pdf}}
+  %   %     \end{annotimage}
+  %   %   \end{onlyenv}
+  % \end{center}
 \end{frame}
 
 
@@ -519,18 +523,7 @@
   \end{onlyenv}
 \end{frame}
 
-% \begin{frame}{Fit Using Small Deep Kernel}
-%   \begin{center}
-%     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_1200_0p5_100_0p05.pdf} 
-%     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_1500_0p5_100_0p05.pdf} 
-%     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_1500_0p5_150_0p05.pdf} 
-%     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_1500_0p5_150_0p07.pdf} 
-%     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_2000_0p7_150_0p05.pdf} 
-%     \includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_16_8/E_2000_0p5_150_0p07.pdf} 
-%   \end{center}
-% \end{frame}
-
-\begin{frame}{Fit Using ANN Augmented RBF}
+\begin{frame}{Fit Using Deep Kernel}
   \makegrid%
   {\markimage{\includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_1200_0p5_100_0p05.pdf}}{0.3,0.5}{nnrbf_32_16_81}}%
   {\includegraphics[width=0.3\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_1500_0p5_100_0p05.pdf}}%
@@ -542,7 +535,7 @@
   \begin{onlyenv}<2>
     \begin{beamerpopover}
       \begin{block}{}
-        Kernel with an ANN feature extractor can eliminate the ridge behavior while still providing good predictive performance. 
+        Deep kernel can eliminate the ridge behavior while still providing good predictive performance. 
       \end{block}
     \end{beamerpopover}
   \end{onlyenv}
@@ -560,7 +553,9 @@
         \end{itemize}
       \end{col}
       \begin{col}
-        \includegraphics[width=1.0\textwidth]{figures/training_points}
+        \begin{annotimage}{\includegraphics[width=1.0\textwidth]{figures/training_points}}
+          \draw[fill=red,color=red] (0.3175,0.305) circle[radius=0.005] ;
+        \end{annotimage}
       \end{col}
     \end{splitcol}
   \end{onlyenv}
@@ -573,7 +568,7 @@
         \node[anchor=west] at (0.14,0.83) {\tiny GRBF};
       \end{annotimage}
       \begin{annotimage}{\includegraphics[width=0.30\textwidth]{figures/2dpullplots/nnrbf_32_16_8/E_1500_0p5_150_0p07.pdf}}
-        \node[anchor=west] at (0.14,0.83) {\tiny NNRBF};
+        \node[anchor=west] at (0.14,0.83) {\tiny Deep};
       \end{annotimage}
     \end{center}
   \end{onlyenv}
@@ -587,12 +582,10 @@
         \node[anchor=west] at (0.12,0.8) {\tiny GRBF};
       \end{annotimage}
       \begin{annotimage}{\includegraphics[width=0.30\textwidth]{figures/covars/nnrbf_32_16_8_E_1500_0p5_150_0p07.pdf}}
-        \node[anchor=west] at (0.12,0.8) {\tiny NNRBF};
+        \node[anchor=west] at (0.12,0.8) {\tiny Deep};
       \end{annotimage}
     \end{center}
   \end{onlyenv}
-
-  
 \end{frame}
 
 
@@ -602,39 +595,66 @@
 \begin{frame}{Strategy Overview}
   \begin{onlyenv}<1>
     \begin{block}{}
-      We see that GPR can provide a good estimate of the background over a wide range of blinding windows. How can we use this to extract signal and set limits?
+      We see that Deep Kernel GPR can provide a good estimate of the background over a wide range of blinding windows. How can we use this to extract signal and set limits?
     \end{block}
   \end{onlyenv}
+
   \begin{onlyenv}<1-2>
     \begin{enumerate}
-    \item Determine appropriate kernel form using MC and CR Data. We will derive a systematic to account for differences between regions for the kernel choice.
-    \item For each signal, use MC to determine blinding window. 
-    \item Run GPR on the blinded SR to determine the kernel hyperparameters, and to estimate the background in the window.
-    \item\label{item:5} Use background estimate provided by GPR in our statistical model.
+    \item For each signal, use MC to determine a blinding window. 
+    \item Run Deep Kernel GPR on the blinded SR to determine the kernel hyperparameters: the RBF length scales the NN weights and biases. 
+    \item Run the regression to estimate the background in the sigal window.
+    \item\label{item:5} Use background estimate (Multivariate Normal) provided by GPR as our estimate in a simple $\mu s + b$ fit.
     \end{enumerate}
   \end{onlyenv}
-  \begin{onlyenv}<2>
-    \begin{block}{
-      }    We are hoping to finalize the procedure to move forward towards pre-approval, but we have several questions for which we were hoping for expert input.
-      \begin{itemize}
 
-      \item The necessity and methodology of hyperparameter uncertainties, effectively for the purpose of developing model selection systematics%The gaussian process furnishes an ``inherent'' uncertainty on its prediction
-        
-      \item Somewhat related, whether it is reasonable to use HiggsCombine to perform the final fit with a pre-determined regression.
+  \begin{onlyenv}<2>
+    \begin{block}{}
+      \begin{itemize}
+      \item The output of GPR, being an MVN, has an ``inherent'' uncertainty, which we take in to account when modeling.
+      \item We do not take in to account the kernel form selection as a systematic.
+      \item We are unsure of the extent/manner in which hyperparameter estimation should be handled. 
       \end{itemize}
     \end{block}
   \end{onlyenv}
+  % \begin{onlyenv}<2>
+  %   \begin{block}{
+  %   }    We are hoping to finalize the procedure to move forward towards pre-approval, but we have several questions for which we were hoping for expert input.
+  %     \begin{itemize}
+
+  %     \item The necessity and methodology of hyperparameter uncertainties, effectively for the purpose of developing model selection systematics%The gaussian process furnishes an ``inherent'' uncertainty on its prediction
+  
+  %     \item Somewhat related, whether it is reasonable to use HiggsCombine to perform the final fit with a pre-determined regression.
+  %     \end{itemize}
+  %   \end{block}
+  % \end{onlyenv}
+\end{frame}
+
+\begin{frame}{Model Selection Systematics}
+  \begin{itemize}
+  \item The gaussian process furnishes an uncertainty on its regression output.
+  \item However this does not take in to account model-selection, both in kernel form and hyperparameter optimization.
+  \item We haven't settled on a good method for handling this. 
+  \item A ``hacky'' method is to draw toys from the poisson distribution of our input, do the training, and then determine if the varied posterior mean lies within the nominal posterior's uncertainty
+    \begin{itemize}
+
+    \item In this case though it is not so clear how to turn potential devations in to a reasonable systematic.
+    \item Could consider simply ``scaling'' the uncertainties in the nominal until it accomodates the variations.
+    \end{itemize}
+    
+  \item There is also the fully Bayesian approach, but it unclear how this interacts with the Deep Kernel and also may not be integratable in to Combine. 
+  \end{itemize}
 \end{frame}
 
 
-% \begin{frame}{Notes on Statistical Procedure}
-%   \begin{itemize}
-%   \item Gaussian process regression provides a complete posterior distribution describing the background. 
-%   \item Therefore, a proper statistical treatment requires considering not just the posterior mean, but the complete distribution.
-%     \begin{itemize}
-%     \item We are working on an implementation in Combine, using the eigenvectors of the posterior covariance as nuisance parameter templates. 
-%     \item We also have a working implementation of MCMC/Variational Inference using a well established probablistic programming language, Pyro.
-% \end{frame}
+                                 %                                  \begin{frame}{Notes on Statistical Procedure}
+                                 %                                  \begin{itemize}
+                                 %                                  \item Gaussian process regression provides a complete posterior distribution describing the background. 
+                                 %                                  \item Therefore, a proper statistical treatment requires considering not just the posterior mean, but the complete distribution.
+                                 %                                  \begin{itemize}
+                                 %                                  \item We are working on an implementation in Combine, using the eigenvectors of the posterior covariance as nuisance parameter templates. 
+                                 %                                  \item We also have a working implementation of MCMC/Variational Inference using a well established probablistic programming language, Pyro.
+                                 %                                  \end{frame}
 
 \tikzset{onslide/.code args={<#1>#2}{%
     \only<#1>{\pgfkeysalso{#2}} 
@@ -667,16 +687,16 @@
         \begin{itemize}
         \item We diagonalize the MVN to produce ``eigen-variations'', compatible with combine's statistical model.
         \item The MVN mean is used as the nominal background estimate.
-        % \item Key transformation used is this:
-        %   \begin{equation}
-        %     z \sim \mathcal{N} \left( \mu,\Sigma \right) \implies  A z + b \sim \mathcal{N} \left( A \mu + b , A \Sigma A^{T} \right)
-        %   \end{equation}
-        %   \item Since $\Sigma$ is PSD, we can write $\Sigma = Q \Lambda Q^{T} = Q \Lambda^{1/2} \Lambda^{1/2} Q^{T}$
+          % \item Key transformation used is this:
+          %   \begin{equation}
+          %     z \sim \mathcal{N} \left( \mu,\Sigma \right) \implies  A z + b \sim \mathcal{N} \left( A \mu + b , A \Sigma A^{T} \right)
+          %   \end{equation}
+          % \item Since $\Sigma$ is PSD, we can write $\Sigma = Q \Lambda Q^{T} = Q \Lambda^{1/2} \Lambda^{1/2} Q^{T}$
 
-        %   \item Suppose that our posterior MVN is given by $\mathcal{N} \left( \mu,\Sigma \right)$ of dimension N. Then if $z_{n} \sim \mathcal{N} \left( 0,1 \right) $ it follows that
-        %     \begin{equation}
-        %       Q \Lambda^{1/2} z + \mu \sim \mathcal{N} \left(  \mu ,  \Sigma \right)
-        %     \end{equation}
+          % \item Suppose that our posterior MVN is given by $\mathcal{N} \left( \mu,\Sigma \right)$ of dimension N. Then if $z_{n} \sim \mathcal{N} \left( 0,1 \right) $ it follows that
+          %   \begin{equation}
+          %     Q \Lambda^{1/2} z + \mu \sim \mathcal{N} \left(  \mu ,  \Sigma \right)
+          %   \end{equation}
         \end{itemize}
 
       \end{onlyenv}
@@ -725,15 +745,6 @@ Done in 0.02 min (cpu), 0.02 min (real)
   \end{overlayarea}
 \end{frame}
 
-\begin{frame}{Model Selection Systematics}
-  \begin{itemize}
-  \item The gaussian process furnishes an uncertainty on its regression output.
-  \item However this does not take in to account model-selection, both in kernel form and hyperparameter optimization.
-  \item We haven't settled on a good method for handling this. 
-  \item A ``hacky'' method is to draw toys from the poisson distribution of our input, do the training, and then determine if the varied posterior mean lies within the nominal posterior's uncertainty
-  \item In this case though it is not so clear how to turn potential devations in to a reasonable systematic. 
-  \end{itemize}
-\end{frame}
 
 
 \begin{frame}{Points of Concern}
@@ -850,8 +861,8 @@ def statModel(bkg_mean, bkg_transform, signal_dist, observed=None):
 \end{frame}
 
 \begin{frame}{Combine Model}
-    \centering
-    \includegraphics[width=\textwidth]{figures/CombineLikelihoodEqns.png}
+  \centering
+  \includegraphics[width=\textwidth]{figures/CombineLikelihoodEqns.png}
 \end{frame}
 
 \newcommand{\specialcell}[2][c]{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
@@ -889,19 +900,34 @@ def statModel(bkg_mean, bkg_transform, signal_dist, observed=None):
   \end{center}
 \end{frame}
 
+\begin{frame}{MVN Transformation}
+  \begin{itemize}
+  \item Key transformation used is this:
+    \begin{equation}
+      z \sim \mathcal{N} \left( \mu,\Sigma \right) \implies  A z + b \sim \mathcal{N} \left( A \mu + b , A \Sigma A^{T} \right)
+    \end{equation}
+  \item Since $\Sigma$ is PSD, we can write $\Sigma = Q \Lambda Q^{T} = Q \Lambda^{1/2} \Lambda^{1/2} Q^{T}$
+
+  \item Suppose that our posterior MVN is given by $\mathcal{N} \left( \mu,\Sigma \right)$ of dimension N. Then if $z_{n} \sim \mathcal{N} \left( 0,1 \right) $ it follows that
+    \begin{equation}
+      Q \Lambda^{1/2} z + \mu \sim \mathcal{N} \left(  \mu ,  \Sigma \right)
+    \end{equation}
+  \end{itemize}
+\end{frame}
+
 
 \end{document}
 
 
 
-% Local Variables:
-% eval: (progn (setq process-environment (copy-sequence process-environment))
-% (let* ( (basedir (file-name-directory (directory-file-name (file-name-directory (buffer-file-name)))))
-% (texmfpath (file-name-concat  basedir "texmf"))
-% )
-% (setq-local TeX-style-path (append TeX-style-path  (directory-files-recursively texmfpath "auto" t)))
-% (setq-local reftex-bib-path (list basedir))
-% (setenv "TEXMFHOME" texmfpath )
-% (setenv "BIBINPUTS" basedir ))
-% )
-% End:
+                                 %                                  Local Variables:
+                                 %                                  eval: (progn (setq process-environment (copy-sequence process-environment))
+                                 %                                  (let* ( (basedir (file-name-directory (directory-file-name (file-name-directory (buffer-file-name)))))
+                                 %                                  (texmfpath (file-name-concat  basedir "texmf"))
+                                 %                                  )
+                                 %                                  (setq-local TeX-style-path (append TeX-style-path  (directory-files-recursively texmfpath "auto" t)))
+                                 %                                  (setq-local reftex-bib-path (list basedir))
+                                 %                                  (setenv "TEXMFHOME" texmfpath )
+                                 %                                  (setenv "BIBINPUTS" basedir ))
+                                 %                                  )
+                                 %                                  End:
