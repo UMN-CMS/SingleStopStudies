@@ -66,7 +66,7 @@ Earlier this month, we gave a \href{https://indico.cern.ch/event/1459336/\#9-sta
 
 \begin{center}
   % \graphiccite{figures/xsec.png}{0.5}{rasmussen_gaussian_2006}\hspace{1em}
-  \includegraphics[width=0.5\textwidth]{figures/xsec.png}
+  \includegraphics[width=0.5\textwidth]{\commonfiles{figures/xsec.png}}
   \hspace{1cm}
   \scalebox{1}{\includestandalone{\commonfiles{general/single_stop}}}
 \end{center}
@@ -109,15 +109,34 @@ To we estimate the uncerainty on the posterior distributions (for the purpose of
 
 \section{Results of Study}
 
+An indicative result is shown in Fig.~\ref{fig:fig}.
 We find that for most of the plane, the posterior predictive uncertainty is dominated by the Poisson likleihood, rather than the Gaussian uncertainty on the latent function.
 At the edges of the plane, the lower values and the fewer points to ``smooth'' over means that the GPR uncertainty becomes dominant.
 However, for the remainder of the plane, including all areas where we have signal points, the relative uncerainty of the GPR is quite small, so the variance of the Poisson likelihood is dominant.
 
+At all points in the plane, the posterior predictive uncertainty appears to have a sensible distribution.
 
-Our conclusion is that 
+\begin{figure}[]
+  \centering
+  \includegraphics[width=0.40\textwidth]{figures/E__1425p0_0p41_150_0p06/observed_outputs.pdf}
+  \includegraphics[width=0.40\textwidth]{figures/E__1425p0_0p41_150_0p06/post_relative_uncertainty.pdf}
+  \includegraphics[width=0.40\textwidth]{figures/E__1425p0_0p41_150_0p06/post_pull_statistical.pdf}
+  \includegraphics[width=0.40\textwidth]{figures/E__1425p0_0p41_150_0p06/post_pull_latent.pdf}
+  \includegraphics[width=0.40\textwidth]{figures/E__1425p0_0p41_150_0p06/post_pull_posterior.pdf}
+  \includegraphics[width=0.40\textwidth]{figures/E__1425p0_0p41_150_0p06/combo_pulls_hist.pdf}
+  \caption{
+    \label{fig:fig} Example showing the posterior predictive perfmance of a GPR with a deep kernel used to interpolate over control region data blinded for a $m_{\stopq{}}=1500,m_{\chargino{}}=600$ signal point.
+    The top left shows the true CR data, with the blinded window in green.
+    The top right shows relative uncertainty in the latent prediction $\sigma_{pred} / x_{pred}$.
+    The middle left shows the statistical pulls $(x_{obs} - x_{pred,mean})/ \sigma_{obs}$.
+    The middle right shows the pull due only to variance in the latent function.
+    The bottom left shows the complete ``posterior pull'', where $\sigma$ is instead the standard deviation of posterior distribution.
+    The bottom right shows the distribution of pulls $(x_{obs} - x_{pred,mean})/ \sigma_{posterior}$, along with a standard normal.
+  }
+\end{figure}
 
 
-
+It appears that the posterior predictive distribution of the Gaussian process, which enters in our downstream analysis, shows good behavior.
 
 \end{document}
 
