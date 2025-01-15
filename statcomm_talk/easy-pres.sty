@@ -1,0 +1,74 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{easy-pres}[]
+
+\newcommand{\blockcite}[3][(0,0)]{
+  \begin{tikzpicture}
+    \node[inner sep=0pt,anchor=south west] at (0,0) {#2};
+    \node[anchor=north west] at #1 {\tiny #3};
+  \end{tikzpicture}
+}
+
+\newcommand{\graphiccite}[3]{
+  \blockcite{\includegraphics[width=#2\textwidth]{#1}}{\textbf{Source}: \cite{#3}}
+}
+
+
+\newcommand{\coloreditem}[1]{\item[{\tikz[]{\draw[fill=#1] circle (0.25em);}}]}
+
+\newcommand{\mypos}[1]{\tikz[baseline, remember picture]{\coordinate[inner sep=0pt, anchor=base](#1);}}
+
+\pgfmathsetmacro{\myinnersep}{2}% inner sep in mm
+\newsavebox{\annotbox}
+\newlength{\markpossep}
+\setlength{\markpossep}{1pt}
+
+\newcommand{\markpos}[2]{
+  \ifmmode %
+    \sbox{\annotbox}{$\displaystyle\relax#2$} %
+  \else %
+    \sbox{\annotbox}{#2} %
+  \fi %
+  {#2}\kern\dimexpr - \wd\annotbox - \markpossep \relax%
+  \tikz[remember picture, baseline=-2pt]{
+    \node[inner sep=0pt, anchor=base,
+    %fill=red,opacity=0.2,
+    minimum width=\dimexpr\wd\annotbox + 2\markpossep\relax,
+    minimum height=\dimexpr \ht\annotbox+\dp\annotbox+2\markpossep\relax] (#1) {};} 
+}
+
+\newcommand{\posannot}[4][60:1cm]{
+  \begin{tikzpicture}[overlay, remember picture]
+    \node[#3, align=center] (annot) at ($(#2) +(#1)$) {#4};
+    \draw[->, thick] (annot) -- (#2);
+  \end{tikzpicture}
+}
+
+
+\newenvironment{annotimage}[1]{
+  \begin{tikzpicture}[remember picture]
+    \node[anchor=south west,inner sep=0] (image) at (0,0) {#1};
+    \begin{scope}[x={(image.south east)},y={(image.north west)}]
+    }{
+    \end{scope} \end{tikzpicture}
+}
+
+
+\newenvironment{beamerpopover}{
+  \begin{tikzpicture}[overlay,remember picture]
+    \pgftransformshift{\pgfpointanchor{current page}{center}}
+    \node[align=center, anchor=center,
+    text width=\textwidth %
+    ] at (0,0) %
+    \bgroup %
+  }{\egroup ; %
+  \end{tikzpicture} %
+}
+
+\newcommand{\markimage}[3]{
+  \begin{tikzpicture}[remember picture]
+    \node[anchor=south west,inner sep=0] (image) at (0,0) {#1};
+    \begin{scope}[x={(image.south east)},y={(image.north west)}]
+      \coordinate (#3) at (#2);
+    \end{scope}
+  \end{tikzpicture}
+}
