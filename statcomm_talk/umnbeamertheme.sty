@@ -1,0 +1,130 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{umnbeamertheme}
+\newif\ifincludelogo\includelogofalse
+\newif\ifheaderslides\headerslidesfalse
+\DeclareOption{logo}{\includelogotrue}
+\DeclareOption{headerslides}{\headerslidestrue}
+\DeclareOption*{\PackageWarning{umnslides}{Unknown `\CurrentOption`}}
+\ProcessOptions\relax
+
+\RequirePackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, filecolor=blue, citecolor = black, urlcolor=cyan}
+\RequirePackage{umncolortheme}
+\usebeamertemplate{madrid}
+\useinnertheme[]{circles}
+\useoutertheme[subsection=false]{miniframes}
+
+
+\setbeamercolor{frametitle}{fg = UMNGold, bg = UMNMaroon }
+\setbeamercolor{title}{fg = UMNGold, bg = UMNMaroon }
+\setbeamercolor{author in head/foot}{fg = UMNGold, bg = UMNDarkMaroon }
+\setbeamercolor{title in head/foot}{fg = UMNGold, bg = UMNMaroon}
+\setbeamercolor{date in head/foot}{fg = UMNGold, bg = UMNLightMaroon}
+\setbeamercolor{section in head/foot}{fg = UMNGold, bg = UMNLightMaroon}
+\setbeamercolor{button}{bg=UMNMaroon,fg=UMNGold}
+\setbeamerfont{footnote}{size=\tiny}
+\setbeamersize{text margin left=4mm,text margin right=6mm}
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides
+\setbeamertemplate{enumerate items}[default]%
+\setbeamercolor{itemize item}{fg = UMNMaroon}
+\setbeamercolor{itemize subitem}{fg = black}
+\setbeamercolor{itemize subsubitem}{fg = UMNMaroon}
+\setbeamercolor{enumerate item}{bg = UMNMaroon}
+\setbeamercolor{enumerate subitem}{fg = UMNStormy, bg = black}
+\setbeamercolor{enumerate subsubitem}{bg = UMNMaroon}
+
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{itemize subsubitem}{\raisebox{-0.4em}{\scalebox{3.0}{$\cdot$}}}
+
+\setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+
+% \setbeamertemplate{itemize/enumerate body begin}{\footnotesize}
+
+\setbeamertemplate{itemize/enumerate subbody begin}{\scriptsize}
+\setbeamertemplate{itemize/enumerate subsubbody begin}{\tiny}
+
+\setbeamertemplate{headline}[text line]
+{%
+  \vbox{\insertvrule{16pt}{UMNMaroon}%
+    \vskip-15pt
+    % \vskip3pt%
+    \beamerline{\color{black}\insertnavigation{\paperwidth}}%
+    \vskip3pt%
+    \insertvrule{0.8pt}{black}%
+    \vskip0pt%
+    \color{beamerstructure}\scriptsize\insertsubsection\hfill
+  }%
+}
+
+
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\ifheaderslides
+  \AtBeginSection[]{
+    \begin{frame}
+      \vfill
+      \centering
+      \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+        {
+          \hypersetup{allcolors=.}
+          \usebeamerfont{title}\insertsection\par%
+        }
+      \end{beamercolorbox}
+      \vfill
+    \end{frame}
+  }
+\fi
+
+\ifheaderslides
+  \AtBeginSection[]{
+    \begin{frame}
+      \vfill
+      \centering
+      \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+        {
+          \hypersetup{allcolors=.}
+          \usebeamerfont{title}\insertsection\par%
+        }
+      \end{beamercolorbox}
+      \vfill
+    \end{frame}
+  }
+\fi
+
+\addtobeamertemplate{headline}{\hypersetup{allcolors={}}}{}
+
+\defbeamertemplate*{frametitle}{smoothtree theme}
+{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1cm,leftskip=.3cm,rightskip=.1cm]{frametitle}
+    \par\vskip0ex{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+    \usebeamerfont*{frametitle}{\insertframetitle}\hfill\raisebox{-0.18cm}[0cm][0cm]{\includegraphics[width=0.8cm]{goldy.png}}
+    \usebeamerfont{headline}%
+    \vskip3ex
+  \end{beamercolorbox}%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,ht=.5ex,dp=0ex]{empty}
+    % \pgfuseshading{beamer@belowframetitle}%
+  \end{beamercolorbox}%
+}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+    \hypersetup{allcolors={}}%
+    \begin{beamercolorbox}[wd=.33333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+      \usebeamerfont{author in head/foot}\insertshortauthor
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+      \usebeamerfont{title in head/foot}\insertshorttitle{} -- \insertsectionhead
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+      \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+      \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+    \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\userightsidebartemplate{0cm}{}
