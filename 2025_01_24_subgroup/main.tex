@@ -4,7 +4,11 @@
 \usepackage{umnparticles}
 \graphicspath{{../common/}}
 
+\def\trig#1{\texttt{#1}}
+
 \newcommand{\commonfiles}[1]{../common/#1}
+
+\def\daspath#1{\href{https://cmsweb.cern.ch/das/request?view=list\&limit=50\&instance=prod\%2Fglobal\&input=\%2F#1}{\small\nolinkurl{/#1}}}
 
 \title[Subgroup Update]{SUS-RPV Subgroup Update}
 \subtitle{Run2+3 Data/MC and Trigger Efficiency Studies}
@@ -89,22 +93,180 @@
 \label{sec:trigger-efficiencies}
 
 \begin{frame}{Description}
-  
+  \begin{itemize}
+    
+  \item The triggers used in our analysis are \trig{PFHT*} and \trig{AK8PFJet*}
+  \item Trigger efficiencies are computed relative \trig{IsoMu*}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Trigger Object Definition}
+  \begin{description}
+  \item[Good Muon] $p_{T} > 30 $ and $|\eta| < 2.4$ and Medium Cut Id and $\text{miniRelIso}<0.1$
+  \item[Good Electron] $p_{T} > 10 $ and $|\eta| < 2.4$ and Tight Cut Id and $\text{miniRelIso}<0.1$
+  \item[Good Jet] $p_{T} > 30 $ and $|\eta| < 2.4$ and no good muon within $\Delta R < 0.4$
+  \item[Good Fat Jet] $p_{T} > 175 $ and $|\eta| < 2.4$ and no good muon within $\Delta R < 0.4$
+  \item[HT] Sum of good jet $p_{T}$
+  \end{description}
+\end{frame}
+
+\begin{frame}{2016 preVFP}
+\end{frame}
+
+\begin{frame}{2016 postVFP}
+\end{frame}
+
+\begin{frame}{2017}
+\end{frame}
+
+\begin{frame}{2018}
+\end{frame}
+
+\begin{frame}{2022 preEE}
+\end{frame}
+
+\begin{frame}{2022 postEE}
+\end{frame}
+
+\begin{frame}{2023 preEE}
+\end{frame}
+
+\begin{frame}{2023 postEE}
 \end{frame}
 
 
 \section{Data/MC Comparisons}
-\label{sec:datamc-comparisons-1}
+\label{sec:datamc-comparisons}
 
+\begin{frame}{Description}
+  \begin{itemize}
+   
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{2016 preVFP}
+\end{frame}
+
+\begin{frame}{2016 postVFP}
+\end{frame}
+
+\begin{frame}{2017}
+\end{frame}
+
+\begin{frame}{2018}
+\end{frame}
+
+\begin{frame}{2022 preEE}
+\end{frame}
+
+\begin{frame}{2022 postEE}
+\end{frame}
+
+\begin{frame}{2023 preEE}
+\end{frame}
+
+\begin{frame}{2023 postEE}
+\end{frame}
 
 \section[Significance]{Preliminary Significance Studies}
 \label{sec:prel-sign-stud}
+
+\begin{frame}{2016 preVFP}
+\end{frame}
+
+\begin{frame}{2016 postVFP}
+\end{frame}
+
+\begin{frame}{2017}
+\end{frame}
+
+\begin{frame}{2018}
+\end{frame}
+
+\begin{frame}{2022 preEE}
+\end{frame}
+
+\begin{frame}{2022 postEE}
+\end{frame}
+
+\begin{frame}{2023 preEE}
+\end{frame}
+
+\begin{frame}{2023 postEE}
+\end{frame}
 
 \section{Conclusion}
 \label{sec:conclusion}
 
 
+\appendix
 
+
+
+\begin{frame}{MC Samples Run2}
+  \begin{tabular}{p{0.2\linewidth}p{0.8\linewidth}}
+    Year & DAS Path \\ \hline
+   2016preVFP & \daspath{QCD_HT*_TuneCP5_PSWeights_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM} \\
+   2016postVFP & \daspath{QCD_HT*_TuneCP5_PSWeights_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM} \\
+   2017 & \daspath{QCD_HT*_TuneCP5_PSWeights_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM} \\
+   2018 & \daspath{QCD_HT*_TuneCP5_PSWeights_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v*/NANOAODSIM} \\
+  \end{tabular}
+  
+\end{frame}
+
+\begin{frame}{MC Samples Run3}
+  \begin{tabular}{p{0.2\linewidth}p{0.8\linewidth}}
+    Year & DAS Path \\ \hline
+   2022preEE & \daspath{QCD_PT-*0_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM} \\
+   2022postEE & \daspath{QCD_PT-*0_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM} \\
+   2023preBPix & \daspath{QCD_PT-*0_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v14-v2/NANOAODSIM} \\
+   2023postBPix & \daspath{QCD_PT-*0_TuneCP5_13p6TeV_pythia8/Run3Summer23*NanoAODv12-130X_mcRun3_2023_realistic_postBPix*/NANOAODSIM} \\
+  \end{tabular}
+\end{frame}
+
+
+\begin{frame}{Muon Data Samples Run2}
+  \begin{tabular}{p{0.2\linewidth}p{0.8\linewidth}}
+    Year & DAS Path \\ \hline
+   2016preVFP & \daspath{SingleMuon/Run2016*HIPM_UL2016_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
+   2016postVFP & \daspath{SingleMuon/Run2016*-UL2016_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
+   2017 & \daspath{SingleMuon/Run2017*-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD} \\
+   2018 & \daspath{SingleMuon/Run2018*-UL2018_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
+  \end{tabular}
+  
+\end{frame}
+
+\begin{frame}{Muon Data Samples Run3}
+  \begin{tabular}{p{0.2\linewidth}p{0.8\linewidth}}
+    Year & DAS Path \\ \hline
+   2022preEE & \daspath{Muon/Run2022*-22Sep2023-v*/NANOAOD} \\
+   2022postEE & \daspath{Muon/Run2022*-22Sep2023-v*/NANOAOD} \\
+   2023preBPix & \daspath{Muon0/Run2023C-22Sep2023_v*-v*/NANOAOD} \\
+   2023postBPix & \daspath{Muon0/Run2023D-22Sep2023_v*-v*/NANOAOD} \\
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{Jet Data Samples Run2}
+  \begin{tabular}{p{0.2\linewidth}p{0.8\linewidth}}
+    Year & DAS Path \\ \hline
+   2016preVFP & \daspath{JetHT/Run2016*HIPM_UL2016_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
+   2016postVFP & \daspath{JetHT/Run2016*-UL2016_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
+   2017 & \daspath{JetHT/Run2017*-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD} \\
+   2018 & \daspath{JetHT/Run2018*-UL2018_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
+  \end{tabular}
+  
+\end{frame}
+
+\begin{frame}{Jet Data Samples Run3}
+  \begin{tabular}{p{0.2\linewidth}p{0.8\linewidth}}
+    Year & DAS Path \\ \hline
+   2022preEE & \daspath{Jet*T/Run2022*-22Sep2023-v1/NANOAOD} \\
+   2022postEE & \daspath{JetMET/Run2022*-22Sep2023-v*/NANOAOD} \\
+   2023preBPix & \daspath{JetMET*/Run2023C-22Sep2023_v*-v*/NANOAOD} \\
+   2023postBPix & \daspath{JetMET*/Run2023D-22Sep2023_v*-v*/NANOAOD} \\
+  \end{tabular}
+\end{frame}
 
 \end{document}
 
