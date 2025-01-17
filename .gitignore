@@ -1,7 +1,6 @@
 !.*
 *.el
 */*.pdf
-common/**/*.pdf
 */*.pdf
 
 *~
