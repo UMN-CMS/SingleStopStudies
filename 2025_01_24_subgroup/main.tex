@@ -119,9 +119,8 @@
 \def\makeTrigSlide#1#2{
   \begin{frame}{#1}
     \begin{center}
-      \includegraphics[width=0.32\textwidth]{figures/trigger_eff/plots/#2/HTEff/HT}
-      \includegraphics[width=0.32\textwidth]{figures/trigger_eff/plots/#2/SingleJetEff/ak8_pt_vs_sdmass_1}
-      \includegraphics[width=0.32\textwidth]{figures/trigger_eff/plots/#2/SingleJetEff/ak8_pt}
+      \includegraphics[width=0.48\textwidth]{figures/trigger_eff/SingleMuon#2/ratio_totalHT_passedHT}
+      \includegraphics[width=0.48\textwidth]{figures/trigger_eff/SingleMuon#2/ratio_total_pT0_vs_mSoftDrop_passed_pT0_vs_mSoftDrop}
     \end{center}
   \end{frame}
 }
@@ -130,10 +129,8 @@
 \makeTrigSlide{2016 postVFP}{2016_postVFP}
 \makeTrigSlide{2017}{2017}
 \makeTrigSlide{2018}{2018}
-\makeTrigSlide{2022 preEE}{2022_preEE}
-\makeTrigSlide{2022 postEE}{2022_postEE}
-\makeTrigSlide{2023 preBPix}{2023_preBPix}
-\makeTrigSlide{2023 postBPix}{2023_postBPix}
+% \makeTrigSlide{2022 preEE}{2022_preEE}
+\makeTrigSlide{2023}{2023}
 
 
 
@@ -316,20 +313,3 @@
 \end{frame}
 
 \end{document}
-
-
-
-
-
-% Local Variables:
-% eval: (progn (setq process-environment (copy-sequence process-environment))
-% (let* ( (basedir (file-name-directory (directory-file-name (file-name-directory (buffer-file-name)))))
-% (texmfpath (file-name-concat  basedir "tex-styles"))
-% (thirdparty (file-name-concat  basedir "thirdparty"))
-% )
-% (setq-local TeX-style-path (append TeX-style-path  (directory-files-recursively texmfpath "auto" t) (directory-files-recursively thirdparty "auto" t)))
-% (setq-local reftex-bib-path (list basedir))
-% (setenv "TEXINPUTS" (format "%s:%s//:" texmfpath thirdparty))
-% (setenv "BIBINPUTS" basedir ))
-% )
-% End:
