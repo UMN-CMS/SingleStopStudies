@@ -6,8 +6,6 @@
 
 \def\trig#1{\texttt{#1}}
 
-\newcommand{\commonfiles}[1]{../common/#1}
-
 \def\daspath#1{\href{https://cmsweb.cern.ch/das/request?view=list\&limit=50\&instance=prod\%2Fglobal\&input=\%2F#1}{\small\nolinkurl{/#1}}}
 
 \title[Subgroup Update]{SUS-RPV Subgroup Update}
@@ -47,7 +45,7 @@
 
   \begin{center}
     %\graphiccite{figures/xsec.png}{0.5}{rasmussen_gaussian_2006}\hspace{1em}
-    \includegraphics[width=0.5\textwidth]{figures/xsec.png}
+    % \includegraphics[width=0.5\textwidth]{figures/xsec.png}
     % \scalebox{0.7}{\includestandalone{\commonfiles{general/single_stop}}}
   \end{center}
 \end{frame}
@@ -110,29 +108,26 @@
   \end{description}
 \end{frame}
 
-\begin{frame}{2016 preVFP}
+\def\makeTrigSlide#1#2{
+\begin{frame}{#1}
+  \begin{center}
+    \includegraphics[width=0.32\textwidth]{figures/trigger_eff/plots/#2/HTEff/HT}
+    \includegraphics[width=0.32\textwidth]{figures/trigger_eff/plots/#2/SingleJetEff/ak8_pt_vs_sdmass_1}
+    \includegraphics[width=0.32\textwidth]{figures/trigger_eff/plots/#2/SingleJetEff/ak8_pt}
+  \end{center}
 \end{frame}
+}
 
-\begin{frame}{2016 postVFP}
-\end{frame}
+\makeTrigSlide{2016 preVFP}{2016_preVFP}
+\makeTrigSlide{2016 postVFP}{2016_postVFP}
+\makeTrigSlide{2017}{2017}
+\makeTrigSlide{2018}{2018}
+\makeTrigSlide{2022 preEE}{2022_preEE}
+\makeTrigSlide{2022 postEE}{2022_postEE}
+\makeTrigSlide{2023 preBPix}{2023_preBPix}
+\makeTrigSlide{2023 postBPix}{2023_postBPix}
 
-\begin{frame}{2017}
-\end{frame}
 
-\begin{frame}{2018}
-\end{frame}
-
-\begin{frame}{2022 preEE}
-\end{frame}
-
-\begin{frame}{2022 postEE}
-\end{frame}
-
-\begin{frame}{2023 preEE}
-\end{frame}
-
-\begin{frame}{2023 postEE}
-\end{frame}
 
 
 \section{Data/MC Comparisons}
@@ -140,68 +135,46 @@
 
 \begin{frame}{Description}
   \begin{itemize}
-   
-  \item 
+  \item Although our background estimation is completely data driven, we perform data/mc comparisons to validate if MC is reasonable to use for performing studies.
+  \item We do data/mc comparisons with QCD simulation, which represents the overwhelming majority of our background.
+  \item Comparisons are performed for MC campaigns in 2016-2023. 
   \end{itemize}
 \end{frame}
 
-\begin{frame}{2016 preVFP}
-\end{frame}
 
-\begin{frame}{2016 postVFP}
+\def\makeDataMCSlide#1#2{
+\begin{frame}{#1}
+  \begin{center}
+    \includegraphics[width=0.32\textwidth]{figures/data_mc/plots/#2/Control/ratio/m14_m}
+    \includegraphics[width=0.32\textwidth]{figures/data_mc/plots/#2/Control/ratio/m13_m}
+    \includegraphics[width=0.32\textwidth]{figures/data_mc/plots/#2/Control/ratio/m24_m}
+  \end{center}
 \end{frame}
+}
 
-\begin{frame}{2017}
-\end{frame}
-
-\begin{frame}{2018}
-\end{frame}
-
-\begin{frame}{2022 preEE}
-\end{frame}
-
-\begin{frame}{2022 postEE}
-\end{frame}
-
-\begin{frame}{2023 preEE}
-\end{frame}
-
-\begin{frame}{2023 postEE}
-\end{frame}
+\makeDataMCSlide{2016 preVFP}{2016_preVFP}
+\makeDataMCSlide{2016 postVFP}{2016_postVFP}
+\makeDataMCSlide{2017}{2017}
+\makeDataMCSlide{2018}{2018}
+\makeDataMCSlide{2022 preEE}{2022_preEE}
+\makeDataMCSlide{2022 postEE}{2022_postEE}
+\makeDataMCSlide{2023 preBPix}{2023_preBPix}
+\makeDataMCSlide{2023 postBPix}{2023_postBPix}
 
 
 \begin{frame}{Key Points}
   
 \end{frame}
 
+
 \section[Significance]{Preliminary Significance Studies}
 \label{sec:prel-sign-stud}
 
-\begin{frame}{2016 preVFP}
-\end{frame}
 
-\begin{frame}{2016 postVFP}
-\end{frame}
-
-\begin{frame}{2017}
-\end{frame}
-
-\begin{frame}{2018}
-\end{frame}
-
-\begin{frame}{2022 preEE}
-\end{frame}
-
-\begin{frame}{2022 postEE}
-\end{frame}
-
-\begin{frame}{2023 preEE}
-\end{frame}
-
-\begin{frame}{2023 postEE}
-\end{frame}
-
-\begin{frame}{Key Points}
+\begin{frame}{Description}
+  \begin{itemize}
+  \item We perform expected significance studies using 
+  \end{itemize}
 \end{frame}
 
 \section{Conclusion}

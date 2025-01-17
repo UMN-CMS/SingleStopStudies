@@ -1,0 +1,2295 @@
+[
+  {
+    "processor_name": "",
+    "identifier": "ak8_pt_vs_sdmass",
+    "path": "postprocessing/trigger_eff/plots/2022_postEE/SingleJetEff/ak8_pt_vs_sdmass_1",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_muon_2022post",
+        "dataset.era.name": "2022_postEE",
+        "region_name": "SingleJetEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum",
+        "PassAK8Jet": 1
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_muon_2022post",
+          "title": "Data",
+          "era": {
+            "name": "2022_postEE",
+            "energy": 13.6,
+            "lumi": 26.67,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions22/Cert_Collisions2022_355100_362760_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_TrimMass30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "E": {
+                "lumi": 5.807
+              },
+              "F": {
+                "lumi": 17.781
+              },
+              "G": {
+                "lumi": 3.082
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2022_Summer22EE/puWeights.json.gz",
+              "name": "Collisions2022_359022_362760_eraEFG_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2022_Summer22EE/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "",
+    "identifier": "ak8_pt_vs_sdmass",
+    "path": "postprocessing/trigger_eff/plots/2022_preEE/SingleJetEff/ak8_pt_vs_sdmass_1",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_muon_2022pre",
+        "dataset.era.name": "2022_preEE",
+        "region_name": "SingleJetEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum",
+        "PassAK8Jet": 1
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_muon_2022pre",
+          "title": "Data",
+          "era": {
+            "name": "2022_preEE",
+            "energy": 13.6,
+            "lumi": 7.98,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions22/Cert_Collisions2022_355100_362760_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_TrimMass30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "C": {
+                "lumi": 5.01
+              },
+              "D": {
+                "lumi": 2.97
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2022_Summer22/puWeights.json.gz",
+              "name": "Collisions2022_355100_357900_eraBCD_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2022_Summer22/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "",
+    "identifier": "ak8_pt_vs_sdmass",
+    "path": "postprocessing/trigger_eff/plots/2023_postBPix/SingleJetEff/ak8_pt_vs_sdmass_1",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_muon_2023post",
+        "dataset.era.name": "2023_postBPix",
+        "region_name": "SingleJetEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum",
+        "PassAK8Jet": 1
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_muon_2023post",
+          "title": "Data",
+          "era": {
+            "name": "2023_postBPix",
+            "energy": 13.6,
+            "lumi": 9.451,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions23/Cert_Collisions2023_366442_370790_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_MassSD30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "D": {
+                "lumi": 9.451
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2023_Summer23BPix/puWeights.json.gz",
+              "name": "Collisions2023_369803_370790_eraD_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2023_Summer23BPix/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/2023_Summer23BPix/jetvetomaps.json.gz",
+              "name": "Summer23BPixPrompt23_RunD_V1"
+            }
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "",
+    "identifier": "ak8_pt_vs_sdmass",
+    "path": "postprocessing/trigger_eff/plots/2023_preBPix/SingleJetEff/ak8_pt_vs_sdmass_1",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_muon_2023pre",
+        "dataset.era.name": "2023_preBPix",
+        "region_name": "SingleJetEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum",
+        "PassAK8Jet": 1
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_muon_2023pre",
+          "title": "Data",
+          "era": {
+            "name": "2023_preBPix",
+            "energy": 13.6,
+            "lumi": 17.65,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions23/Cert_Collisions2023_366442_370790_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_MassSD30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "C": {
+                "lumi": 17.65
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2023_Summer23/puWeights.json.gz",
+              "name": "Collisions2023_366403_369802_eraBC_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2023_Summer23/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "",
+    "identifier": "ak8_pt_vs_sdmass",
+    "path": "postprocessing/trigger_eff/plots/2016_postVFP/SingleJetEff/ak8_pt_vs_sdmass_1",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_singlemuon_2016post",
+        "dataset.era.name": "2016_postVFP",
+        "region_name": "SingleJetEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum",
+        "PassAK8Jet": 1
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_singlemuon_2016post",
+          "title": "Data",
+          "era": {
+            "name": "2016_postVFP",
+            "energy": 13.0,
+            "lumi": 16.98,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions16/13TeV/Legacy_2016/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt",
+            "trigger_names": {
+              "HT": "PFHT900",
+              "AK8SingleJetPt": "AK8PFJet360_TrimMass30",
+              "IsoMuon": "IsoMu24",
+              "SingleMuon": "Mu50"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "F": {
+                "lumi": 0.584
+              },
+              "G": {
+                "lumi": 7.653
+              },
+              "H": {
+                "lumi": 8.74
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2016postVFP_UL/puWeights.json.gz",
+              "name": "Collisions16_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2016postVFP_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "",
+    "identifier": "ak8_pt_vs_sdmass",
+    "path": "postprocessing/trigger_eff/plots/2016_preVFP/SingleJetEff/ak8_pt_vs_sdmass_1",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_singlemuon_2016pre",
+        "dataset.era.name": "2016_preVFP",
+        "region_name": "SingleJetEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum",
+        "PassAK8Jet": 1
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_singlemuon_2016pre",
+          "title": "Data",
+          "era": {
+            "name": "2016_preVFP",
+            "energy": 13.0,
+            "lumi": 19.65,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions16/13TeV/Legacy_2016/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt",
+            "trigger_names": {
+              "HT": "PFHT900",
+              "AK8SingleJetPt": "AK8PFJet360_TrimMass30",
+              "IsoMuon": "IsoMu24",
+              "SingleMuon": "Mu50"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "B": {
+                "lumi": 5.829
+              },
+              "C": {
+                "lumi": 2.601
+              },
+              "D": {
+                "lumi": 4.286
+              },
+              "E": {
+                "lumi": 4.065
+              },
+              "F": {
+                "lumi": 2.865
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2016preVFP_UL/puWeights.json.gz",
+              "name": "Collisions16_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2016preVFP_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "",
+    "identifier": "ak8_pt_vs_sdmass",
+    "path": "postprocessing/trigger_eff/plots/2017/SingleJetEff/ak8_pt_vs_sdmass_1",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_singlemuon_2017",
+        "dataset.era.name": "2017",
+        "region_name": "SingleJetEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum",
+        "PassAK8Jet": 1
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_singlemuon_2017",
+          "title": "Data",
+          "era": {
+            "name": "2017",
+            "energy": 13.0,
+            "lumi": 41.48,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions17/13TeV/Legacy_2017/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet500",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {
+              "HT": 1200.0,
+              "AK8SingleJetPt": {
+                "pt": 500.0,
+                "msoftdrop": 0.0
+              }
+            },
+            "sections": {
+              "B": {
+                "lumi": 4.803
+              },
+              "C": {
+                "lumi": 9.574
+              },
+              "D": {
+                "lumi": 4.247
+              },
+              "E": {
+                "lumi": 9.314
+              },
+              "F": {
+                "lumi": 13.539
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2017_UL/puWeights.json.gz",
+              "name": "Collisions17_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "path": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2017_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/2017_UL/jmar.json.gz",
+              "working_point": {
+                "L": 4,
+                "M": 6,
+                "T": 7
+              },
+              "name": "PUJetID_eff"
+            },
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "",
+    "identifier": "ak8_pt_vs_sdmass",
+    "path": "postprocessing/trigger_eff/plots/2018/SingleJetEff/ak8_pt_vs_sdmass_1",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_singlemuon_2018",
+        "dataset.era.name": "2018",
+        "region_name": "SingleJetEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum",
+        "PassAK8Jet": 1
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_singlemuon_2018",
+          "title": "Data",
+          "era": {
+            "name": "2018",
+            "energy": 13.0,
+            "lumi": 59.83,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet400_TrimMass30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "A": {
+                "lumi": 14.027614284
+              },
+              "B": {
+                "lumi": 7.066552169
+              },
+              "C": {
+                "lumi": 6.898816878
+              },
+              "D": {
+                "lumi": 31.839492009
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2018_UL/puWeights.json.gz",
+              "name": "Collisions18_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2018_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/2018_UL/jmar.json.gz",
+              "working_points": {
+                "L": 4,
+                "M": 6,
+                "T": 7
+              },
+              "name": "PUJetID_eff"
+            },
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "RatioHT",
+    "identifier": "HT",
+    "path": "postprocessing/trigger_eff/plots/2022_postEE/HTEff/HT",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_muon_2022post",
+        "dataset.era.name": "2022_postEE",
+        "region_name": "HTEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum"
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_muon_2022post",
+          "title": "Data",
+          "era": {
+            "name": "2022_postEE",
+            "energy": 13.6,
+            "lumi": 26.67,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions22/Cert_Collisions2022_355100_362760_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_TrimMass30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "E": {
+                "lumi": 5.807
+              },
+              "F": {
+                "lumi": 17.781
+              },
+              "G": {
+                "lumi": 3.082
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2022_Summer22EE/puWeights.json.gz",
+              "name": "Collisions2022_359022_362760_eraEFG_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2022_Summer22EE/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "HTEff"
+      },
+      {
+        "dataset": {
+          "name": "data_muon_2022post",
+          "title": "Data",
+          "era": {
+            "name": "2022_postEE",
+            "energy": 13.6,
+            "lumi": 26.67,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions22/Cert_Collisions2022_355100_362760_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_TrimMass30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "E": {
+                "lumi": 5.807
+              },
+              "F": {
+                "lumi": 17.781
+              },
+              "G": {
+                "lumi": 3.082
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2022_Summer22EE/puWeights.json.gz",
+              "name": "Collisions2022_359022_362760_eraEFG_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2022_Summer22EE/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "HTEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "RatioHT",
+    "identifier": "HT",
+    "path": "postprocessing/trigger_eff/plots/2022_preEE/HTEff/HT",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_muon_2022pre",
+        "dataset.era.name": "2022_preEE",
+        "region_name": "HTEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum"
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_muon_2022pre",
+          "title": "Data",
+          "era": {
+            "name": "2022_preEE",
+            "energy": 13.6,
+            "lumi": 7.98,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions22/Cert_Collisions2022_355100_362760_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_TrimMass30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "C": {
+                "lumi": 5.01
+              },
+              "D": {
+                "lumi": 2.97
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2022_Summer22/puWeights.json.gz",
+              "name": "Collisions2022_355100_357900_eraBCD_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2022_Summer22/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "HTEff"
+      },
+      {
+        "dataset": {
+          "name": "data_muon_2022pre",
+          "title": "Data",
+          "era": {
+            "name": "2022_preEE",
+            "energy": 13.6,
+            "lumi": 7.98,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions22/Cert_Collisions2022_355100_362760_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_TrimMass30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "C": {
+                "lumi": 5.01
+              },
+              "D": {
+                "lumi": 2.97
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2022_Summer22/puWeights.json.gz",
+              "name": "Collisions2022_355100_357900_eraBCD_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2022_Summer22/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "HTEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "RatioHT",
+    "identifier": "HT",
+    "path": "postprocessing/trigger_eff/plots/2023_postBPix/HTEff/HT",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_muon_2023post",
+        "dataset.era.name": "2023_postBPix",
+        "region_name": "HTEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum"
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_muon_2023post",
+          "title": "Data",
+          "era": {
+            "name": "2023_postBPix",
+            "energy": 13.6,
+            "lumi": 9.451,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions23/Cert_Collisions2023_366442_370790_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_MassSD30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "D": {
+                "lumi": 9.451
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2023_Summer23BPix/puWeights.json.gz",
+              "name": "Collisions2023_369803_370790_eraD_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2023_Summer23BPix/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/2023_Summer23BPix/jetvetomaps.json.gz",
+              "name": "Summer23BPixPrompt23_RunD_V1"
+            }
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "HTEff"
+      },
+      {
+        "dataset": {
+          "name": "data_muon_2023post",
+          "title": "Data",
+          "era": {
+            "name": "2023_postBPix",
+            "energy": 13.6,
+            "lumi": 9.451,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions23/Cert_Collisions2023_366442_370790_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_MassSD30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "D": {
+                "lumi": 9.451
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2023_Summer23BPix/puWeights.json.gz",
+              "name": "Collisions2023_369803_370790_eraD_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2023_Summer23BPix/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/2023_Summer23BPix/jetvetomaps.json.gz",
+              "name": "Summer23BPixPrompt23_RunD_V1"
+            }
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "HTEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "RatioHT",
+    "identifier": "HT",
+    "path": "postprocessing/trigger_eff/plots/2023_preBPix/HTEff/HT",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_muon_2023pre",
+        "dataset.era.name": "2023_preBPix",
+        "region_name": "HTEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum"
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_muon_2023pre",
+          "title": "Data",
+          "era": {
+            "name": "2023_preBPix",
+            "energy": 13.6,
+            "lumi": 17.65,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions23/Cert_Collisions2023_366442_370790_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_MassSD30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "C": {
+                "lumi": 17.65
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2023_Summer23/puWeights.json.gz",
+              "name": "Collisions2023_366403_369802_eraBC_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2023_Summer23/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "HTEff"
+      },
+      {
+        "dataset": {
+          "name": "data_muon_2023pre",
+          "title": "Data",
+          "era": {
+            "name": "2023_preBPix",
+            "energy": 13.6,
+            "lumi": 17.65,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions23/Cert_Collisions2023_366442_370790_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_MassSD30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "C": {
+                "lumi": 17.65
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2023_Summer23/puWeights.json.gz",
+              "name": "Collisions2023_366403_369802_eraBC_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2023_Summer23/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "HTEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "RatioHT",
+    "identifier": "HT",
+    "path": "postprocessing/trigger_eff/plots/2016_postVFP/HTEff/HT",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_singlemuon_2016post",
+        "dataset.era.name": "2016_postVFP",
+        "region_name": "HTEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum"
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_singlemuon_2016post",
+          "title": "Data",
+          "era": {
+            "name": "2016_postVFP",
+            "energy": 13.0,
+            "lumi": 16.98,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions16/13TeV/Legacy_2016/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt",
+            "trigger_names": {
+              "HT": "PFHT900",
+              "AK8SingleJetPt": "AK8PFJet360_TrimMass30",
+              "IsoMuon": "IsoMu24",
+              "SingleMuon": "Mu50"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "F": {
+                "lumi": 0.584
+              },
+              "G": {
+                "lumi": 7.653
+              },
+              "H": {
+                "lumi": 8.74
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2016postVFP_UL/puWeights.json.gz",
+              "name": "Collisions16_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2016postVFP_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "HTEff"
+      },
+      {
+        "dataset": {
+          "name": "data_singlemuon_2016post",
+          "title": "Data",
+          "era": {
+            "name": "2016_postVFP",
+            "energy": 13.0,
+            "lumi": 16.98,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions16/13TeV/Legacy_2016/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt",
+            "trigger_names": {
+              "HT": "PFHT900",
+              "AK8SingleJetPt": "AK8PFJet360_TrimMass30",
+              "IsoMuon": "IsoMu24",
+              "SingleMuon": "Mu50"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "F": {
+                "lumi": 0.584
+              },
+              "G": {
+                "lumi": 7.653
+              },
+              "H": {
+                "lumi": 8.74
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2016postVFP_UL/puWeights.json.gz",
+              "name": "Collisions16_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2016postVFP_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "HTEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "RatioHT",
+    "identifier": "HT",
+    "path": "postprocessing/trigger_eff/plots/2016_preVFP/HTEff/HT",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_singlemuon_2016pre",
+        "dataset.era.name": "2016_preVFP",
+        "region_name": "HTEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum"
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_singlemuon_2016pre",
+          "title": "Data",
+          "era": {
+            "name": "2016_preVFP",
+            "energy": 13.0,
+            "lumi": 19.65,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions16/13TeV/Legacy_2016/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt",
+            "trigger_names": {
+              "HT": "PFHT900",
+              "AK8SingleJetPt": "AK8PFJet360_TrimMass30",
+              "IsoMuon": "IsoMu24",
+              "SingleMuon": "Mu50"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "B": {
+                "lumi": 5.829
+              },
+              "C": {
+                "lumi": 2.601
+              },
+              "D": {
+                "lumi": 4.286
+              },
+              "E": {
+                "lumi": 4.065
+              },
+              "F": {
+                "lumi": 2.865
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2016preVFP_UL/puWeights.json.gz",
+              "name": "Collisions16_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2016preVFP_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "HTEff"
+      },
+      {
+        "dataset": {
+          "name": "data_singlemuon_2016pre",
+          "title": "Data",
+          "era": {
+            "name": "2016_preVFP",
+            "energy": 13.0,
+            "lumi": 19.65,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions16/13TeV/Legacy_2016/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt",
+            "trigger_names": {
+              "HT": "PFHT900",
+              "AK8SingleJetPt": "AK8PFJet360_TrimMass30",
+              "IsoMuon": "IsoMu24",
+              "SingleMuon": "Mu50"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "B": {
+                "lumi": 5.829
+              },
+              "C": {
+                "lumi": 2.601
+              },
+              "D": {
+                "lumi": 4.286
+              },
+              "E": {
+                "lumi": 4.065
+              },
+              "F": {
+                "lumi": 2.865
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2016preVFP_UL/puWeights.json.gz",
+              "name": "Collisions16_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2016preVFP_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "HTEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "RatioHT",
+    "identifier": "HT",
+    "path": "postprocessing/trigger_eff/plots/2017/HTEff/HT",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_singlemuon_2017",
+        "dataset.era.name": "2017",
+        "region_name": "HTEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum"
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_singlemuon_2017",
+          "title": "Data",
+          "era": {
+            "name": "2017",
+            "energy": 13.0,
+            "lumi": 41.48,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions17/13TeV/Legacy_2017/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet500",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {
+              "HT": 1200.0,
+              "AK8SingleJetPt": {
+                "pt": 500.0,
+                "msoftdrop": 0.0
+              }
+            },
+            "sections": {
+              "B": {
+                "lumi": 4.803
+              },
+              "C": {
+                "lumi": 9.574
+              },
+              "D": {
+                "lumi": 4.247
+              },
+              "E": {
+                "lumi": 9.314
+              },
+              "F": {
+                "lumi": 13.539
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2017_UL/puWeights.json.gz",
+              "name": "Collisions17_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "path": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2017_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/2017_UL/jmar.json.gz",
+              "working_point": {
+                "L": 4,
+                "M": 6,
+                "T": 7
+              },
+              "name": "PUJetID_eff"
+            },
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "HTEff"
+      },
+      {
+        "dataset": {
+          "name": "data_singlemuon_2017",
+          "title": "Data",
+          "era": {
+            "name": "2017",
+            "energy": 13.0,
+            "lumi": 41.48,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions17/13TeV/Legacy_2017/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet500",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {
+              "HT": 1200.0,
+              "AK8SingleJetPt": {
+                "pt": 500.0,
+                "msoftdrop": 0.0
+              }
+            },
+            "sections": {
+              "B": {
+                "lumi": 4.803
+              },
+              "C": {
+                "lumi": 9.574
+              },
+              "D": {
+                "lumi": 4.247
+              },
+              "E": {
+                "lumi": 9.314
+              },
+              "F": {
+                "lumi": 13.539
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2017_UL/puWeights.json.gz",
+              "name": "Collisions17_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "path": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2017_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/2017_UL/jmar.json.gz",
+              "working_point": {
+                "L": 4,
+                "M": 6,
+                "T": 7
+              },
+              "name": "PUJetID_eff"
+            },
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "HTEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "RatioHT",
+    "identifier": "HT",
+    "path": "postprocessing/trigger_eff/plots/2018/HTEff/HT",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_singlemuon_2018",
+        "dataset.era.name": "2018",
+        "region_name": "HTEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum"
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_singlemuon_2018",
+          "title": "Data",
+          "era": {
+            "name": "2018",
+            "energy": 13.0,
+            "lumi": 59.83,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet400_TrimMass30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "A": {
+                "lumi": 14.027614284
+              },
+              "B": {
+                "lumi": 7.066552169
+              },
+              "C": {
+                "lumi": 6.898816878
+              },
+              "D": {
+                "lumi": 31.839492009
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2018_UL/puWeights.json.gz",
+              "name": "Collisions18_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2018_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/2018_UL/jmar.json.gz",
+              "working_points": {
+                "L": 4,
+                "M": 6,
+                "T": 7
+              },
+              "name": "PUJetID_eff"
+            },
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "HTEff"
+      },
+      {
+        "dataset": {
+          "name": "data_singlemuon_2018",
+          "title": "Data",
+          "era": {
+            "name": "2018",
+            "energy": 13.0,
+            "lumi": 59.83,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet400_TrimMass30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "A": {
+                "lumi": 14.027614284
+              },
+              "B": {
+                "lumi": 7.066552169
+              },
+              "C": {
+                "lumi": 6.898816878
+              },
+              "D": {
+                "lumi": 31.839492009
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2018_UL/puWeights.json.gz",
+              "name": "Collisions18_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2018_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/2018_UL/jmar.json.gz",
+              "working_points": {
+                "L": 4,
+                "M": 6,
+                "T": 7
+              },
+              "name": "PUJetID_eff"
+            },
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "HTEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "RatioAK8",
+    "identifier": "ak8_pt",
+    "path": "postprocessing/trigger_eff/plots/2022_postEE/SingleJetEff/ak8_pt",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_muon_2022post",
+        "dataset.era.name": "2022_postEE",
+        "region_name": "SingleJetEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum",
+        "PassAK8Jet": "Sum"
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_muon_2022post",
+          "title": "Data",
+          "era": {
+            "name": "2022_postEE",
+            "energy": 13.6,
+            "lumi": 26.67,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions22/Cert_Collisions2022_355100_362760_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_TrimMass30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "E": {
+                "lumi": 5.807
+              },
+              "F": {
+                "lumi": 17.781
+              },
+              "G": {
+                "lumi": 3.082
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2022_Summer22EE/puWeights.json.gz",
+              "name": "Collisions2022_359022_362760_eraEFG_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2022_Summer22EE/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      },
+      {
+        "dataset": {
+          "name": "data_muon_2022post",
+          "title": "Data",
+          "era": {
+            "name": "2022_postEE",
+            "energy": 13.6,
+            "lumi": 26.67,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions22/Cert_Collisions2022_355100_362760_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_TrimMass30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "E": {
+                "lumi": 5.807
+              },
+              "F": {
+                "lumi": 17.781
+              },
+              "G": {
+                "lumi": 3.082
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2022_Summer22EE/puWeights.json.gz",
+              "name": "Collisions2022_359022_362760_eraEFG_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2022_Summer22EE/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "RatioAK8",
+    "identifier": "ak8_pt",
+    "path": "postprocessing/trigger_eff/plots/2022_preEE/SingleJetEff/ak8_pt",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_muon_2022pre",
+        "dataset.era.name": "2022_preEE",
+        "region_name": "SingleJetEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum",
+        "PassAK8Jet": "Sum"
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_muon_2022pre",
+          "title": "Data",
+          "era": {
+            "name": "2022_preEE",
+            "energy": 13.6,
+            "lumi": 7.98,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions22/Cert_Collisions2022_355100_362760_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_TrimMass30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "C": {
+                "lumi": 5.01
+              },
+              "D": {
+                "lumi": 2.97
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2022_Summer22/puWeights.json.gz",
+              "name": "Collisions2022_355100_357900_eraBCD_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2022_Summer22/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      },
+      {
+        "dataset": {
+          "name": "data_muon_2022pre",
+          "title": "Data",
+          "era": {
+            "name": "2022_preEE",
+            "energy": 13.6,
+            "lumi": 7.98,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions22/Cert_Collisions2022_355100_362760_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_TrimMass30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "C": {
+                "lumi": 5.01
+              },
+              "D": {
+                "lumi": 2.97
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2022_Summer22/puWeights.json.gz",
+              "name": "Collisions2022_355100_357900_eraBCD_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2022_Summer22/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "RatioAK8",
+    "identifier": "ak8_pt",
+    "path": "postprocessing/trigger_eff/plots/2023_postBPix/SingleJetEff/ak8_pt",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_muon_2023post",
+        "dataset.era.name": "2023_postBPix",
+        "region_name": "SingleJetEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum",
+        "PassAK8Jet": "Sum"
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_muon_2023post",
+          "title": "Data",
+          "era": {
+            "name": "2023_postBPix",
+            "energy": 13.6,
+            "lumi": 9.451,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions23/Cert_Collisions2023_366442_370790_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_MassSD30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "D": {
+                "lumi": 9.451
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2023_Summer23BPix/puWeights.json.gz",
+              "name": "Collisions2023_369803_370790_eraD_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2023_Summer23BPix/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/2023_Summer23BPix/jetvetomaps.json.gz",
+              "name": "Summer23BPixPrompt23_RunD_V1"
+            }
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      },
+      {
+        "dataset": {
+          "name": "data_muon_2023post",
+          "title": "Data",
+          "era": {
+            "name": "2023_postBPix",
+            "energy": 13.6,
+            "lumi": 9.451,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions23/Cert_Collisions2023_366442_370790_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_MassSD30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "D": {
+                "lumi": 9.451
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2023_Summer23BPix/puWeights.json.gz",
+              "name": "Collisions2023_369803_370790_eraD_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2023_Summer23BPix/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/2023_Summer23BPix/jetvetomaps.json.gz",
+              "name": "Summer23BPixPrompt23_RunD_V1"
+            }
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "RatioAK8",
+    "identifier": "ak8_pt",
+    "path": "postprocessing/trigger_eff/plots/2023_preBPix/SingleJetEff/ak8_pt",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_muon_2023pre",
+        "dataset.era.name": "2023_preBPix",
+        "region_name": "SingleJetEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum",
+        "PassAK8Jet": "Sum"
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_muon_2023pre",
+          "title": "Data",
+          "era": {
+            "name": "2023_preBPix",
+            "energy": 13.6,
+            "lumi": 17.65,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions23/Cert_Collisions2023_366442_370790_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_MassSD30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "C": {
+                "lumi": 17.65
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2023_Summer23/puWeights.json.gz",
+              "name": "Collisions2023_366403_369802_eraBC_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2023_Summer23/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      },
+      {
+        "dataset": {
+          "name": "data_muon_2023pre",
+          "title": "Data",
+          "era": {
+            "name": "2023_preBPix",
+            "energy": 13.6,
+            "lumi": 17.65,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions23/Cert_Collisions2023_366442_370790_Golden.json",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet420_MassSD30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "C": {
+                "lumi": 17.65
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2023_Summer23/puWeights.json.gz",
+              "name": "Collisions2023_366403_369802_eraBC_GoldenJson"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2023_Summer23/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "RatioAK8",
+    "identifier": "ak8_pt",
+    "path": "postprocessing/trigger_eff/plots/2016_postVFP/SingleJetEff/ak8_pt",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_singlemuon_2016post",
+        "dataset.era.name": "2016_postVFP",
+        "region_name": "SingleJetEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum",
+        "PassAK8Jet": "Sum"
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_singlemuon_2016post",
+          "title": "Data",
+          "era": {
+            "name": "2016_postVFP",
+            "energy": 13.0,
+            "lumi": 16.98,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions16/13TeV/Legacy_2016/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt",
+            "trigger_names": {
+              "HT": "PFHT900",
+              "AK8SingleJetPt": "AK8PFJet360_TrimMass30",
+              "IsoMuon": "IsoMu24",
+              "SingleMuon": "Mu50"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "F": {
+                "lumi": 0.584
+              },
+              "G": {
+                "lumi": 7.653
+              },
+              "H": {
+                "lumi": 8.74
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2016postVFP_UL/puWeights.json.gz",
+              "name": "Collisions16_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2016postVFP_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      },
+      {
+        "dataset": {
+          "name": "data_singlemuon_2016post",
+          "title": "Data",
+          "era": {
+            "name": "2016_postVFP",
+            "energy": 13.0,
+            "lumi": 16.98,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions16/13TeV/Legacy_2016/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt",
+            "trigger_names": {
+              "HT": "PFHT900",
+              "AK8SingleJetPt": "AK8PFJet360_TrimMass30",
+              "IsoMuon": "IsoMu24",
+              "SingleMuon": "Mu50"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "F": {
+                "lumi": 0.584
+              },
+              "G": {
+                "lumi": 7.653
+              },
+              "H": {
+                "lumi": 8.74
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2016postVFP_UL/puWeights.json.gz",
+              "name": "Collisions16_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2016postVFP_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "RatioAK8",
+    "identifier": "ak8_pt",
+    "path": "postprocessing/trigger_eff/plots/2016_preVFP/SingleJetEff/ak8_pt",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_singlemuon_2016pre",
+        "dataset.era.name": "2016_preVFP",
+        "region_name": "SingleJetEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum",
+        "PassAK8Jet": "Sum"
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_singlemuon_2016pre",
+          "title": "Data",
+          "era": {
+            "name": "2016_preVFP",
+            "energy": 13.0,
+            "lumi": 19.65,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions16/13TeV/Legacy_2016/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt",
+            "trigger_names": {
+              "HT": "PFHT900",
+              "AK8SingleJetPt": "AK8PFJet360_TrimMass30",
+              "IsoMuon": "IsoMu24",
+              "SingleMuon": "Mu50"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "B": {
+                "lumi": 5.829
+              },
+              "C": {
+                "lumi": 2.601
+              },
+              "D": {
+                "lumi": 4.286
+              },
+              "E": {
+                "lumi": 4.065
+              },
+              "F": {
+                "lumi": 2.865
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2016preVFP_UL/puWeights.json.gz",
+              "name": "Collisions16_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2016preVFP_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      },
+      {
+        "dataset": {
+          "name": "data_singlemuon_2016pre",
+          "title": "Data",
+          "era": {
+            "name": "2016_preVFP",
+            "energy": 13.0,
+            "lumi": 19.65,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions16/13TeV/Legacy_2016/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt",
+            "trigger_names": {
+              "HT": "PFHT900",
+              "AK8SingleJetPt": "AK8PFJet360_TrimMass30",
+              "IsoMuon": "IsoMu24",
+              "SingleMuon": "Mu50"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "B": {
+                "lumi": 5.829
+              },
+              "C": {
+                "lumi": 2.601
+              },
+              "D": {
+                "lumi": 4.286
+              },
+              "E": {
+                "lumi": 4.065
+              },
+              "F": {
+                "lumi": 2.865
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2016preVFP_UL/puWeights.json.gz",
+              "name": "Collisions16_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2016preVFP_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": null,
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "RatioAK8",
+    "identifier": "ak8_pt",
+    "path": "postprocessing/trigger_eff/plots/2017/SingleJetEff/ak8_pt",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_singlemuon_2017",
+        "dataset.era.name": "2017",
+        "region_name": "SingleJetEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum",
+        "PassAK8Jet": "Sum"
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_singlemuon_2017",
+          "title": "Data",
+          "era": {
+            "name": "2017",
+            "energy": 13.0,
+            "lumi": 41.48,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions17/13TeV/Legacy_2017/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet500",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {
+              "HT": 1200.0,
+              "AK8SingleJetPt": {
+                "pt": 500.0,
+                "msoftdrop": 0.0
+              }
+            },
+            "sections": {
+              "B": {
+                "lumi": 4.803
+              },
+              "C": {
+                "lumi": 9.574
+              },
+              "D": {
+                "lumi": 4.247
+              },
+              "E": {
+                "lumi": 9.314
+              },
+              "F": {
+                "lumi": 13.539
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2017_UL/puWeights.json.gz",
+              "name": "Collisions17_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "path": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2017_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/2017_UL/jmar.json.gz",
+              "working_point": {
+                "L": 4,
+                "M": 6,
+                "T": 7
+              },
+              "name": "PUJetID_eff"
+            },
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      },
+      {
+        "dataset": {
+          "name": "data_singlemuon_2017",
+          "title": "Data",
+          "era": {
+            "name": "2017",
+            "energy": 13.0,
+            "lumi": 41.48,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions17/13TeV/Legacy_2017/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet500",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {
+              "HT": 1200.0,
+              "AK8SingleJetPt": {
+                "pt": 500.0,
+                "msoftdrop": 0.0
+              }
+            },
+            "sections": {
+              "B": {
+                "lumi": 4.803
+              },
+              "C": {
+                "lumi": 9.574
+              },
+              "D": {
+                "lumi": 4.247
+              },
+              "E": {
+                "lumi": 9.314
+              },
+              "F": {
+                "lumi": 13.539
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2017_UL/puWeights.json.gz",
+              "name": "Collisions17_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "path": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2017_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/2017_UL/jmar.json.gz",
+              "working_point": {
+                "L": 4,
+                "M": 6,
+                "T": 7
+              },
+              "name": "PUJetID_eff"
+            },
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      }
+    ]
+  },
+  {
+    "processor_name": "RatioAK8",
+    "identifier": "ak8_pt",
+    "path": "postprocessing/trigger_eff/plots/2018/SingleJetEff/ak8_pt",
+    "sector_group": {
+      "parameters": {
+        "dataset.name": "data_singlemuon_2018",
+        "dataset.era.name": "2018",
+        "region_name": "SingleJetEff"
+      },
+      "axis_options": {
+        "variation": "central",
+        "PassHT": "Sum",
+        "PassAK8Jet": "Sum"
+      }
+    },
+    "sector_params": [
+      {
+        "dataset": {
+          "name": "data_singlemuon_2018",
+          "title": "Data",
+          "era": {
+            "name": "2018",
+            "energy": 13.0,
+            "lumi": 59.83,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet400_TrimMass30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "A": {
+                "lumi": 14.027614284
+              },
+              "B": {
+                "lumi": 7.066552169
+              },
+              "C": {
+                "lumi": 6.898816878
+              },
+              "D": {
+                "lumi": 31.839492009
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2018_UL/puWeights.json.gz",
+              "name": "Collisions18_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2018_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/2018_UL/jmar.json.gz",
+              "working_points": {
+                "L": 4,
+                "M": 6,
+                "T": 7
+              },
+              "name": "PUJetID_eff"
+            },
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      },
+      {
+        "dataset": {
+          "name": "data_singlemuon_2018",
+          "title": "Data",
+          "era": {
+            "name": "2018",
+            "energy": 13.0,
+            "lumi": 59.83,
+            "golden_json": "https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt",
+            "trigger_names": {
+              "HT": "PFHT1050",
+              "AK8SingleJetPt": "AK8PFJet400_TrimMass30",
+              "SingleMuon": "Mu50",
+              "IsoMuon": "IsoMu24"
+            },
+            "trigger_plateaus": {},
+            "sections": {
+              "A": {
+                "lumi": 14.027614284
+              },
+              "B": {
+                "lumi": 7.066552169
+              },
+              "C": {
+                "lumi": 6.898816878
+              },
+              "D": {
+                "lumi": 31.839492009
+              }
+            },
+            "pileup_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/2018_UL/puWeights.json.gz",
+              "name": "Collisions18_UltraLegacy_goldenJSON"
+            },
+            "btag_scale_factors": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2018_UL/btagging.json.gz"
+            },
+            "jet_pileup_id": {
+              "file": "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/2018_UL/jmar.json.gz",
+              "working_points": {
+                "L": 4,
+                "M": 6,
+                "T": 7
+              },
+              "name": "PUJetID_eff"
+            },
+            "jet_veto_maps": null
+          },
+          "sample_type": "Data",
+          "other_data": {},
+          "skimmed_from": null
+        },
+        "region_name": "SingleJetEff"
+      }
+    ]
+  }
+]
