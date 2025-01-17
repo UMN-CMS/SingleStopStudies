@@ -1,4 +1,4 @@
-\documentclass[]{standalone}
+\documentclass{standalone}
 \usepackage{tikz}
 \usepackage{tikz-feynman}
 \usepackage{hepparticles}
@@ -20,9 +20,9 @@
     \vertex[left=of base, rpv vertex] (stop) {};
     \vertex[above left =of stop] (q1) {$d_{i}$};
     \vertex[below left =of stop] (q2) {$d_{j}$};
-    \vertex[above right=of base] (stopb) {\aquarkb} ;
+    \vertex[above right=of base] (stopb) {\bbar} ;
     \vertex[below right=of base] (a2);
-    \vertex[above right=of a2] (xb) {\quarkb};
+    \vertex[above right=of a2] (xb) {$b$};
 
     \vertex[below right=of a2, rpv vertex] (a3) {};
     \vertex[below right=of a3] (xs) {${d_{i}}$};
@@ -31,10 +31,10 @@
       (q1) -- [] (stop);
       (q1) -- [] (stop);
       (q2) -- [] (stop);
-      (stop) -- [dashed, edge label=\stopq$^{*}$] (base);
+      (stop) -- [dashed, edge label=\stop$^{*}$] (base);
       (base) -- [] (stopb);
-      (base) -- [ edge label'=\achargino] (a2);
-      (a2) -- [dashed, edge label'=\stopq$^{*}$] (a3);
+      (base) -- [ edge label'=\chinopm] (a2);
+      (a2) -- [dashed, edge label'=\stop$^{*}$] (a3);
       (a2) -- [] (xb);
       (a3) -- [] (xs);
       (a3) -- [] (xd);
@@ -47,3 +47,5 @@
   \end{scope}
 \end{tikzpicture}
 \end{document}
+
+

@@ -1,10 +1,14 @@
 \documentclass[]{beamer}
 \usepackage{easy-pres}
 \usepackage[headerslides]{umnbeamertheme}
+\usepackage{standalone}
 \usepackage{umnparticles}
 \graphicspath{{../common/}}
-
+\usepackage{tikz}
+\usepackage{tikz-feynman}
 \def\trig#1{\texttt{#1}}
+\def\commonpath#1{../common/#1}
+\def\prevtalk#1#2#3{\item \href{#2}{#3}}
 
 \def\daspath#1{\href{https://cmsweb.cern.ch/das/request?view=list\&limit=50\&instance=prod\%2Fglobal\&input=\%2F#1}{\small\nolinkurl{/#1}}}
 
@@ -44,13 +48,13 @@
     \item Unexplored region of RPV parameter space
     \item Large cross section allows us to probe higher masses
     \end{itemize}
-  \item For more information see \href{https://indico.cern.ch/event/1324384/\#2-rpv-single-top-squark-analys}{2023-10-06: Introduction Talk}
+  \item For more information see the talks shown on Slide~\ref{frame:past-presentations}.
   \end{itemize}
 
   \begin{center}
-    %\graphiccite{figures/xsec.png}{0.5}{rasmussen_gaussian_2006}\hspace{1em}
-    % \includegraphics[width=0.5\textwidth]{figures/xsec.png}
-    % \scalebox{0.7}{\includestandalone{\commonfiles{general/single_stop}}}
+    % \graphiccite{figures/xsec.png}{0.5}{rasmussen_gaussian_2006}\hspace{1em}
+    \includegraphics[width=0.5\textwidth]{figures/xsec.png}
+    \scalebox{0.7}{\includestandalone{\commonpath{general/single_stop}}}
   \end{center}
 \end{frame}
 
@@ -113,13 +117,13 @@
 \end{frame}
 
 \def\makeTrigSlide#1#2{
-\begin{frame}{#1}
-  \begin{center}
-    \includegraphics[width=0.32\textwidth]{figures/trigger_eff/plots/#2/HTEff/HT}
-    \includegraphics[width=0.32\textwidth]{figures/trigger_eff/plots/#2/SingleJetEff/ak8_pt_vs_sdmass_1}
-    \includegraphics[width=0.32\textwidth]{figures/trigger_eff/plots/#2/SingleJetEff/ak8_pt}
-  \end{center}
-\end{frame}
+  \begin{frame}{#1}
+    \begin{center}
+      \includegraphics[width=0.32\textwidth]{figures/trigger_eff/plots/#2/HTEff/HT}
+      \includegraphics[width=0.32\textwidth]{figures/trigger_eff/plots/#2/SingleJetEff/ak8_pt_vs_sdmass_1}
+      \includegraphics[width=0.32\textwidth]{figures/trigger_eff/plots/#2/SingleJetEff/ak8_pt}
+    \end{center}
+  \end{frame}
 }
 
 \makeTrigSlide{2016 preVFP}{2016_preVFP}
@@ -147,13 +151,13 @@
 
 
 \def\makeDataMCSlide#1#2{
-\begin{frame}{#1}
-  \begin{center}
-    \includegraphics[width=0.32\textwidth]{figures/data_mc/plots/#2/Control/ratio/m14_m}
-    \includegraphics[width=0.32\textwidth]{figures/data_mc/plots/#2/Control/ratio/m13_m}
-    \includegraphics[width=0.32\textwidth]{figures/data_mc/plots/#2/Control/ratio/m24_m}
-  \end{center}
-\end{frame}
+  \begin{frame}{#1}
+    \begin{center}
+      \includegraphics[width=0.32\textwidth]{figures/data_mc/plots/#2/Control/ratio/m14_m}
+      \includegraphics[width=0.32\textwidth]{figures/data_mc/plots/#2/Control/ratio/m13_m}
+      \includegraphics[width=0.32\textwidth]{figures/data_mc/plots/#2/Control/ratio/m24_m}
+    \end{center}
+  \end{frame}
 }
 
 \makeDataMCSlide{2016 preVFP}{2016_preVFP}
@@ -168,8 +172,13 @@
 
 \begin{frame}{Key Points}
   
+  \begin{itemize}
+  \item Run2 looks very good, we do not see any issues with using MC for studies.
+  \item Run3 shows greater discrepancies between QCD MC and Data. Separate data/data comparisons have shown that the data is not the issue.
+  \item In the reconstruction plots, the effect that causes this discrepancy seems to be reduced.
+  \item We are not sure what exactly is causing this discrempancy, and we would ask for your expert input.
+  \end{itemize}
 \end{frame}
-
 
 \section[Significance]{Preliminary Significance Studies}
 \label{sec:prel-sign-stud}
@@ -177,13 +186,33 @@
 
 \begin{frame}{Description}
   \begin{itemize}
-  \item We perform expected significance studies using 
+  \item We perform expected significance studies using QCD Simulation
+  \item We have also performed studies using control region data. The method works identically, but the background has a slightly different shape. 
+  \item Signifcances are computed using the complete background estimation procedure described in previous talks.
+  \item Most important systematic -- the Gaussian Process Regression uncertainty -- is included in combine card. 
+  \item Smaller MC systematics that affect the exact signal shape are not included yet. 
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{First Looks At Real Statistical Significance}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{/figures/expected_sig_2018}
+  \end{center}
 \end{frame}
 
 
 
 \section{Other Analysis Updates}
+
+\begin{frame}{Official MC Request}
+  \begin{itemize}
+    
+  \item Official signal mass grid has been decided upon.
+  \item Central MC request is in the works. 
+  \end{itemize}
+  
+\end{frame}
 
 \begin{frame}{Systematics}
   \begin{itemize}
@@ -211,13 +240,24 @@
 \section{Appendix}
 \label{sec:appendix}
 
+
+\begin{frame}[label={frame:past-presentations}]
+  \frametitle{Past Presentations}
+  \begin{itemize}
+  \item \href{https://indico.cern.ch/event/1324384/\#2-rpv-single-top-squark-analys}{2023-10-06: Introduction Talk}
+  \item \href{https://indico.cern.ch/event/1423342/\#6-rpv-single-stop-search-multi}{2024-06-14: Background Estimation}
+  \item \href{https://indico.cern.ch/event/1459336/\#9-statistical-inquiry-on-non-p}{2024-09-30: Statitics Committee Introduction}
+  \item \href{https://indico.cern.ch/event/1474513/\#5-update-to-rpv-single-top-squ}{2024-11-15: Chargino Reconstruction and and MC Update}
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{MC Samples Run2}
   \begin{tabular}{p{0.2\linewidth}p{0.8\linewidth}}
     Year & DAS Path \\ \hline
-   2016preVFP & \daspath{QCD_HT*_TuneCP5_PSWeights_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM} \\
-   2016postVFP & \daspath{QCD_HT*_TuneCP5_PSWeights_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM} \\
-   2017 & \daspath{QCD_HT*_TuneCP5_PSWeights_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM} \\
-   2018 & \daspath{QCD_HT*_TuneCP5_PSWeights_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v*/NANOAODSIM} \\
+    2016preVFP & \daspath{QCD_HT*_TuneCP5_PSWeights_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM} \\
+    2016postVFP & \daspath{QCD_HT*_TuneCP5_PSWeights_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM} \\
+    2017 & \daspath{QCD_HT*_TuneCP5_PSWeights_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM} \\
+    2018 & \daspath{QCD_HT*_TuneCP5_PSWeights_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v*/NANOAODSIM} \\
   \end{tabular}
   
 \end{frame}
@@ -225,10 +265,10 @@
 \begin{frame}{MC Samples Run3}
   \begin{tabular}{p{0.2\linewidth}p{0.8\linewidth}}
     Year & DAS Path \\ \hline
-   2022preEE & \daspath{QCD_PT-*0_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM} \\
-   2022postEE & \daspath{QCD_PT-*0_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM} \\
-   2023preBPix & \daspath{QCD_PT-*0_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v14-v2/NANOAODSIM} \\
-   2023postBPix & \daspath{QCD_PT-*0_TuneCP5_13p6TeV_pythia8/Run3Summer23*NanoAODv12-130X_mcRun3_2023_realistic_postBPix*/NANOAODSIM} \\
+    2022preEE & \daspath{QCD_PT-*0_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM} \\
+    2022postEE & \daspath{QCD_PT-*0_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM} \\
+    2023preBPix & \daspath{QCD_PT-*0_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v14-v2/NANOAODSIM} \\
+    2023postBPix & \daspath{QCD_PT-*0_TuneCP5_13p6TeV_pythia8/Run3Summer23*NanoAODv12-130X_mcRun3_2023_realistic_postBPix*/NANOAODSIM} \\
   \end{tabular}
 \end{frame}
 
@@ -236,10 +276,10 @@
 \begin{frame}{Muon Data Samples Run2}
   \begin{tabular}{p{0.2\linewidth}p{0.8\linewidth}}
     Year & DAS Path \\ \hline
-   2016preVFP & \daspath{SingleMuon/Run2016*HIPM_UL2016_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
-   2016postVFP & \daspath{SingleMuon/Run2016*-UL2016_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
-   2017 & \daspath{SingleMuon/Run2017*-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD} \\
-   2018 & \daspath{SingleMuon/Run2018*-UL2018_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
+    2016preVFP & \daspath{SingleMuon/Run2016*HIPM_UL2016_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
+    2016postVFP & \daspath{SingleMuon/Run2016*-UL2016_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
+    2017 & \daspath{SingleMuon/Run2017*-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD} \\
+    2018 & \daspath{SingleMuon/Run2018*-UL2018_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
   \end{tabular}
   
 \end{frame}
@@ -247,20 +287,20 @@
 \begin{frame}{Muon Data Samples Run3}
   \begin{tabular}{p{0.2\linewidth}p{0.8\linewidth}}
     Year & DAS Path \\ \hline
-   2022preEE & \daspath{Muon/Run2022*-22Sep2023-v*/NANOAOD} \\
-   2022postEE & \daspath{Muon/Run2022*-22Sep2023-v*/NANOAOD} \\
-   2023preBPix & \daspath{Muon0/Run2023C-22Sep2023_v*-v*/NANOAOD} \\
-   2023postBPix & \daspath{Muon0/Run2023D-22Sep2023_v*-v*/NANOAOD} \\
+    2022preEE & \daspath{Muon/Run2022*-22Sep2023-v*/NANOAOD} \\
+    2022postEE & \daspath{Muon/Run2022*-22Sep2023-v*/NANOAOD} \\
+    2023preBPix & \daspath{Muon0/Run2023C-22Sep2023_v*-v*/NANOAOD} \\
+    2023postBPix & \daspath{Muon0/Run2023D-22Sep2023_v*-v*/NANOAOD} \\
   \end{tabular}
 \end{frame}
 
 \begin{frame}{Jet Data Samples Run2}
   \begin{tabular}{p{0.2\linewidth}p{0.8\linewidth}}
     Year & DAS Path \\ \hline
-   2016preVFP & \daspath{JetHT/Run2016*HIPM_UL2016_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
-   2016postVFP & \daspath{JetHT/Run2016*-UL2016_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
-   2017 & \daspath{JetHT/Run2017*-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD} \\
-   2018 & \daspath{JetHT/Run2018*-UL2018_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
+    2016preVFP & \daspath{JetHT/Run2016*HIPM_UL2016_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
+    2016postVFP & \daspath{JetHT/Run2016*-UL2016_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
+    2017 & \daspath{JetHT/Run2017*-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD} \\
+    2018 & \daspath{JetHT/Run2018*-UL2018_MiniAODv2_NanoAODv9-v*/NANOAOD} \\
   \end{tabular}
   
 \end{frame}
@@ -268,10 +308,10 @@
 \begin{frame}{Jet Data Samples Run3}
   \begin{tabular}{p{0.2\linewidth}p{0.8\linewidth}}
     Year & DAS Path \\ \hline
-   2022preEE & \daspath{Jet*T/Run2022*-22Sep2023-v1/NANOAOD} \\
-   2022postEE & \daspath{JetMET/Run2022*-22Sep2023-v*/NANOAOD} \\
-   2023preBPix & \daspath{JetMET*/Run2023C-22Sep2023_v*-v*/NANOAOD} \\
-   2023postBPix & \daspath{JetMET*/Run2023D-22Sep2023_v*-v*/NANOAOD} \\
+    2022preEE & \daspath{Jet*T/Run2022*-22Sep2023-v1/NANOAOD} \\
+    2022postEE & \daspath{JetMET/Run2022*-22Sep2023-v*/NANOAOD} \\
+    2023preBPix & \daspath{JetMET*/Run2023C-22Sep2023_v*-v*/NANOAOD} \\
+    2023postBPix & \daspath{JetMET*/Run2023D-22Sep2023_v*-v*/NANOAOD} \\
   \end{tabular}
 \end{frame}
 
@@ -285,10 +325,11 @@
 % eval: (progn (setq process-environment (copy-sequence process-environment))
 % (let* ( (basedir (file-name-directory (directory-file-name (file-name-directory (buffer-file-name)))))
 % (texmfpath (file-name-concat  basedir "tex-styles"))
+% (thirdparty (file-name-concat  basedir "thirdparty"))
 % )
-% (setq-local TeX-style-path (append TeX-style-path  (directory-files-recursively texmfpath "auto" t)))
+% (setq-local TeX-style-path (append TeX-style-path  (directory-files-recursively texmfpath "auto" t) (directory-files-recursively thirdparty "auto" t)))
 % (setq-local reftex-bib-path (list basedir))
-% (setenv "TEXINPUTS" (format "%s:" texmfpath ))
+% (setenv "TEXINPUTS" (format "%s:%s//:" texmfpath thirdparty))
 % (setenv "BIBINPUTS" basedir ))
 % )
 % End:
